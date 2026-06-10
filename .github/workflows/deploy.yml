@@ -1,0 +1,26 @@
+name: Deploy to AWS
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+      - name: Sync site to S3
+        run: |
+          aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
+            --exclude ".git/*" --exclude ".github/*" --exclude "build_pages.py" --exclude "README.md" \
+            --delete --cache-control "public,max-age=300"
+          aws s3 cp s3://${{ secrets.S3_BUCKET }}/assets s3://${{ secrets.S3_BUCKET }}/assets \
+            --recursive --metadata-directive REPLACE --cache-control "public,max-age=604800"
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
