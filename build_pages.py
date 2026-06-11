@@ -35,7 +35,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css?v=2">
+<link rel="stylesheet" href="assets/css/main.css?v=3">
 </head>
 <body>
 <div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
@@ -64,7 +64,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
     <div class="contact-links">
       <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
       <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
-      <a class="ghost-btn" href="https://wa.me/message/BOOOL7EHUXW4O1">WhatsApp ↗</a>
+
     </div>
   </div>
 </section>
@@ -73,7 +73,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
   <span>Live, hybrid &amp; broadcast event production · United Kingdom</span>
   <span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span>
 </footer>
-<script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/main.js?v=3"></script>
 </body>
 </html>'''
 
@@ -163,7 +163,6 @@ P['contact.html'] = page('contact.html',
  '''<section class="content-sec"><div class="wrap reveal"><div class="contact-grid">
 <div class="contact-card"><h3>Email</h3><p><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></p></div>
 <div class="contact-card"><h3>Phone</h3><p><a href="tel:+442035986555">+44 020 359 86555</a></p></div>
-<div class="contact-card"><h3>WhatsApp</h3><p><a href="https://wa.me/message/BOOOL7EHUXW4O1">Message us directly ↗</a></p></div>
 </div></div></section>''')
 
 for name, content in P.items():

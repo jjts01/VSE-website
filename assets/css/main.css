@@ -208,7 +208,7 @@ footer img{height:32px;opacity:.85}
 .detail p{color:var(--ink-dim)}
 .detail ul{margin:18px 0 0 1.2em;color:var(--ink-dim)}
 .detail li{margin-bottom:6px}
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:60px}
 .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:40px 32px;text-align:center;transition:transform .35s,border-color .35s}
 .contact-card:hover{transform:translateY(-6px);border-color:var(--accent)}
 .contact-card h3{font-family:var(--display);font-size:1.05rem;margin-bottom:10px}
