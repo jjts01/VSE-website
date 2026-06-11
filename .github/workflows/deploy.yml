@@ -15,12 +15,17 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
-      - name: Sync site to S3
+      - name: Sync pages (short cache)
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
-            --exclude ".git/*" --exclude ".github/*" --exclude "build_pages.py" --exclude "README.md" \
-            --delete --cache-control "public,max-age=300"
-          aws s3 cp s3://${{ secrets.S3_BUCKET }}/assets s3://${{ secrets.S3_BUCKET }}/assets \
-            --recursive --metadata-directive REPLACE --cache-control "public,max-age=604800"
+            --exclude "*" --include "*.html" --include "robots.txt" --include "sitemap.xml" \
+            --cache-control "public,max-age=300" --delete
+      - name: Sync assets (long cache, explicit MIME)
+        run: |
+          aws s3 sync assets/css  s3://${{ secrets.S3_BUCKET }}/assets/css  --content-type "text/css"               --cache-control "public,max-age=604800"
+          aws s3 sync assets/js   s3://${{ secrets.S3_BUCKET }}/assets/js   --content-type "application/javascript" --cache-control "public,max-age=604800"
+          aws s3 sync assets/fonts s3://${{ secrets.S3_BUCKET }}/assets/fonts --content-type "font/woff2"           --cache-control "public,max-age=31536000"
+          aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.jpg"  --content-type "image/jpeg" --cache-control "public,max-age=604800"
+          aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.png"  --content-type "image/png"  --cache-control "public,max-age=604800"
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
