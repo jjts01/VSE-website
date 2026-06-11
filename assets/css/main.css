@@ -1,10 +1,18 @@
+/* Milliard — official brand typeface */
+@font-face{font-family:'Milliard';src:url('../fonts/milliard-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Milliard';src:url('../fonts/milliard-book-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Milliard';src:url('../fonts/milliard-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Milliard';src:url('../fonts/milliard-semibold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Milliard';src:url('../fonts/milliard-extrabold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Milliard';src:url('../fonts/milliard-black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+
 :root{
   /* VSE brand */
   --bg:#212b54; --bg2:#26305c; --panel:#2b3663;
   --ink:#f4f6f9; --ink-dim:#a9b1cc; --line:rgba(255,255,255,.10);
   --accent:#6a9799; --accent2:#9fc4c5; --arc:rgba(255,255,255,.14);
-  --display:'Archivo Expanded',system-ui,sans-serif;
-  --body:'Archivo',system-ui,sans-serif;
+  --display:'Milliard',system-ui,sans-serif;
+  --body:'Milliard',system-ui,sans-serif;
   --serif:'Instrument Serif',Georgia,serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
