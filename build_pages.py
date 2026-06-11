@@ -14,7 +14,7 @@ SWIRL = '''<div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fi
 <circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
 </g></svg></div>'''
 
-NAV_ITEMS = [("services.html","Services"),("studios.html","Studios"),("work.html","Work"),("about.html","About"),("contact.html","Contact")]
+NAV_ITEMS = [("services.html","Services"),("studios.html","Studios"),("work.html","Work"),("resources.html","Resources"),("about.html","About"),("contact.html","Contact")]
 
 def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
     cur = ' aria-current="page"'
@@ -88,7 +88,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
 P = {}
 
 P['services.html'] = page('services.html',
- 'Services — Virtual Studio Events','Senior crew, streaming engineering, production management, editing, hybrid events and podcast production for live events.',
+ 'Event Crew Hire & Technical Production Services UK | Virtual Studio Events','Hire senior video engineers, vMix operators, streaming engineers and production managers UK-wide. White-label crew for production companies; full technical delivery for brands.',
  'What we do','One crew, <span class="em">the whole show.</span>',
  'From a single remote vMix operator to full technical delivery of a multi-day conference — scale us up or down to fit the show.',
  '''<section class="content-sec"><div class="wrap reveal"><div class="detail-list">
@@ -113,7 +113,7 @@ P['services.html'] = page('services.html',
 </div></div></section>''')
 
 P['studios.html'] = page('studios.html',
- 'Studios — Virtual Studio Events','A UK-wide network of broadcast-spec partner studios in Manchester, Norwich, Fareham and Chichester.',
+ 'Broadcast & Live Streaming Studio Hire UK | Virtual Studio Events','Broadcast-spec studio hire in Chichester plus a UK partner network in Manchester, Norwich and Fareham. Pre-lit, connected and crewed for live streaming and filming.',
  'Studio network','A studio network, <span class="em">not a single room.</span>',
  'Trusted partner studios across the UK — every one meeting our minimum broadcast spec — or we bring the studio to your premises.',
  '''<section class="content-sec"><div class="wrap reveal">
@@ -131,7 +131,7 @@ P['studios.html'] = page('studios.html',
 </div></div></section>''')
 
 P['work.html'] = page('work.html',
- 'Work — Virtual Studio Events','Case studies: a 75,000-viewer awards show, national retail townhalls, charity events and white-label production.',
+ 'Event Production Case Studies | Virtual Studio Events','A 75,000-viewer live awards show, national retail townhalls for Waitrose and Morrisons, hybrid conferences and white-label crew work — see how we deliver.',
  'Selected work','Shows we were trusted <span class="em">not to drop.</span>',
  "A few of the productions we can talk about — much of our best work ships under our clients' names.",
  '''<section class="content-sec"><div class="wrap">
@@ -146,7 +146,7 @@ P['work.html'] = page('work.html',
 </div></section>''')
 
 P['about.html'] = page('about.html',
- 'About — Virtual Studio Events',"Founded in 2020 by James Jones and Ben O'Dwyer. 40+ years of combined live event experience.",
+ 'About Virtual Studio Events | UK Event Production Experts',"Founded in 2020 by James Jones and Ben O'Dwyer — 40+ years of combined live event experience delivering broadcast-grade production for the UK's biggest brands.",
  'The studio','Built in a crisis. <span class="em">Proven on every show since.</span>',
  "Founded in March 2020 by James Jones and Ben O'Dwyer — 40+ years of combined live event experience.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="two-col">
@@ -164,8 +164,91 @@ P['about.html'] = page('about.html',
 <div class="stat"><b>UK</b><span>Studio network, runs worldwide</span></div>
 </div></div></section>''')
 
+
+def article_schema(slug,title,desc):
+    return f'<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Article","headline":"{title}","description":"{desc}","author":{{"@type":"Organization","name":"Virtual Studio Events"}},"publisher":{{"@type":"Organization","name":"Virtual Studio Events","logo":{{"@type":"ImageObject","url":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png"}}}},"mainEntityOfPage":"https://www.virtualstudio.events/{slug}","datePublished":"2026-06-11","dateModified":"2026-06-11"}}</script>'
+
+P['resources.html'] = page('resources.html',
+ 'Virtual & Hybrid Event Resources, Guides & FAQs | Virtual Studio Events','Free guides on planning virtual events, hybrid event technical checklists, live streaming costs and choosing an event platform — from working production engineers.',
+ 'Resources','Everything we wish <span class="em">clients knew.</span>',
+ 'Plain-English guides from the people in the gallery — how to plan it, what it costs, and what to ask before you book anyone (including us).',
+ """<section class="content-sec"><div class="wrap reveal"><div class="detail-list">
+<a class="detail" href="guide-virtual-event-production.html"><span class="num">Guide 01</span><h3>How to plan a virtual event: the production guide</h3><p>Formats, run orders, rehearsals, redundancy — the practical checklist we run on every show, written for organisers.</p></a>
+<a class="detail" href="guide-hybrid-event-checklist.html"><span class="num">Guide 02</span><h3>The hybrid event technical checklist</h3><p>Room + stream is where events fail. The 20 questions to settle before show day, from audio splits to remote speakers.</p></a>
+<a class="detail" href="guide-live-streaming-cost.html"><span class="num">Guide 03</span><h3>How much does live streaming an event cost?</h3><p>Honest UK numbers: what drives the price of a stream, from a single-camera webinar to a multi-studio broadcast.</p></a>
+<a class="detail" href="guide-virtual-event-platform.html"><span class="num">Guide 04</span><h3>Choosing a virtual event platform: what actually matters</h3><p>Registration, Q&amp;A, breakouts, analytics — the feature checklist, and when you don't need a platform at all.</p></a>
+</div>
+<div style="margin-top:110px">
+<span class="eyebrow">Quick answers</span>
+<h2 class="big">Frequently asked questions</h2>
+<div class="rate-table" itemscope>
+<div class="rate-row"><h4>What's the difference between a virtual and a hybrid event?</h4><p>A virtual event happens entirely online — speakers and audience all join remotely. A hybrid event has a physical room with a live audience and an online audience watching the same show, with both able to take part.</p><span></span></div>
+<div class="rate-row"><h4>How far in advance should we book production?</h4><p>For a straightforward stream, two weeks is comfortable. For a multi-day hybrid conference, six to eight weeks gives time for platform builds, rehearsals and proper redundancy planning.</p><span></span></div>
+<div class="rate-row"><h4>Can you work with our existing AV supplier or venue?</h4><p>Yes — much of our work is alongside other suppliers and in-house teams. We slot in for the streaming, vision or platform layer, or take the whole technical delivery.</p><span></span></div>
+<div class="rate-row"><h4>Do you travel outside the UK?</h4><p>Yes. We're UK-based with a studio network across the south and partners nationwide, and we deliver shows across Europe and worldwide — or run them remotely from our cloud galleries.</p><span></span></div>
+</div></div>
+</div></section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between a virtual and a hybrid event?","acceptedAnswer":{"@type":"Answer","text":"A virtual event happens entirely online - speakers and audience all join remotely. A hybrid event has a physical room with a live audience and an online audience watching the same show, with both able to take part."}},{"@type":"Question","name":"How far in advance should we book production?","acceptedAnswer":{"@type":"Answer","text":"For a straightforward stream, two weeks is comfortable. For a multi-day hybrid conference, six to eight weeks gives time for platform builds, rehearsals and proper redundancy planning."}},{"@type":"Question","name":"Can you work with our existing AV supplier or venue?","acceptedAnswer":{"@type":"Answer","text":"Yes - much of our work is alongside other suppliers and in-house teams. We slot in for the streaming, vision or platform layer, or take the whole technical delivery."}},{"@type":"Question","name":"Do you travel outside the UK?","acceptedAnswer":{"@type":"Answer","text":"Yes. We are UK-based with a studio network across the south and partners nationwide, and we deliver shows across Europe and worldwide - or run them remotely from our cloud galleries."}}]}</script>""")
+
+
+GUIDE_FOOT = """<div class="rate-note" style="margin-top:60px">Need this done rather than read about? <a href="contact.html" style="color:var(--accent2)">Talk to our production team</a> — same-day response.</div>"""
+
+P['guide-virtual-event-production.html'] = page('guide-virtual-event-production.html',
+ 'How to Plan a Virtual Event: Production Guide (2026) | Virtual Studio Events','Step-by-step virtual event production guide from working broadcast engineers: format, run order, rehearsals, redundancy, platforms and crew.',
+ 'Guide 01','How to plan a virtual event: <span class="em">the production guide.</span>',
+ 'The practical checklist we run on every show — written for the person whose name is on the invite.',
+ """<section class="content-sec"><div class="wrap reveal"><div class="prose">
+<p><strong>Start with the audience, not the tech.</strong> Before anything else, answer three questions: who is watching, where are they watching (desk, phone, a screen in an office?), and what must they be able to do — just watch, or ask questions, vote and network? Every production decision flows from those answers.</p>
+<p><strong>Choose the format.</strong> A town hall is not a conference is not an awards show. Single-session events suit a broadcast approach: one stream, strong presenter, tight run order. Multi-track conferences need a platform with agendas and breakouts. Awards shows live or die on pace — pre-record the risky bits, keep the live moments live.</p>
+<p><strong>Build a real run order.</strong> Every minute accounted for: who is on, what is on screen, which microphone, what plays next. The run order is the single document that lets a gallery anticipate rather than react. If your production company doesn't ask for one, worry.</p>
+<p><strong>Rehearse the failure, not just the show.</strong> A proper technical rehearsal tests remote speakers on the actual kit they'll use on the day — same laptop, same room, same connection. It also tests what happens when things break: backup presenter link, holding slides, a second internet path. We run every show with redundant encoders and a second connection because one of them will eventually be needed.</p>
+<p><strong>Pre-record strategically.</strong> Anything that cannot be allowed to fail — the CEO's keynote, the awards montage — consider pre-recording with a live Q&amp;A after. Audiences accept polished pre-records; they don't accept frozen keynotes.</p>
+<p><strong>Crew it properly.</strong> Minimum viable crew for a professional virtual event: a vision mixer/vMix operator, a producer calling the show, and someone dedicated to speaker wrangling. One person cannot do all three well — and on show day, "well" is the only acceptable standard.</p>
+<p><strong>Measure what mattered.</strong> Peak concurrent viewers, average watch time, Q&amp;A volume, drop-off points. Set up analytics before the event; decide afterwards what you'll change next time.</p>
+</div>""" + GUIDE_FOOT + """</div></section>""" )
+
+P['guide-hybrid-event-checklist.html'] = page('guide-hybrid-event-checklist.html',
+ 'Hybrid Event Technical Checklist: 20 Questions | Virtual Studio Events','The hybrid event checklist used by broadcast engineers: audio splits, remote speakers, room cameras, streaming redundancy and platform integration.',
+ 'Guide 02','The hybrid event <span class="em">technical checklist.</span>',
+ 'Hybrid is where events fail — a great room show with an unwatchable stream, or vice versa. Settle these before show day.',
+ """<section class="content-sec"><div class="wrap reveal"><div class="prose">
+<p><strong>The golden rule:</strong> the online audience is not an afterthought — it's usually the bigger audience. Design the show for both rooms from day one.</p>
+<p><strong>Audio.</strong> Will the stream take a dedicated mix (not the room PA feed)? Who provides the audio split? Are remote speakers' returns mix-minus so they don't hear themselves? Audio is 80% of perceived stream quality — settle it first.</p>
+<p><strong>Cameras and vision.</strong> How many cameras cover the stage, and is at least one shot framed for screens rather than the back of the room? Are slides fed to the stream as a clean source rather than a camera pointed at a projector? Who mixes the stream — and is that a different person from whoever mixes the room screens?</p>
+<p><strong>Remote contribution.</strong> How do remote speakers join — a managed broadcast link or a consumer video call? Have they been tested on the actual hardware? What happens in the room when a remote speaker presents: where do they appear, and can they see and hear the room properly?</p>
+<p><strong>Connectivity.</strong> Is there dedicated, wired internet for the stream — separate from venue guest Wi-Fi? What's the backup path (bonded 4G/5G, second circuit)? Has someone actually speed-tested the line from the position the encoder will sit?</p>
+<p><strong>The platform layer.</strong> Where does the online audience watch, and can they interact — Q&amp;A, polls, chat? Do questions from the platform reach the moderator on stage? Is registration data captured somewhere useful?</p>
+<p><strong>People.</strong> Who is the single technical point of contact across venue AV, streaming and platform? On hybrid shows the most common failure isn't equipment — it's three suppliers each assuming another one owns the gap. That's the job we're most often hired to do: own the gap.</p>
+</div>""" + GUIDE_FOOT + """</div></section>""")
+
+P['guide-live-streaming-cost.html'] = page('guide-live-streaming-cost.html',
+ 'How Much Does Live Streaming an Event Cost? UK Guide 2026 | Virtual Studio Events','Honest UK pricing for event live streaming: what drives cost, typical budgets from single-camera webinars to multi-camera hybrid broadcasts.',
+ 'Guide 03','What does live streaming <span class="em">actually cost?</span>',
+ 'Honest UK numbers and what drives them — so you can budget before you ask anyone for a quote.',
+ """<section class="content-sec"><div class="wrap reveal"><div class="prose">
+<p>Streaming costs scale with four things: <strong>cameras, hours, destinations and risk</strong>. Here's how that plays out in practice in the UK market in 2026 (all figures exclude VAT and assume a single day).</p>
+<p><strong>Simple webinar or boardroom stream — roughly £750–£1,500.</strong> One camera, slides, a streaming engineer with an encoder, one destination (Teams, YouTube, LinkedIn). The cost is mostly the engineer's day and the kit.</p>
+<p><strong>Single-room conference or town hall — roughly £2,000–£5,000.</strong> Two to three cameras, vision mixing, a dedicated stream audio mix, graphics and lower-thirds, redundant encoding, possibly a remote speaker or two. Crew of two to three.</p>
+<p><strong>Hybrid conference or awards show — £5,000–£15,000+.</strong> Multi-camera, full graphics package, platform with registration and Q&amp;A, remote contributors managed on broadcast links, rehearsal day, redundant everything. The platform and the rehearsal day are the items people forget to budget.</p>
+<p><strong>What moves the number up:</strong> multiple sessions or rooms streamed simultaneously, pre-records and edit work, custom platform builds, international remote speakers needing managed links and out-of-hours rehearsals, and same-day highlight edits.</p>
+<p><strong>What moves it down:</strong> a venue with good in-house AV that provides a clean audio split and camera feeds; flexible timings; using our cloud galleries instead of physical kit on site; and remote operation — a remote vMix operator runs from a fraction of the on-site cost.</p>
+<p><strong>The cheapest insurance you can buy</strong> is redundancy: a second encoder and a bonded backup connection typically add a few hundred pounds — against the cost of your event going dark in front of your whole company.</p>
+</div>""" + GUIDE_FOOT + """</div></section>""")
+
+P['guide-virtual-event-platform.html'] = page('guide-virtual-event-platform.html',
+ 'Choosing a Virtual Event Platform: Feature Checklist | Virtual Studio Events','Which virtual event platform features matter: registration, Q&A, breakouts, analytics — and when you don\'t need a platform at all.',
+ 'Guide 04','Choosing a virtual event platform: <span class="em">what actually matters.</span>',
+ 'Twelve features worth paying for, the ones that are marketing fluff — and when you don\'t need a platform at all.',
+ """<section class="content-sec"><div class="wrap reveal"><div class="prose">
+<p><strong>First: do you need one?</strong> If your event is one session, one audience, watch-only — you don't need an event platform. A well-produced stream into YouTube, LinkedIn or Teams will reach more people with less friction. Platforms earn their cost when you need registration, multiple sessions, interaction or sponsor visibility.</p>
+<p><strong>Features that matter:</strong> registration that exports clean data; an agenda that handles time zones; reliable embedded streaming (test it on a corporate network — many block consumer video); moderated Q&amp;A with upvoting; polls that display into the live show; breakout rooms that a producer can open and close; per-session analytics; branding control; and crucially, a production back-end your crew can drive — speaker green rooms, source switching, screen-share management.</p>
+<p><strong>Features that are usually fluff:</strong> 3D lobbies and avatars (novelty wears off in minutes and accessibility suffers), gamification badges, AI matchmaking on events under a few hundred attendees, and "metaverse" anything.</p>
+<p><strong>The questions to ask any platform vendor:</strong> What happens when a viewer's connection drops — does the player recover on its own? What's the real concurrency limit, with proof? Can we get the attendee data out, in full, afterwards? What does support look like during the live event — a human on a channel, or a ticket queue?</p>
+<p><strong>Our position:</strong> we're platform-agnostic. We build bespoke event platforms when the brief demands it, and we'll happily run your show into Teams, Zoom, or a third-party platform when that's the right answer. The platform is the venue — the show is what we're there for.</p>
+</div>""" + GUIDE_FOOT + """</div></section>""")
+
 P['contact.html'] = page('contact.html',
- 'Contact — Virtual Studio Events','Start a project with Virtual Studio Events. Same-day response on every enquiry.',
+ 'Contact Us | Virtual Studio Events — UK Event Production Company','Talk to us about live, hybrid or virtual event production, crew hire or studio booking. Same-day response on every enquiry, UK-wide delivery.',
  'Say hello','Got a show <span class="em">coming up?</span>',
  "Tell us the date and the ambition — we'll handle the rest. Same-day response on every enquiry.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="contact-grid">
