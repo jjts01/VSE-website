@@ -32,6 +32,14 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:image" content="https://www.virtualstudio.events/assets/img/hero-manchester.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.virtualstudio.events/{'' if slug=='index.html' else slug}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"Organization","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","foundingDate":"2020-03","founders":[{{"@type":"Person","name":"James Jones"}},{{"@type":"Person","name":"Ben O'Dwyer"}}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
