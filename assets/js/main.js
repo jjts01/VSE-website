@@ -2,12 +2,15 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---- preloader ---- */
 const loader=document.getElementById('loader'),pctEl=loader.querySelector('.pct');
+if(sessionStorage.getItem('vse_seen')){loader.classList.add('done')}
+else{
 let pct=0;
 const pi=setInterval(()=>{
-  pct=Math.min(100,pct+Math.ceil(Math.random()*14));
+  pct=Math.min(100,pct+Math.ceil(Math.random()*22));
   pctEl.textContent=pct+'%';
-  if(pct>=100){clearInterval(pi);setTimeout(()=>loader.classList.add('done'),250)}
-},reduced?10:90);
+  if(pct>=100){clearInterval(pi);sessionStorage.setItem('vse_seen','1');setTimeout(()=>loader.classList.add('done'),200)}
+},reduced?10:55);
+}
 
 /* ---- scroll progress + nav ---- */
 const prog=document.getElementById('progress'),nav=document.getElementById('nav');
