@@ -14,7 +14,7 @@ SWIRL = '''<div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fi
 <circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
 </g></svg></div>'''
 
-NAV_ITEMS = [("services.html","Services"),("studios.html","Studios"),("hire.html","Hire & Rates"),("work.html","Work"),("about.html","About"),("contact.html","Contact")]
+NAV_ITEMS = [("services.html","Services"),("studios.html","Studios"),("work.html","Work"),("about.html","About"),("contact.html","Contact")]
 
 def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
     cur = ' aria-current="page"'
@@ -35,7 +35,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css?v=6">
+<link rel="stylesheet" href="assets/css/main.css?v=5">
 </head>
 <body>
 <div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
@@ -73,7 +73,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
   <span>Live, hybrid &amp; broadcast event production · United Kingdom</span>
   <span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span>
 </footer>
-<script src="assets/js/main.js?v=6"></script>
+<script src="assets/js/main.js?v=5"></script>
 </body>
 </html>'''
 
@@ -155,53 +155,6 @@ P['about.html'] = page('about.html',
 <div class="stat"><b>500<small>+</small></b><span>Jobs delivered since 2020</span></div>
 <div class="stat"><b>UK</b><span>Studio network, runs worldwide</span></div>
 </div></div></section>''')
-
-
-P['hire.html'] = page('hire.html',
- 'Hire & Rates — Virtual Studio Events','Hire the White Space studio from £295+VAT, broadcast crew day rates and AV equipment hire. Transparent pricing.',
- 'Hire & rates','The studio, the kit, <span class="em">the crew.</span>',
- 'Transparent rates, no surprises. Book the space on its own, or scale up with broadcast kit and a show-hardened crew.',
- '''<section class="content-sec"><div class="wrap reveal">
-<span class="eyebrow">The space</span>
-<h2 class="big">White Space — Stage 1</h2>
-<div class="space-card">
-<div>
-<p class="prose">Our largest space: a clean white cyc made for product films, interviews, presenter-led broadcasts and photography. Pre-lit and broadcast-ready, with the rest of the studio — and our crew — on tap.</p>
-<div class="price-row">
-<div class="price-tag"><b>£295<small>+VAT</small></b><span>Half day · 4 hours</span></div>
-<div class="price-tag"><b>£395<small>+VAT</small></b><span>Full day · 10 hours</span></div>
-</div>
-<p class="rate-note">Day rates, not hourly — bring the ambition, not a stopwatch. Crew, cameras and streaming added from the rates below.</p>
-</div>
-<div class="img-frame"><img src="assets/img/fareham-set.jpg" alt="White Space — Stage 1 cyc studio" loading="lazy"></div>
-</div>
-
-<div style="margin-top:110px">
-<span class="eyebrow">Crew · day rates</span>
-<h2 class="big">Show-hardened people.</h2>
-<div class="rate-table">
-<div class="rate-row"><h4>Video HOD / Technical Director</h4><p>Owns the technical side of your show — pre-production, specs, suppliers, calm on comms.</p><span class="price">£650<small> +VAT/day</small></span></div>
-<div class="rate-row"><h4>Production Manager</h4><p>Scheduling, logistics, crewing and budget control from prep to de-rig.</p><span class="price">£595<small> +VAT/day</small></span></div>
-<div class="rate-row"><h4>Streaming / vMix Engineer</h4><p>On-site or fully remote. Encoders, multi-destination delivery, cloud galleries.</p><span class="price">£495<small> +VAT/day</small></span></div>
-<div class="rate-row"><h4>Video Engineer / Vision Mixer</h4><p>Cameras, vision, playback and graphics in any gallery.</p><span class="price">£450<small> +VAT/day</small></span></div>
-<div class="rate-row"><h4>Remote vMix Operator</h4><p>Full show operation from our cloud gallery — includes set-up and testing.</p><span class="price">£450<small> +VAT/day</small></span></div>
-<div class="rate-row"><h4>Editor</h4><p>Show opens, highlights and session turnarounds — same-day where the schedule allows.</p><span class="price">£395<small> +VAT/day</small></span></div>
-</div>
-<p class="rate-note">Standard day is 10 hours on site or on line. Long days, weekends and multi-day bookings quoted individually — trade and white-label rates available for production companies.</p>
-</div>
-
-<div style="margin-top:110px">
-<span class="eyebrow">Kit &amp; AV · per day</span>
-<h2 class="big">Broadcast kit, priced straight.</h2>
-<div class="rate-table">
-<div class="rate-row"><h4>vMix production machine</h4><p>Show-spec vision mixing system — multi-input, overlays, ISO recording.</p><span class="price">£440<small> +VAT/day</small></span></div>
-<div class="rate-row"><h4>LiveU Solo bonded encoder</h4><p>Broadcast-grade contribution from anywhere with a signal.</p><span class="price">£520<small> +VAT/job</small></span></div>
-<div class="rate-row"><h4>Cloud production gallery</h4><p>AWS-hosted vMix cluster with caller licences and redundant routing.</p><span class="price">from £430<small> +VAT/show day</small></span></div>
-<div class="rate-row"><h4>Playback laptop</h4><p>Pre-record and graphics playback, show-ready.</p><span class="price">£120<small> +VAT/day</small></span></div>
-</div>
-<p class="rate-note">Cameras, lighting, LED and full flypacks quoted per job. All prices exclude VAT and delivery; travel and accommodation billed at cost.</p>
-</div>
-</div></section>''')
 
 P['contact.html'] = page('contact.html',
  'Contact — Virtual Studio Events','Start a project with Virtual Studio Events. Same-day response on every enquiry.',

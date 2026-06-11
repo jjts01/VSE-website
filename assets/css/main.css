@@ -214,26 +214,3 @@ footer img{height:32px;opacity:.85}
 .contact-card h3{font-family:var(--display);font-size:1.05rem;margin-bottom:10px}
 .contact-card a{color:var(--accent2)}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
-
-/* ---------- rates ---------- */
-.space-card{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:48px;margin-top:60px}
-.space-card .img-frame{aspect-ratio:16/10}
-.space-card .img-frame img{width:100%;height:100%;object-fit:cover}
-.price-row{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap}
-.price-tag{border:1px solid var(--line);border-radius:14px;padding:22px 28px;flex:1;min-width:180px;transition:transform .35s,border-color .35s}
-.price-tag:hover{transform:translateY(-4px);border-color:var(--accent)}
-.price-tag b{font-family:var(--display);font-weight:800;font-size:1.7rem;display:block}
-.price-tag b small{font-size:.55em;color:var(--accent)}
-.price-tag span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
-@media(max-width:900px){.space-card{grid-template-columns:1fr;padding:30px}}
-.rate-table{margin-top:50px;border-top:1px solid var(--line)}
-.rate-row{display:grid;grid-template-columns:2fr 3fr 1fr;gap:24px;align-items:baseline;padding:26px 10px;border-bottom:1px solid var(--line);position:relative;transition:padding-left .35s}
-.rate-row::before{content:"";position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,rgba(106,151,153,.12),transparent);transition:width .45s}
-.rate-row:hover{padding-left:22px}
-.rate-row:hover::before{width:100%}
-.rate-row h4{font-family:var(--display);font-weight:700;font-size:1.05rem}
-.rate-row p{color:var(--ink-dim);font-size:.92rem}
-.rate-row .price{font-family:var(--display);font-weight:800;font-size:1.15rem;justify-self:end;white-space:nowrap}
-.rate-row .price small{color:var(--ink-dim);font-weight:400;font-size:.7em}
-.rate-note{margin-top:34px;color:var(--ink-dim);font-size:.9rem;max-width:75ch}
-@media(max-width:800px){.rate-row{grid-template-columns:1fr;gap:6px}.rate-row .price{justify-self:start}}
