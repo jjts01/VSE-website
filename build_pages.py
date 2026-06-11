@@ -35,7 +35,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css?v=4">
+<link rel="stylesheet" href="assets/css/main.css?v=5">
 </head>
 <body>
 <div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
@@ -73,7 +73,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body):
   <span>Live, hybrid &amp; broadcast event production · United Kingdom</span>
   <span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span>
 </footer>
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=5"></script>
 </body>
 </html>'''
 

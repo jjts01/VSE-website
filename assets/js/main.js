@@ -2,14 +2,16 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---- preloader ---- */
 const loader=document.getElementById('loader'),pctEl=loader.querySelector('.pct');
-if(sessionStorage.getItem('vse_seen')){loader.classList.add('done')}
+if(sessionStorage.getItem('vse_seen')||reduced){loader.classList.add('done')}
 else{
-let pct=0;
-const pi=setInterval(()=>{
-  pct=Math.min(100,pct+Math.ceil(Math.random()*22));
-  pctEl.textContent=pct+'%';
-  if(pct>=100){clearInterval(pi);sessionStorage.setItem('vse_seen','1');setTimeout(()=>loader.classList.add('done'),200)}
-},reduced?10:55);
+const t0=performance.now(),dur=850;
+(function tick(){
+  const p=Math.min(100,Math.round((performance.now()-t0)/dur*100));
+  pctEl.textContent=p+'%';
+  if(p>=100){sessionStorage.setItem('vse_seen','1');setTimeout(()=>loader.classList.add('done'),150)}
+  else requestAnimationFrame(tick);
+})();
+setTimeout(()=>{sessionStorage.setItem('vse_seen','1');loader.classList.add('done')},2500);
 }
 
 /* ---- scroll progress + nav ---- */
