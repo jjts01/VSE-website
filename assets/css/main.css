@@ -313,3 +313,5 @@ footer ul{list-style:none} footer li{margin-bottom:8px;font-size:.86rem} footer 
 .news-item h3{font-family:var(--display);font-size:1.25rem;margin-bottom:12px}
 .news-item p{color:var(--ink-dim);max-width:75ch} .news-item a{color:var(--accent2)}
 .news-item .src{font-size:.82rem;margin-top:10px;color:var(--ink-dim)}
+/* breadcrumb must not inherit the fixed header nav styles */
+nav.crumbs{position:static;display:block;padding:0;background:none;border:0;backdrop-filter:none;z-index:auto;inset:auto;transition:none}
