@@ -597,3 +597,28 @@ html[data-theme="light"] .kicker{color:#56607d}
 /* inert placeholders in the demos: they look like the real thing but must not
    pretend to be links, an href="#" just throws the reader back to the top */
 .demo-link{color:var(--demo-accent2);text-decoration:underline;text-underline-offset:3px;opacity:.85}
+
+/* ---------- demo brand personas -------------------------------------------
+   A white-label switch that only changed colour never convinced anyone. Each
+   demo brand also carries its own corner radius, display face and label
+   treatment, so the four scenarios read as four different products. JS sets
+   these on :root alongside the colours. */
+:root{--demo-radius:18px; --demo-font:var(--display); --demo-label-case:uppercase; --demo-label-spacing:.22em}
+.phone,.hub,.dash,.reg-card,.console,.report{border-radius:var(--demo-radius)}
+.ticket,.popt,.qa,.hcard,.panel,.rt,.badge,.scan-frame,.player,.broadcast,.person{border-radius:calc(var(--demo-radius) * .62)}
+.phone .tabs button,.hub-nav button,.track-tabs button,.mod-btns button,.reg-steps span,.dash-ctl button{border-radius:calc(var(--demo-radius) * .45)}
+.reg-title,.phone-top b,.hub-nav b,.dash-head b,.badge b,.bc-lower b{font-family:var(--demo-font)}
+.reg-brand,.bc-brand,.badge-brand{font-family:var(--demo-font);letter-spacing:var(--demo-label-spacing);text-transform:var(--demo-label-case)}
+
+/* ---------- demo switcher -------------------------------------------------
+   Four demos with no way to get from one to the next was a dead end at the
+   bottom of each page. */
+.demo-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 6vw;background:var(--bg2);border-bottom:1px solid var(--line);font-size:.82rem}
+.demo-nav .lbl{color:var(--ink-dim);letter-spacing:.16em;text-transform:uppercase;font-size:.7rem;margin-right:4px}
+.demo-nav a{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:100px;color:var(--ink-dim);transition:border-color .25s,color .25s,transform .25s;min-height:24px}
+.demo-nav a:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-1px)}
+.demo-nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#131a33;font-weight:600}
+html[data-theme="light"] .demo-nav a[aria-current="page"]{color:#fff}
+.demo-nav .all{margin-left:auto;color:var(--accent2)}
+@media(max-width:700px){.demo-nav{padding:12px 5vw}.demo-nav .lbl,.demo-nav .all{display:none}}
+

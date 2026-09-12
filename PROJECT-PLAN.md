@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 47
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 49
 
 ## Where the project stands
 
@@ -14,7 +14,7 @@
 | Pages published | 75 |
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
-| Words of original content | ~30,836 |
+| Words of original content | ~30,868 |
 | Images / videos in repo | 13 / 12 |
 
 ## Site inventory
@@ -83,6 +83,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `f2de199` | Fix conflicting experience claims; add IndexNow key and submitter |
+| 2026-09-12 | `4d55e83` | Record the function URL CORS and permission learnings in CLAUDE.md |
 | 2026-09-12 | `28d56b3` | Switch the enquiry form to the live endpoint |
 | 2026-09-12 | `f1d933a` | Keep both origins in the template so a redeploy doesn't drop the apex domain |
 | 2026-09-12 | `103987a` | Stop the Lambda sending its own CORS headers: the function URL already does |
@@ -93,8 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `d9c3614` | Darken the phone LIVE badge to match the broadcast one |
 | 2026-09-12 | `4059cb4` | Clear the last small-label contrast misses |
 | 2026-09-12 | `960c5b1` | Scope the demo dark-lock to the dark surfaces only |
-| 2026-09-12 | `3329229` | Add house style rules to CLAUDE.md so they govern every word written, not just the site |
-| 2026-09-12 | `897945f` | Fix light/dark visibility: wordmark, demo surfaces, skip link, small labels |
 
 ## How this file stays current
 

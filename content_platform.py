@@ -282,13 +282,32 @@ def features_page(page):
 
 # ---------------- demos ----------------
 DEMO_HEAD='<script defer src="assets/js/demo.js?v=1"></script>'
-BRANDBAR='''<div class="brandbar"><span>Brand:</span><button type="button" data-brand="vse" class="on">Virtual Studio Events</button><button type="button" data-brand="retail">Northfield Retail</button><button type="button" data-brand="charity">Reach Together</button><button type="button" data-brand="tech">Helix Software</button><span class="note">— white-label switches colours, logo and copy live</span></div>'''
+BRANDBAR = '''<div class="brandbar"><span>Brand:</span>\
+<button type="button" data-brand="vse" class="on">Virtual Studio Events</button>\
+<button type="button" data-brand="apex">Apex Live</button>\
+<button type="button" data-brand="northfield">Northfield Group</button>\
+<button type="button" data-brand="ilt">Institute of Logistics</button>\
+<span class="note">— switches the brand, the event and the audience</span></div>'''
+
+# Four demos with no way between them was a dead end at the foot of each page.
+DEMOS = [('demo-audience.html', '01 · Engage'), ('demo-registration.html', '02 · Register'),
+         ('demo-event-hub.html', '03 · Stage + Connect'), ('demo-analytics.html', '04 · Insight')]
+
+
+def demo_nav(current):
+    parts = []
+    for u, n in DEMOS:
+        mark = ' aria-current="page"' if u == current else ''
+        parts.append('<a href="%s"%s>%s</a>' % (u, mark, n))
+    return ('<nav class="demo-nav" aria-label="Platform demos"><span class="lbl">Demos</span>'
+            + ''.join(parts) + '<a class="all" href="demos.html">All four &rarr;</a></nav>')
+
 
 def demo_page(page, slug, title, desc, kicker, h1, lede, body, back):
     return page(slug,title,desc,kicker,h1,lede,body,crumbs=[('index.html','Home'),('platform.html','Platform'),(back[0],back[1]),(slug,'Demo')],extra_head=DEMO_HEAD+'<meta name="robots" content="index,follow">')
 
 def demo_audience(page):
-    body=BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
+    body=demo_nav('demo-audience.html')+BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
 <div class="demo-grid" id="engage-demo">
  <div class="phone"><div class="phone-top"><span class="dot"></span><b class="brand-name">Virtual Studio Events</b><span class="live">LIVE</span></div>
   <div class="tabs"><button class="on" data-tab="poll">Poll</button><button data-tab="qa">Q&amp;A</button><button data-tab="react">React</button><button data-tab="quiz">Quiz</button><button data-tab="chat">Chat</button></div>
@@ -310,19 +329,19 @@ def demo_audience(page):
    </div></div>
  </div>
 </div>
-<div class="prose" style="margin-top:60px"><p><strong>What you\'re looking at.</strong> The phone is what every attendee sees, in the room by QR code or online beside the player. The broadcast frame is the programme output with Engage results rendered by the gallery as a graphic, not a screenshot of the app. The console is the moderator\'s view: curate questions, decide what goes on air, launch the next poll. A simulated audience of 1,200 is voting, asking and reacting around you. Switch the brand at the top to see the white-label.</p></div>
+<div class="prose" style="margin-top:60px"><p><strong>What you\'re looking at.</strong> The phone is what every attendee sees, in the room by QR code or online beside the player. The broadcast frame is the programme output with Engage results rendered by the gallery as a graphic, not a screenshot of the app. The console is the moderator\'s view: curate questions, decide what goes on air, launch the next poll. A simulated audience is voting, asking and reacting around you. Switch the brand at the top: each one is a different customer, with its own industry, audience size, agenda and questions, not a repaint.</p></div>
 </div></section>'''
     return demo_page(page,'demo-audience.html','Live Branded Audience Participation Demo: Q&A, Polls, Reactions, Quiz | VSE Platform',
       'Try VSE Engage in your browser: vote in a live poll, ask and upvote questions, send reactions and play a quiz, and see the moderator console and the results rendered into the broadcast graphics. Switch brands live.',
       'Demo 01 · Engage','Live participation, <span class="em">three screens at once.</span>',
-      'The attendee\'s phone, the broadcast output and the moderator console: all live, all in your browser, with a simulated audience of 1,200.',body,('platform-engage.html','Engage'))
+      'The attendee\'s phone, the broadcast output and the moderator console: all live, all in your browser, with a simulated audience.',body,('platform-engage.html','Engage'))
 
 def demo_registration(page):
-    body=BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
+    body=demo_nav('demo-registration.html')+BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
 <div class="reg-wrap" id="reg-demo">
  <div class="reg-steps"><span class="on" data-step="1">1 · Tickets</span><span data-step="2">2 · Details</span><span data-step="3">3 · Confirmed</span><span data-step="4">4 · Check-in</span></div>
  <div class="reg-card">
-  <div class="reg-hero"><span class="reg-brand brand-name">Virtual Studio Events</span><h3 class="reg-title">Annual Conference 2027 · Hybrid</h3><p>14 May 2027 · London &amp; online · 09:00–16:30 BST</p></div>
+  <div class="reg-hero"><span class="reg-brand brand-name">Virtual Studio Events</span><h3 class="reg-title brand-event">Annual Conference 2027</h3><p class="brand-when">14 May 2027 · London &amp; online · 09:00–16:30 BST</p></div>
   <div class="reg-step" data-step="1"><h4>Choose your ticket</h4><div class="tickets">
    <label class="ticket"><input type="radio" name="tk" value="Online pass" data-price="0" checked><div><b>Online pass</b><span>Live stream, participation, on-demand for 30 days</span></div><em>Free</em></label>
    <label class="ticket"><input type="radio" name="tk" value="In-person" data-price="195"><div><b>In-person</b><span>Venue, lunch, networking, plus everything online</span></div><em>£195</em></label>
@@ -336,7 +355,7 @@ def demo_registration(page):
  </div>
  <aside class="reg-side"><h5>Behind the form</h5><ul id="reg-events"><li>Registration page rendered in brand</li></ul></aside>
 </div>
-<div class="prose" style="margin-top:60px"><p><strong>What you\'re looking at.</strong> A branded registration flow with ticket types and promo codes, the confirmation with a personal QR and printable badge, and the staff check-in view for hybrid events. The panel on the right shows what happens behind the scenes at each step: CRM sync, reminders scheduled, capacity updated. Switch the brand at the top.</p></div>
+<div class="prose" style="margin-top:60px"><p><strong>What you\'re looking at.</strong> A branded registration flow with ticket types and promo codes, the confirmation with a personal QR and printable badge, and the staff check-in view for hybrid events. The panel on the right shows what happens behind the scenes at each step: CRM sync, reminders scheduled, capacity updated. Switch the brand at the top to see a different event entirely: an awards ceremony, a retail all-hands, a membership AGM.</p></div>
 </div></section>'''
     return demo_page(page,'demo-registration.html','Event Registration, Ticketing & QR Check-in Demo | VSE Platform',
       'Try VSE Register in your browser: choose a ticket, apply a promo code, register, receive a personal QR and badge, then simulate the venue check-in scanner, with the behind-the-scenes CRM and reminder events shown live.',
@@ -344,7 +363,7 @@ def demo_registration(page):
       'Choose a ticket, register, get your QR and badge, then see the staff check-in view, with everything that happens behind the scenes listed live.',body,('platform-register.html','Register'))
 
 def demo_event_hub(page):
-    body=BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
+    body=demo_nav('demo-event-hub.html')+BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
 <div class="hub" id="hub-demo">
  <div class="hub-nav"><b class="brand-name">Virtual Studio Events</b><button class="on" data-view="agenda">Agenda</button><button data-view="session">Main stage</button><button data-view="speakers">Speakers</button><button data-view="expo">Expo</button><button data-view="network">Networking</button><button data-view="ondemand">On-demand</button><span class="hub-user">Priya S.</span></div>
  <div class="hub-view" data-view="agenda"><div class="hub-head"><h4>Thursday 14 May</h4><div class="track-tabs"><button class="on" data-track="all">All tracks</button><button data-track="A">Main stage</button><button data-track="B">Platforms &amp; data</button><button data-track="C">Workshops</button></div></div><div id="agenda-list"></div></div>
@@ -362,9 +381,9 @@ def demo_event_hub(page):
       'Agenda, main stage, speakers, expo, networking and on-demand: the branded hub every attendee gets, live in your browser.',body,('platform-stage.html','Stage'))
 
 def demo_analytics(page):
-    body=BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
+    body=demo_nav('demo-analytics.html')+BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">
 <div class="dash" id="dash-demo">
- <div class="dash-head"><div><b class="brand-name">Virtual Studio Events</b> · Annual Conference 2027 · <span class="bc-live">● LIVE</span></div><div class="dash-ctl"><button class="on" data-speed="1">Live</button><button data-speed="8">Fast-forward</button><button id="dash-report" class="ghost-btn">Generate post-event report</button></div></div>
+ <div class="dash-head"><div><b class="brand-name">Virtual Studio Events</b> · <span class="brand-event">Annual Conference 2027</span> · <span class="bc-live">● LIVE</span></div><div class="dash-ctl"><button class="on" data-speed="1">Live</button><button data-speed="8">Fast-forward</button><button id="dash-report" class="ghost-btn">Generate post-event report</button></div></div>
  <div class="kpis"><div class="kpi"><span>Concurrent</span><b id="k-conc">0</b><em id="k-conc-d"></em></div><div class="kpi"><span>Unique attendees</span><b id="k-uniq">0</b><em>of 2,140 registered</em></div><div class="kpi"><span>Avg watch time</span><b id="k-watch">0m</b><em>target 55m</em></div><div class="kpi"><span>Engagement index</span><b id="k-eng">0</b><em>questions · polls · reactions</em></div><div class="kpi"><span>Leads scored</span><b id="k-leads">0</b><em id="k-leads-d">synced to CRM</em></div><div class="kpi"><span>Stream health</span><b id="k-health" class="ok">Good</b><em id="k-health-d">both encoders up</em></div></div>
  <div class="dash-grid"><div class="panel"><h5>Concurrent viewers vs run order</h5><canvas id="curve" width="900" height="300"></canvas><div class="runorder" id="ro-strip"></div></div>
   <div class="panel"><h5>Engagement by session</h5><div id="eng-bars"></div></div>
