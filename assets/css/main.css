@@ -250,6 +250,7 @@ footer ul{list-style:none} footer li{font-size:.86rem} footer li a:hover{color:v
    not the li, so the tap target is the link itself (WCAG 2.5.8 wants 24px). */
 footer li a{display:inline-block;padding:6px 0;min-height:24px}
 .foot-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:.78rem}
+.foot-base a{display:inline-block;padding:5px 0;min-height:24px}
 @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
 /* guides */

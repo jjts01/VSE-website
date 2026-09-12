@@ -96,6 +96,11 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 - **Fine-grained GitHub PATs need explicit repo access** plus Contents: Read **and write**. Several tokens in this project were read-only and pushes 403'd; classic tokens worked.
 - **The AWS deploy user is scoped** — it can sync and invalidate but cannot create a custom CloudFront response-headers policy (needed for a full CSP). That is the one outstanding IAM gap.
 - **If a CSP is ever added**, allow-list `clarity.ms` and `googletagmanager.com` in `script-src`/`connect-src` or analytics dies silently.
+- **Auditing themes in an offscreen iframe gives false results.** Chrome throttles rendering there, so anything with `transition:color` never completes the theme flip and reads as its pre-flip value: it looks like invisible text. Inject `*{transition:none!important}` before measuring. This produced a false "contrast 1.0" report on half the site.
+- **Check the CSS build number when auditing.** Several "failures" were the browser holding a cached stylesheet against new HTML. The audit records the `?v=` of each page it measures; if the numbers differ between pages, the results are stale, not real.
+- **The demos stay dark in both themes.** Only the dark surfaces (`.phone`, `.hub`, `.dash`, `.reg-card`, `.player`, `.scan-frame`, `.sess-side`) are pinned. Locking the whole demo container also catches step pills and brand bars that sit on the page background and turns them white-on-white.
+- **The wordmark is a white PNG.** Light mode swaps to `logo-long-colour.png` via `content:url()`. Any new placement of the logo needs the same treatment.
+- **Small uppercase labels use `--label`, not `--accent`.** `--accent` is only ~3.6:1 on navy. When adding a new eyebrow/tag/step-number rule, use `--label`.
 - Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
 
 ## 6a. House style — applies to every word written for James, anywhere

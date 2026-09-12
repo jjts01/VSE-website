@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 42
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 43
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `6d6df8e` | Give footer links a 24px tap target |
 | 2026-09-12 | `bfcc246` | Make the event-hub demo's placeholder actions inert spans, not href=# links |
 | 2026-09-12 | `72975d8` | Fix three label rules where the new colour was overridden by the old one |
 | 2026-09-12 | `d9c3614` | Darken the phone LIVE badge to match the broadcast one |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `33143f3` | Default to dark theme; fix accumulated duplicate theme scripts in hand-built pages; keep 404 on current asset version |
 | 2026-09-12 | `5628722` | Fix Lambda Function URL permission (use !Ref and DependsOn so the public-invoke policy attaches) |
 | 2026-09-12 | `3b456ea` | Fix: define UTM helper before the analytics loader uses it |
-| 2026-09-12 | `7085ffb` | Search index entity decoding, light-mode hero contrast, roadmap |
 
 ## How this file stays current
 
