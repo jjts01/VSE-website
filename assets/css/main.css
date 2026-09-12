@@ -654,3 +654,11 @@ html[data-theme="light"] .demo-nav a[aria-current="page"]{color:#fff}
   body.nav-open nav ul{padding-top:84px;font-size:1.02rem;gap:2px}
   body.nav-open nav ul a{padding:10px 0}
 }
+
+/* Phone portrait: the wordmark is 333px and cannot shrink, which pushed the
+   hamburger off the right edge. Swap in the icon mark from the brand pack.
+   Kept to phone widths - the wordmark fits from tablet portrait up. */
+@media(max-width:560px){
+  nav .logo img{content:url(../img/logo-icon-white.png);height:38px;width:auto}
+  html[data-theme="light"] nav .logo img{content:url(../img/logo-icon-colour.png)}
+}

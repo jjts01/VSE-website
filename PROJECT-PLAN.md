@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 56
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 57
 
 ## Where the project stands
 
@@ -15,7 +15,7 @@
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
 | Words of original content | ~30,878 |
-| Images / videos in repo | 13 / 12 |
+| Images / videos in repo | 15 / 12 |
 
 ## Site inventory
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `32bf0a0` | Let the open mobile menu scroll |
 | 2026-09-12 | `efc38fb` | Fix the nav squashing the logo and clipping the CTA on tablet |
 | 2026-09-12 | `88ab9e3` | Drop the crisis framing from the 2020 story |
 | 2026-09-12 | `f5c3c67` | Put the context back around the 2020 date, sitewide |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `4d55e83` | Record the function URL CORS and permission learnings in CLAUDE.md |
 | 2026-09-12 | `28d56b3` | Switch the enquiry form to the live endpoint |
 | 2026-09-12 | `f1d933a` | Keep both origins in the template so a redeploy doesn't drop the apex domain |
-| 2026-09-12 | `103987a` | Stop the Lambda sending its own CORS headers: the function URL already does |
 
 ## How this file stays current
 
