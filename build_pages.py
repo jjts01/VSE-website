@@ -16,12 +16,12 @@ SWIRL = '''<div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fi
 
 NAV_ITEMS = [("platform.html","Platform"),("services.html","Services"),("event-types.html","Event types"),("work.html","Work"),("resources.html","Resources"),("news.html","News"),("contact.html","Contact")]
 SITE = "https://www.virtualstudio.events/"
-CSSV = "v=11"
+CSSV = "v=12"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
 FOOTER_COLS = [
- ("Platform",[("platform.html","Overview"),("platform-register.html","Register"),("platform-engage.html","Engage"),("platform-connect.html","Connect"),("platform-stage.html","Stage"),("platform-broadcast.html","Broadcast"),("platform-insight.html","Insight"),("demos.html","Live demos"),("pipeline.html","The pipeline"),("platform-packages.html","Packages")]),
+ ("Platform",[("platform.html","Overview"),("platform-register.html","Register"),("platform-engage.html","Engage"),("platform-connect.html","Connect"),("platform-stage.html","Stage"),("platform-broadcast.html","Broadcast"),("platform-insight.html","Insight"),("demos.html","Live demos"),("platform-features.html","Full feature list"),("pipeline.html","The pipeline"),("platform-packages.html","Packages")]),
  ("Services",[("services.html","Crew & engineering"),("services.html","Streaming & vMix"),("services.html","Production management"),("studios.html","Studio hire"),("work.html","Case studies")]),
  ("Event types",[("event-virtual-conference.html","Virtual conferences"),("event-hybrid-conference.html","Hybrid conferences"),("event-town-hall.html","Town halls & all-hands"),("event-awards-show.html","Awards shows"),("event-webinar.html","Webinars"),("event-product-launch.html","Product launches")]),
  ("Resources",[("resources.html","Knowledge hub"),("pillar-pre-production.html","Pre-production"),("pillar-infrastructure.html","Streaming infrastructure"),("pillar-live-production.html","Live production"),("pillar-analytics.html","Analytics & ROI"),("glossary.html","Glossary"),("tools.html","Free tools & templates")]),

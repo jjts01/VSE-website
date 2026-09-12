@@ -408,3 +408,4 @@ nav.crumbs{position:static;display:block;padding:0;background:none;border:0;back
 .ev-log{font-family:var(--mono,monospace);font-size:.74rem;color:var(--ink-dim);max-height:220px;overflow:auto} .ev-log div{padding:5px 0;border-top:1px solid rgba(255,255,255,.06)} .ev-log span{color:var(--demo-accent2);margin-right:10px}
 .report{margin-top:16px;background:var(--demo-panel);border-radius:12px;padding:22px} .report h4{font-family:var(--display);margin-bottom:12px} .report p{color:var(--ink-dim);font-size:.92rem;margin-bottom:10px} .report strong{color:var(--ink)}
 .hidden{display:none!important}
+.feat-list{list-style:none;columns:2;column-gap:30px;margin-top:8px} .feat-list li{font-size:.9rem;color:var(--ink-dim);padding:5px 0;break-inside:avoid} .feat-list li::before{content:"✓ ";color:var(--accent)} @media(max-width:700px){.feat-list{columns:1}}

@@ -18,6 +18,9 @@ MODULES = [
    ('Confirmations & reminders','Calendar files, personalised join links, the hour-before reminder that lifts attendance, and SMS on request.'),
    ('QR check-in & badges','Scan-to-check-in on any phone for hybrid events, on-site badge printing, session scanning for CPD and attendance.'),
    ('Data that leaves cleanly','Every field exportable, synced to your CRM in real time, retention rules you set. GDPR by design.'),
+   ('Event website & email campaigns','A branded event site built from your registration data — agenda, speakers, sponsors — plus invitation, reminder and follow-up email campaigns with open and click tracking.'),
+   ('Surveys & certificates','Pre- and post-event surveys, session feedback, and automatic CPD or attendance certificates issued from the check-in record.'),
+   ('Multi-language & multi-currency',"Registration and confirmations in the attendee's language; ticketing in GBP, EUR, USD and more with local VAT handling."),
   ],
   related=['guide-registration-data-gdpr.html','guide-virtual-event-platform.html']),
  dict(key='engage', slug='platform-engage.html', name='Engage', tag='Live audience participation',
@@ -34,6 +37,8 @@ MODULES = [
    ('Captions & translation','Automated or human live captions and real-time translation into the languages your audience chooses, on their own device.'),
    ('In-room & online together','One participation layer for both audiences — the room joins by QR code, online joins from the player. Same polls, same Q&A, fair interleaving.'),
    ('Presenter & moderator views','A presenter tablet with the curated question queue; a moderator console for approving, merging and scheduling; gallery triggers for the graphics.'),
+   ('Broadcast-ready outputs','Poll results, questions, word clouds and leaderboards published as graphics sources for vMix, OBS and hardware mixers — so any gallery can put them on air.'),
+   ('Scales to 50,000+','Load-tested for town halls with tens of thousands of participants, rate-limited and moderated for public events.'),
   ],
   related=['guide-live-interaction.html','guide-engagement-features.html','guide-accessibility.html']),
  dict(key='connect', slug='platform-connect.html', name='Connect', tag='Networking, expo & sponsors',
@@ -50,6 +55,8 @@ MODULES = [
    ('Lead capture & retrieval','In-room badge scanning and online booth interactions unified into one lead list per exhibitor, exportable or synced to their CRM.'),
    ('Sponsor placements','Logo walls, session sponsorships, sponsored breaks and push notifications — every placement with an impressions and clicks report.'),
    ('Community after the event','Keep the network open for 30 days: on-demand content, continued messaging, and a reason to come back next year.'),
+   ('Smart badges & contactless leads',"NFC/QR smart badges for hybrid events: tap to connect, tap to leave details at a booth, every tap a lead in the exhibitor's list."),
+   ('Exhibitor self-serve portal','Exhibitors build their own booth, upload content, invite staff and download their leads — no organiser admin.'),
   ],
   related=['guide-engagement-features.html','guide-measuring-roi.html']),
  dict(key='stage', slug='platform-stage.html', name='Stage', tag='Agenda, sessions & content',
@@ -66,6 +73,9 @@ MODULES = [
    ('Resource library','Slides, transcripts, documents and links per session, downloadable and tracked.'),
    ('On-demand hub','Chaptered recordings published within hours, gated or open, with the same engagement and analytics as live.'),
    ('Mobile app','iOS and Android app for hybrid attendees: agenda, room finder, participation, networking and notifications.'),
+   ('AI chapters, summaries & clips','Every session automatically chaptered, summarised and cut into suggested highlight clips minutes after it ends — reviewed by our editors before publishing.'),
+   ('Live translation & multi-language','Captions and translation into the languages your audience chooses, on their own device, plus multi-language agendas and interfaces.'),
+   ('Attendee AI assistant',"A branded assistant that answers 'where is the ROI session?' and 'what did I miss?' from the event's own data."),
   ],
   related=['guide-on-demand-repurposing.html','guide-speaker-prep.html']),
  dict(key='broadcast', slug='platform-broadcast.html', name='Broadcast', tag='Production & streaming',
@@ -82,6 +92,8 @@ MODULES = [
    ('Hybrid room integration','Stream audio mix from the room, cameras framed for screens, remote guests on the room screens, one technical lead owning the join.'),
    ('Simulcast','The same programme to LinkedIn, YouTube and your website at once, with cleared music and unified comments.'),
    ('Rehearsed, every time','Tech run, dress rehearsal and failure drills are part of the package, not an extra.'),
+   ('Global multi-CDN delivery','Streams delivered through multiple content delivery networks with automatic failover, so a viewer in Singapore gets the same start time and quality as one in Slough.'),
+   ('Any ingest, any latency','RTMP and SRT ingest from any gallery; standard, low-latency and sub-second delivery modes chosen per session.'),
   ],
   related=['guide-cloud-production.html','guide-hybrid-event-checklist.html','guide-risk-redundancy.html']),
  dict(key='insight', slug='platform-insight.html', name='Insight', tag='Analytics, reporting & integrations',
@@ -98,6 +110,8 @@ MODULES = [
    ('Sponsor & exhibitor reports','Impressions, clicks, booth visits, leads and meetings per sponsor, in a report they can forward to their board.'),
    ('Integrations','HubSpot, Salesforce, Marketo, Dynamics, Mailchimp, Slack and Teams notifications, webhooks and a REST API for everything else.'),
    ('Post-event report','Generated the morning after in the structure from our guides — one-page summary, results against targets, recommendations.'),
+   ('AI session summaries & insight reports','Automatic summaries of every session, sentiment from Q&A and chat, and a draft post-event report you edit rather than write.'),
+   ('Attribution & pipeline',"Attendees matched to CRM opportunities so the event's influenced pipeline is reported, not guessed."),
   ],
   related=['guide-event-metrics.html','guide-measuring-roi.html','guide-post-event-report.html']),
  dict(key='brand', slug='platform-brand.html', name='Brand & trust', tag='White-label, security & accessibility',
@@ -114,6 +128,9 @@ MODULES = [
    ('Accessibility','WCAG 2.1 AA interface, keyboard and screen-reader support, caption controls, BSL picture-in-picture on the stream.'),
    ('Reliability','Redundant streaming, standby destinations, and a human on a channel during your event — not a ticket queue.'),
    ('Content ownership','Your recordings, your data, exported in full whenever you ask. Deleted when you say so.'),
+   ('UK/EU data residency, by default','Platform and attendee data hosted on AWS in London and Frankfurt. VSE is a UK-owned company — your data is not exposed to US CLOUD Act requests via a US parent.'),
+   ('Infrastructure certifications & DPA',"Built on ISO 27001 / SOC 2-certified AWS infrastructure with VSE's own controls aligned to ISO 27001; data-processing agreement, sub-processor list and security questionnaire answers available on request."),
+   ('Availability & support','99.9% platform availability target, multi-CDN delivery, and 24/7 event-day support with a producer on a channel — not a ticket queue.'),
   ],
   related=['guide-registration-data-gdpr.html','guide-accessibility.html']),
 ]
@@ -130,14 +147,19 @@ PIPELINE = [
 ]
 
 PACKAGES = [
- ('Broadcast','For produced webinars, town halls and streams into your existing tools.','from £2,000 +VAT per event',
-  ['Studio or cloud gallery production','Broadcast graphics package','Engage: Q&A, polls, reactions','Delivery into Teams, Zoom, YouTube, LinkedIn or your site','Live dashboard & post-event report','Same-day on-demand edit']),
- ('Engage','For conferences, awards and launches that need registration and a branded experience.','from £6,000 +VAT per event',
-  ['Everything in Broadcast','Register: branded registration, ticketing, reminders','Stage: multi-track agenda, session rooms, on-demand hub','Engage: quizzes, word clouds, captions','Speaker portal & green room','Insight: engagement scoring, CRM sync']),
- ('Enterprise','For programmes of events, hybrid flagships and agencies reselling under their own brand.','annual programme pricing',
-  ['Everything in Engage','Connect: networking, expo, sponsors, lead capture','Mobile app & hybrid check-in','Full white-label & reseller workspaces','SSO, data residency, audit logs','Named producer and account team']),
+ ('Broadcast','Produced webinars, town halls and streams into the tools you already use.','from £1,750 +VAT per event',
+  ['Studio or cloud gallery production with broadcast graphics','Engage: moderated Q&A, polls, reactions','Delivery into Teams, Zoom, YouTube, LinkedIn or your site','Redundant encoding and standby destination','Live dashboard and post-event report','Same-day on-demand edit']),
+ ('Engage','Conferences, awards and launches that need registration and a branded experience.','from £7,500 +VAT per event',
+  ['Everything in Broadcast','Register: branded registration, ticketing, reminders','Stage: multi-track agenda, session rooms, on-demand hub','Engage: quizzes, word clouds, captions and translation','Speaker portal and green room','Insight: engagement scoring, CRM sync, AI session summaries']),
+ ('Enterprise programme','A year of events, hybrid flagships, and agencies reselling under their own brand.','from £30,000 +VAT per year',
+  ['Everything in Engage, across 5+ events','Connect: networking, expo, sponsors, lead capture','Mobile app, hybrid check-in and badge printing','Full white-label and reseller workspaces','SSO, UK/EU data residency, audit logs, SLA','Named producer and account team']),
 ]
-
+PLATFORM_ONLY = [
+ ('Platform licence (agencies & in-house teams)',"Register + Stage + Engage + Insight without VSE crew — bring your own production, or ours by the day.",'from £1,500 +VAT per event · £12,000 +VAT per year',
+  ['Branded registration, agenda, session rooms, on-demand','Full participation layer with broadcast-ready graphics outputs','RTMP/SRT ingest from any gallery','Analytics, exports and integrations','Reseller workspaces and white-label']),
+ ('Engage only',"The branded participation layer for any show — yours, a venue's, or a Teams call.",'from £350 +VAT per event · £2,400 +VAT per year',
+  ['Q&A, polls, quizzes, reactions, word clouds, chat','Room join by QR, online join from any player','Moderator console and presenter view','Graphics outputs for vMix, OBS and hardware mixers','Results and attendance exports']),
+]
 INTEGRATIONS = [
  ('CRM & marketing','HubSpot, Salesforce, Microsoft Dynamics, Marketo, Pardot, Mailchimp — attendee records and engagement scores synced in real time.'),
  ('Collaboration','Microsoft Teams, Zoom, Google Meet and Slack — produced feeds into your meetings, notifications into your channels.'),
@@ -146,6 +168,7 @@ INTEGRATIONS = [
  ('Payments & finance','Stripe and invoice payment, VAT handling, Xero and QuickBooks exports.'),
  ('Accessibility services','Human captioners, BSL interpreters and translation partners plugged into the stream and the platform.'),
  ('Automation & data','Webhooks, a REST API, Zapier and Make for everything else; scheduled exports to your warehouse.'),
+ ('Delivery & hosting','Global multi-CDN delivery for viewers anywhere; platform and data hosted on AWS in London and Frankfurt with UK/EU residency by default.'),
 ]
 
 def module_page(page, m):
@@ -175,7 +198,7 @@ def platform_overview(page):
 <span class="eyebrow">Seven modules · one roof</span><h2 class="big">Registration to ROI, produced like a broadcast</h2>
 <p style="color:var(--ink-dim);max-width:64ch;margin-top:16px">Most event platforms are software that hopes you have a production team. Most production companies hand you a stream and no data. VSE Platform is both: the registration, participation, networking and analytics layers of a modern event platform, fed by a real broadcast gallery and delivered by the crew.</p>
 <div class="pillar-grid">{mods}</div>
-<div style="margin-top:100px"><span class="eyebrow">The full pipeline</span><h2 class="big">How an event moves through the system</h2><div class="pipeline">{pipe}</div><div style="margin-top:24px"><a class="ghost-btn" href="pipeline.html">See the pipeline in detail →</a></div></div>
+<div style="margin-top:100px"><span class="eyebrow">The full pipeline</span><h2 class="big">How an event moves through the system</h2><div class="pipeline">{pipe}</div><div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a class="ghost-btn" href="pipeline.html">See the pipeline in detail →</a><a class="ghost-btn" href="platform-features.html">Full feature list →</a></div></div>
 <div style="margin-top:100px"><span class="eyebrow">Try it</span><h2 class="big">Working demos, no sign-up</h2>{demos}</div>
 <div style="margin-top:100px"><span class="eyebrow">Packages</span><h2 class="big">Priced per event, or as a programme</h2><div class="pkg-grid">{pk}</div><p class="rate-note">All packages include production crew; platform-only licences are available to production companies under reseller terms. See <a href="platform-packages.html" style="color:var(--accent2)">packages and integrations</a>.</p></div>
 </div></section>'''
@@ -205,6 +228,8 @@ def packages_page(page):
     pk=''.join(f'<div class="pkg"><span class="num">{p[2]}</span><h3>{p[0]}</h3><p>{p[1]}</p><ul>'+''.join(f'<li>{x}</li>' for x in p[3])+'</ul><a class="cta-btn" href="contact.html">Get a quote</a></div>' for p in PACKAGES)
     ints=''.join(f'<div class="detail"><h3>{t}</h3><p>{d}</p></div>' for t,d in INTEGRATIONS)
     body=f'''<section class="content-sec"><div class="wrap reveal"><span class="eyebrow">Packages</span><h2 class="big">Three ways to buy</h2><div class="pkg-grid">{pk}</div>
+<div style="margin-top:70px"><span class="eyebrow">Platform without the crew</span><h2 class="big">For agencies and in-house teams</h2><div class="pkg-grid" style="grid-template-columns:1fr 1fr">'''+''.join(f'<div class="pkg"><span class="num">{p[2]}</span><h3>{p[0]}</h3><p>{p[1]}</p><ul>'+''.join(f'<li>{x}</li>' for x in p[3])+'</ul><a class="ghost-btn" href="contact.html">Ask about reseller terms</a></div>' for p in PLATFORM_ONLY)+'''</div></div>
+<div class="callout" style="margin-top:60px"><p><strong>How we priced this (September 2026).</strong> Platform-only licences in the market run from about £1k–£5k a year for self-serve webinar tools to <strong>$10k–$50k per event or year</strong> for mid-market platforms (Hubilo, vFairs, Swapcard, RingCentral Events, Zuddl) and $25k–$500k+ for ON24, Bizzabo and Cvent. UK broadcast production runs £499–£1,000 for a single-camera stream, £895–£3,500 for multi-camera business productions, <strong>£5k–£15k a day for hybrid conferences</strong> with redundancy, and £15k–£50k+ for multi-stage events; specialist crew cost £450–£750 a day. Our packages bundle both layers — an Enterprise programme with production included costs less than many platform-only licences. Sources and the full benchmark are in our <a href="guide-live-streaming-cost.html">cost guide</a>.</p></div>
 <p class="rate-note">Every package includes production crew and a rehearsal. Prices are per event and exclude VAT, venue hire and third-party services (human captioners, BSL). Programme pricing covers a year of events with a named producer. Production companies: ask about reseller terms and platform-only licences.</p>
 <div style="margin-top:100px"><span class="eyebrow">Integrations</span><h2 class="big">It plugs into what you already run</h2><div class="detail-list">{ints}</div></div>
 <div style="margin-top:100px"><span class="eyebrow">Compare</span><h2 class="big">Platform, production company, or both?</h2>
@@ -223,6 +248,29 @@ def packages_page(page):
       'Packages & integrations','Buy the show, the platform, <span class="em">or the whole roof.</span>',
       'Per-event packages with crew included, programme pricing for a year of events, reseller terms for agencies — and the integrations that make it fit your stack.',
       body,crumbs=[('index.html','Home'),('platform.html','Platform'),('platform-packages.html','Packages')])
+
+
+FEATURE_MATRIX = [
+ ('Registration & ticketing',['Branded registration pages on your domain','Multi-step forms with conditional questions','Free, paid, early-bird and promo-coded tickets','Card and invoice payment, VAT, refunds','Invite-only lists, approvals, waitlists, capacity','SAML/OIDC single sign-on for internal events','Calendar files, personalised join links, SMS reminders','QR check-in, badge printing, session scanning','Event website builder','Email campaigns with open/click tracking','Surveys and CPD/attendance certificates','Multi-language, multi-currency']),
+ ('Live participation',['Moderated Q&A with upvoting and merging','Polls: multiple choice, rating, ranking, open text','Quizzes with live leaderboards','Reactions and word clouds','Hosted chat with filters, slow mode, pinning','Live captions (human or automated) and translation','Room join by QR, online join from any player','Presenter view, moderator console, gallery triggers','Broadcast-ready graphics outputs for vMix/OBS/hardware','Scales to 50,000+ participants']),
+ ('Networking & commercial',['Attendee profiles and 1:1 meeting booking','Interest-based matchmaking, speed networking','Hosted roundtables and lounges','Virtual expo booths with video, downloads, chat','Lead capture and retrieval, online and on-site','Smart badges (NFC/QR) for contactless connections','Exhibitor self-serve portal','Sponsor placements with impressions and click reports','Post-event community for 30 days']),
+ ('Agenda, sessions & content',['Multi-track agenda, personal schedules, time zones','Session rooms with embedded low-latency stream','Breakouts and hosted workshops','Speaker portal, tech checks, virtual green room','Resource library per session','On-demand hub with the same analytics as live','AI chapters, summaries and suggested clips','Attendee AI assistant','iOS and Android app for hybrid attendees','Multi-language interfaces']),
+ ('Broadcast production',['Studio (Chichester and partners) or cloud gallery on AWS','Remote contribution on managed links with mix-minus','Broadcast graphics with live participation data on air','Dual encoders, wired plus bonded cellular','Global multi-CDN delivery with failover','RTMP and SRT ingest; standard, low-latency and sub-second modes','Hybrid room integration with one technical lead','Simulcast to LinkedIn, YouTube, website and platform','Tech run, dress rehearsal and failure drills included']),
+ ('Analytics & integrations',['Live dashboard: concurrent, joins, drop-off, stream health','Attendance curve against the run order','Per-attendee engagement index','Lead scoring and routing with behaviour context','Sponsor and exhibitor ROI reports','AI session summaries and draft post-event report','CRM attribution to opportunities and pipeline','HubSpot, Salesforce, Dynamics, Marketo, Pardot, Mailchimp','Teams, Zoom, Google Meet, Slack','Webhooks, REST API, Zapier, Make, warehouse exports']),
+ ('Security, data & trust',['Full white-label: domain, design, email, app icon','Agency reseller workspaces and permissions','SSO (SAML/OIDC), MFA, role-based access, audit logs','Encryption in transit and at rest; penetration tested','UK/EU data residency by default (AWS London/Frankfurt)','UK-owned: no US parent, no CLOUD Act exposure','DPA, sub-processor list, security questionnaire responses','Built on ISO 27001 / SOC 2-certified infrastructure','WCAG 2.1 AA interface, captions, BSL on stream','99.9% availability target, 24/7 event-day support','Recordings and data exported in full, deleted on instruction']),
+]
+
+def features_page(page):
+    grid=''.join('<div class="detail"><h3>'+cat+'</h3><ul class="feat-list">'+''.join(f'<li>{f}</li>' for f in fs)+'</ul></div>' for cat,fs in FEATURE_MATRIX)
+    n=sum(len(fs) for _,fs in FEATURE_MATRIX)
+    body=f"""<section class="content-sec"><div class="wrap reveal"><span class="eyebrow">{n} capabilities · seven areas</span><h2 class="big">The full list, in one place</h2><p style="color:var(--ink-dim);max-width:62ch;margin-top:16px">Everything the major platforms talk about, plus the production layer they don't have. If something you need isn't here, ask — most of what we build starts as a client question.</p><div class="detail-list">{grid}</div>
+<div style="margin-top:80px"><span class="eyebrow">Delivery &amp; data</span><h2 class="big">Global delivery, data that stays home</h2><div class="guide-body"><p>Viewers are served through <strong>multiple global content delivery networks</strong> with automatic failover, so audiences in Asia-Pacific, the Americas and Europe get the same start time and quality. The platform itself, and every attendee record, lives in <strong>AWS regions in London and Frankfurt</strong> — UK/EU residency by default, with US or APAC residency available for programmes that need it. Virtual Studio Events is a UK-owned company with no US parent, which matters increasingly to procurement teams assessing CLOUD Act exposure.</p><p>Security: single sign-on, MFA, role-based access and audit logs; encryption in transit and at rest; regular penetration testing; infrastructure certified to ISO 27001 and SOC 2 with VSE's own controls aligned to ISO 27001. A data-processing agreement, sub-processor list and completed security questionnaires are available on request. Accessibility to WCAG 2.1 AA, with captions and BSL on the stream. Availability target 99.9%, and — the part no certificate covers — a producer on a channel for the whole of your event.</p></div></div>
+<div class="demo-cta" style="margin-top:60px"><div><span class="eyebrow">See it</span><h3>Four working demos, no sign-up</h3><p>Participation, registration, the attendee hub and the analytics dashboard — with a live brand switcher.</p></div><a class="cta-btn" href="demos.html">Try the demos →</a></div></div></section>"""
+    return page('platform-features.html','VSE Platform Full Feature List: Registration, Engagement, Networking, Broadcast, Analytics, Security',
+      'The complete VSE Platform feature list — registration and ticketing, live participation, networking and expo, agenda and on-demand, broadcast production, analytics and integrations, security with UK/EU data residency and global multi-CDN delivery.',
+      'Feature list','Everything, <span class="em">itemised.</span>',
+      'The complete capability list across all seven modules — with the delivery and data-residency detail procurement teams ask for.',
+      body,crumbs=[('index.html','Home'),('platform.html','Platform'),('platform-features.html','Features')])
 
 # ---------------- demos ----------------
 DEMO_HEAD='<script defer src="assets/js/demo.js?v=1"></script>'
@@ -342,6 +390,7 @@ def register(P, page):
     for m in MODULES: P[m['slug']]=module_page(page,m)
     P['pipeline.html']=pipeline_page(page)
     P['platform-packages.html']=packages_page(page)
+    P['platform-features.html']=features_page(page)
     P['demos.html']=demos_index(page)
     P['demo-audience.html']=demo_audience(page)
     P['demo-registration.html']=demo_registration(page)
