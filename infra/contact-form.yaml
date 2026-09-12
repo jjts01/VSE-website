@@ -192,6 +192,7 @@ Resources:
 
   ContactFormUrl:
     Type: AWS::Lambda::Url
+    DependsOn: ContactFormUrlPermission
     Properties:
       TargetFunctionArn: !GetAtt ContactFormFunction.Arn
       AuthType: NONE
@@ -201,10 +202,12 @@ Resources:
         AllowHeaders: [ content-type ]
         MaxAge: 3600
 
+  # Must use !Ref (function name) and be created before the URL, or the
+  # resource-based policy silently fails to attach and the URL returns 403.
   ContactFormUrlPermission:
     Type: AWS::Lambda::Permission
     Properties:
-      FunctionName: !GetAtt ContactFormFunction.Arn
+      FunctionName: !Ref ContactFormFunction
       Action: lambda:InvokeFunctionUrl
       Principal: '*'
       FunctionUrlAuthType: NONE
