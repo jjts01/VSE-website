@@ -101,6 +101,9 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 - **The demos stay dark in both themes.** Only the dark surfaces (`.phone`, `.hub`, `.dash`, `.reg-card`, `.player`, `.scan-frame`, `.sess-side`) are pinned. Locking the whole demo container also catches step pills and brand bars that sit on the page background and turns them white-on-white.
 - **The wordmark is a white PNG.** Light mode swaps to `logo-long-colour.png` via `content:url()`. Any new placement of the logo needs the same treatment.
 - **Small uppercase labels use `--label`, not `--accent`.** `--accent` is only ~3.6:1 on navy. When adding a new eyebrow/tag/step-number rule, use `--label`.
+- **Never set CORS headers in the Lambda and on the function URL.** For non-preflight requests Lambda returns *both* sets, the browser sees two `Access-Control-Allow-Origin` headers and rejects the response with a bare "Failed to fetch" — while the function runs and the mail sends. A silent success that is indistinguishable from a hard failure. CORS lives on the function URL only; `infra/contact-form.yaml` is correct and must stay that way.
+- **A Lambda function URL needs three things, not one.** `AuthType: NONE`, a resource policy granting `lambda:InvokeFunctionUrl`, *and* (since October 2025) a second statement granting `lambda:InvokeFunction` with `--invoked-via-function-url`. Miss any one and you get 403 with no request ID and no CORS headers.
+- **Test a function URL with `aws lambda invoke` first.** It bypasses the URL and CORS entirely, so it separates "handler is broken" from "response is being rejected" in one command. `aws logs tail /aws/lambda/vse-contact-form --since 20m` shows what actually ran.
 - Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
 
 ## 6a. House style — applies to every word written for James, anywhere

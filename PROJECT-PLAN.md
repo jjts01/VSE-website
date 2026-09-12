@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 46
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 47
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `28d56b3` | Switch the enquiry form to the live endpoint |
 | 2026-09-12 | `f1d933a` | Keep both origins in the template so a redeploy doesn't drop the apex domain |
 | 2026-09-12 | `103987a` | Stop the Lambda sending its own CORS headers: the function URL already does |
 | 2026-09-12 | `ae4b7bc` | Footer base link tap targets; record the theme-audit learnings in CLAUDE.md |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `960c5b1` | Scope the demo dark-lock to the dark surfaces only |
 | 2026-09-12 | `3329229` | Add house style rules to CLAUDE.md so they govern every word written, not just the site |
 | 2026-09-12 | `897945f` | Fix light/dark visibility: wordmark, demo surfaces, skip link, small labels |
-| 2026-09-12 | `f33c2b1` | Rewrite site copy to remove AI writing tells |
 
 ## How this file stays current
 
