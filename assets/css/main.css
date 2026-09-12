@@ -590,3 +590,6 @@ html[data-theme="light"] .hero-video{opacity:.38}
 html[data-theme="light"] .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(244,246,250,.55) 0%,rgba(244,246,250,.72) 55%,rgba(244,246,250,.92) 100%);pointer-events:none}
 html[data-theme="light"] .hero .lede{color:#3d4763}
 html[data-theme="light"] .kicker{color:#56607d}
+/* inert placeholders in the demos: they look like the real thing but must not
+   pretend to be links, an href="#" just throws the reader back to the top */
+.demo-link{color:var(--demo-accent2);text-decoration:underline;text-underline-offset:3px;opacity:.85}
