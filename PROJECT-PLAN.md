@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 39
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 40
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `d9c3614` | Darken the phone LIVE badge to match the broadcast one |
 | 2026-09-12 | `4059cb4` | Clear the last small-label contrast misses |
 | 2026-09-12 | `960c5b1` | Scope the demo dark-lock to the dark surfaces only |
 | 2026-09-12 | `3329229` | Add house style rules to CLAUDE.md so they govern every word written, not just the site |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `7085ffb` | Search index entity decoding, light-mode hero contrast, roadmap |
 | 2026-09-12 | `499acd4` | Light/dark theme, consent-gated analytics, site search, copy buttons, print stylesheet, UTM capture, floating CTA, enquiry form with success/error states, privacy notice, 12 more images, CloudFormation form backend |
 | 2026-09-12 | `ebaf9a3` | Roadmap: note unverified video playback |
-| 2026-09-12 | `2bf432c` | Add WebM/VP9 sources alongside MP4 for all video loops |
 
 ## How this file stays current
 
