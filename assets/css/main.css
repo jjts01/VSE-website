@@ -40,12 +40,20 @@ a{color:inherit;text-decoration:none}
 nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;justify-content:space-between;
   padding:20px 5vw;mix-blend-mode:normal;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(33,43,84,.78);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
-nav .logo img{height:40px;width:auto}
+/* The bar is a flex row, so by default every child is allowed to shrink. The
+   logo is an <img> under a global max-width:100%, which let it crush to a
+   sliver on tablet landscape, and the CTA wrapped to three clipped lines.
+   Nothing in the bar shrinks or wraps now. */
+nav .logo{flex:0 0 auto;display:block}
+nav .logo img{height:40px;width:auto;max-width:none}
+nav ul{flex-wrap:nowrap;min-width:0}
+nav ul li{white-space:nowrap}
+nav .cta-btn{flex:0 0 auto;white-space:nowrap}
 nav ul{display:flex;gap:36px;list-style:none;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
 nav ul a{position:relative;padding:4px 0}
 nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .3s}
 nav ul a:hover{color:var(--ink)} nav ul a:hover::after{width:100%}
-.cta-btn{position:relative;font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+.cta-btn{position:relative;white-space:nowrap;font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
   color:#1b2040;background:var(--accent);padding:13px 28px;border-radius:100px;display:inline-block;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .cta-btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;transform:skewX(-20deg);
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transition:left .6s ease}
@@ -55,7 +63,7 @@ nav ul a:hover{color:var(--ink)} nav ul a:hover::after{width:100%}
 .ghost-btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1);border-radius:inherit}
 .ghost-btn:hover::before{transform:scaleX(1)}
 .ghost-btn:hover{color:#1b2040!important;border-color:var(--accent)}
-@media(max-width:900px){nav ul{display:none}}
+@media(max-width:1150px){nav ul{display:none}}
 
 /* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;align-items:flex-end;padding-bottom:10vh;position:relative;isolation:isolate;overflow:hidden}
@@ -227,7 +235,7 @@ footer img{height:32px;opacity:.85}
 .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;padding:10px;flex-direction:column;justify-content:space-between;cursor:pointer}
 .menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
 .m-only{display:none}
-@media(max-width:900px){
+@media(max-width:1150px){
   nav ul{display:none}
   .menu-btn{display:flex}
   nav .cta-btn{display:none}
@@ -489,7 +497,7 @@ html[data-theme="light"] .reg-card a{color:var(--demo-accent2)}
 .nav-tools{display:flex;gap:8px;align-items:center;margin-left:14px}
 html[data-theme="light"] .sun{display:none}
 html:not([data-theme="light"]) .moon{display:none}
-@media(max-width:900px){.nav-tools{margin-left:auto;margin-right:10px}}
+@media(max-width:1150px){.nav-tools{margin-left:auto;margin-right:10px}}
 /* search overlay */
 #searchOverlay{position:fixed;inset:0;z-index:300;background:rgba(10,14,30,.82);backdrop-filter:blur(10px);display:none;padding:10vh 5vw}
 html[data-theme="light"] #searchOverlay{background:rgba(230,235,244,.9)}
@@ -622,3 +630,12 @@ html[data-theme="light"] .demo-nav a[aria-current="page"]{color:#fff}
 .demo-nav .all{margin-left:auto;color:var(--accent2)}
 @media(max-width:700px){.demo-nav{padding:12px 5vw}.demo-nav .lbl,.demo-nav .all{display:none}}
 
+/* Between the breakpoint and a comfortable desktop the bar is full but tight,
+   so the link gaps and the CTA close up rather than overflowing. */
+@media(min-width:1151px) and (max-width:1400px){
+  nav{padding:18px 3.5vw}
+  nav ul{gap:22px;font-size:.74rem;letter-spacing:.14em}
+  nav .cta-btn{padding:12px 20px;font-size:.74rem}
+  .nav-tools{margin-left:10px;gap:6px}
+  .icon-btn{width:38px;height:38px}
+}

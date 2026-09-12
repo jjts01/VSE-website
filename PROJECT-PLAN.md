@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 54
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 55
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `88ab9e3` | Drop the crisis framing from the 2020 story |
 | 2026-09-12 | `f5c3c67` | Put the context back around the 2020 date, sitewide |
 | 2026-09-12 | `98d1ad6` | Sync .txt, search index and video in CI; submit to IndexNow on deploy |
 | 2026-09-12 | `66977ed` | Tidy the new copy against house style; document the demo scenarios and IndexNow |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `f1d933a` | Keep both origins in the template so a redeploy doesn't drop the apex domain |
 | 2026-09-12 | `103987a` | Stop the Lambda sending its own CORS headers: the function URL already does |
 | 2026-09-12 | `ae4b7bc` | Footer base link tap targets; record the theme-audit learnings in CLAUDE.md |
-| 2026-09-12 | `6d6df8e` | Give footer links a 24px tap target |
 
 ## How this file stays current
 
