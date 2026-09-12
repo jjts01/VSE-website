@@ -27,6 +27,5 @@ jobs:
           aws s3 sync assets/fonts s3://${{ secrets.S3_BUCKET }}/assets/fonts --content-type "font/woff2"           --cache-control "public,max-age=31536000"
           aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.jpg"  --content-type "image/jpeg" --cache-control "public,max-age=604800"
           aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.png"  --content-type "image/png"  --cache-control "public,max-age=604800"
-          aws s3 sync assets/video s3://${{ secrets.S3_BUCKET }}/assets/video --content-type "video/mp4" --cache-control "public,max-age=2592000"
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
