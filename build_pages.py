@@ -253,6 +253,6 @@ if 'clarity.ms' not in idx:
 open('index.html','w').write(idx)
 nf = open('404.html').read()
 if 'clarity.ms' not in nf:
-    nf = nf.replace('<link rel="stylesheet" href="/assets/css/main.css">', TRACKING+'\n<link rel="stylesheet" href="/assets/css/main.css">',1)
+    nf = nf.replace('<link rel="stylesheet"', TRACKING+'\n<link rel="stylesheet"',1)
     open('404.html','w').write(nf)
 print('index chrome synced + tracking')
