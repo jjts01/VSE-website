@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 26
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 27
 
 ## Where the project stands
 
@@ -15,7 +15,7 @@
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
 | Words of original content | ~31,160 |
-| Images / videos in repo | 12 / 6 |
+| Images / videos in repo | 12 / 12 |
 
 ## Site inventory
 
@@ -75,6 +75,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `9550886` | Fix video autoplay: preload auto for hero, metadata for bands, load() before play() |
 | 2026-09-12 | `b75b82b` | Revert workflow change (PAT lacks workflow scope); roadmap notes the manual line to add |
 | 2026-09-12 | `703620f` | Roadmap: note workflow video-sync gap |
 | 2026-09-12 | `20ca3a0` | Deploy: sync assets/video with video/mp4 content-type |
@@ -86,7 +87,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `0c63172` | Market-benchmarked pricing (Sept 2026), platform-only and Engage-only tiers, full feature matrix page, global CDN + UK/EU residency + AI + security features, cost guide benchmarks with sources, news item |
 | 2026-09-12 | `2ed0260` | Hub meeting card layout |
 | 2026-09-12 | `a7dd62b` | Fix demo background image paths |
-| 2026-09-12 | `ad8463f` | VSE Platform: overview, 7 modules, pipeline, packages/integrations, 4 working demos (participation, registration, event hub, analytics); nav/footer/homepage integration |
 
 ## How this file stays current
 

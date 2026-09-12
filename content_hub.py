@@ -96,7 +96,7 @@ def pillar_page(page, p):
     intro=p.get('intro','')
     if p.get('vid'):
         banner=('<div class="media-band reveal"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/gen/poster-'
-                +p['vid']+'.jpg" aria-label="'+p['img_alt']+'"><source src="assets/video/'+p['vid']+'.mp4" type="video/mp4"></video></div>')
+                +p['vid']+'.jpg" aria-label="'+p['img_alt']+'"><source src="assets/video/'+p['vid']+'.webm" type="video/webm"><source src="assets/video/'+p['vid']+'.mp4" type="video/mp4"></video></div>')
     elif p.get('img'):
         banner=f'<div class="media-band reveal"><img src="assets/img/{p["img"]}" alt="{p["img_alt"]}" loading="lazy"></div>'
     else:
@@ -111,7 +111,7 @@ from content_events import EVENTS, EVENT_FAQ_SCHEMA
 def event_page(page, e):
     if e.get('vid'):
         vidblock=('<div class="img-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/gen/poster-'
-                  +e['vid']+'.jpg" aria-label="'+e['img_alt']+'"><source src="assets/video/'+e['vid']+'.mp4" type="video/mp4"></video></div>')
+                  +e['vid']+'.jpg" aria-label="'+e['img_alt']+'"><source src="assets/video/'+e['vid']+'.webm" type="video/webm"><source src="assets/video/'+e['vid']+'.mp4" type="video/mp4"></video></div>')
     else:
         vidblock='<div class="img-frame"><img src="assets/img/'+e['img']+'" alt="'+e['img_alt']+'" loading="lazy"></div>'
     faqs=e.get('faqs',[])

@@ -178,7 +178,7 @@ def module_page(page, m):
     rel=[GUIDE_BY_SLUG[s] for s in m.get('related',[]) if s in GUIDE_BY_SLUG]
     if m.get('vid'):
         banner=('<div class="media-band reveal"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/gen/poster-'
-                +m['vid']+'.jpg" aria-label="'+m['img_alt']+'"><source src="assets/video/'+m['vid']+'.mp4" type="video/mp4"></video></div>')
+                +m['vid']+'.jpg" aria-label="'+m['img_alt']+'"><source src="assets/video/'+m['vid']+'.webm" type="video/webm"><source src="assets/video/'+m['vid']+'.mp4" type="video/mp4"></video></div>')
     elif m.get('img'):
         banner=f'<div class="media-band reveal"><img src="assets/img/{m["img"]}" alt="{m["img_alt"]}" loading="lazy"></div>'
     else:
@@ -202,7 +202,7 @@ def platform_overview(page):
 <a class="pillar-card" href="demo-analytics.html"><span class="num">Demo 04</span><h3>Live analytics dashboard</h3><p>Concurrent viewers against the run order, engagement, leads and sponsor ROI, updating live.</p></a></div>'''
     pk=''.join(f'<div class="pkg"><span class="num">{n}</span><h3>{p}</h3><p>{d}</p><ul>'+''.join(f'<li>{x}</li>' for x in items)+'</ul><a class="ghost-btn" href="contact.html">Talk to us</a></div>' for n,p,d,items in [(p[2],p[0],p[1],p[3]) for p in PACKAGES])
     body=f'''<section class="content-sec"><div class="wrap reveal">
-<div class="media-band reveal"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/gen/poster-platform-arcs.jpg" aria-label="Abstract rotating broadcast technology visual"><source src="assets/video/platform-arcs.mp4" type="video/mp4"></video></div>
+<div class="media-band reveal"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/gen/poster-platform-arcs.jpg" aria-label="Abstract rotating broadcast technology visual"><source src="assets/video/platform-arcs.webm" type="video/webm"><source src="assets/video/platform-arcs.mp4" type="video/mp4"></video></div>
 <span class="eyebrow">Seven modules · one roof</span><h2 class="big">Registration to ROI, produced like a broadcast</h2>
 <p style="color:var(--ink-dim);max-width:64ch;margin-top:16px">Most event platforms are software that hopes you have a production team. Most production companies hand you a stream and no data. VSE Platform is both: the registration, participation, networking and analytics layers of a modern event platform, fed by a real broadcast gallery and delivered by the crew.</p>
 <div class="pillar-grid">{mods}</div>

@@ -21,7 +21,7 @@ TRACKING = """<!-- Microsoft Clarity -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVVZ8ZEVK"></script>
 <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-1SVVZ8ZEVK');</script>"""
-CSSV = "v=15"
+CSSV = "v=16"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -253,6 +253,7 @@ idx = _re.sub(r'<footer>.*?</footer>', lambda m: foot_new, idx, flags=_re.S)
 idx = _re.sub(r'main\.css\?v=\d+', 'main.css?'+CSSV, idx); idx = _re.sub(r'main\.js\?v=\d+', 'main.js?'+CSSV, idx)
 idx = idx.replace('assets/img/hero-manchester.jpg"', 'assets/img/gen/hero-studio-wide.jpg"')
 idx = idx.replace('class="hero-video" autoplay muted loop playsinline preload="none"', 'class="hero-video" autoplay muted loop playsinline preload="auto"')
+idx = idx.replace('<source src="assets/video/hero-studio.mp4" type="video/mp4">', '<source src="assets/video/hero-studio.webm" type="video/webm"><source src="assets/video/hero-studio.mp4" type="video/mp4">') if 'hero-studio.webm' not in idx else idx
 if 'clarity.ms' not in idx:
     idx = idx.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary_large_image">\n'+TRACKING,1)
 open('index.html','w').write(idx)
