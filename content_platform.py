@@ -281,7 +281,13 @@ def features_page(page):
       body,crumbs=[('index.html','Home'),('platform.html','Platform'),('platform-features.html','Features')])
 
 # ---------------- demos ----------------
-DEMO_HEAD='<script defer src="assets/js/demo.js?v=1"></script>'
+# Must carry the shared cache-busting version. Pinned at ?v=1 it never updated
+# and browsers ran a stale demo script against new markup.
+try:
+    from build_pages import CSSV as _CSSV
+except Exception:
+    _CSSV = 'v=1'
+DEMO_HEAD='<script defer src="assets/js/demo.js?'+_CSSV+'"></script>'
 BRANDBAR = '''<div class="brandbar"><span>Brand:</span>\
 <button type="button" data-brand="vse" class="on">Virtual Studio Events</button>\
 <button type="button" data-brand="apex">Apex Live</button>\

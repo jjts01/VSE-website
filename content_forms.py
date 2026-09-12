@@ -1,5 +1,12 @@
 """Contact/enquiry form and privacy notice."""
 
+# Shared cache-busting version. A fixed ?v=1 meant the form script never
+# updated in browsers that had seen the page before.
+try:
+    from build_pages import CSSV as _CSSV
+except Exception:
+    _CSSV = 'v=1'
+
 # The Lambda Function URL. Verified end-to-end on 12 September 2026: validation,
 # spam traps and SES delivery all confirmed from the live origin.
 # If this is ever blanked, the form still works - it validates fully and falls
@@ -136,7 +143,7 @@ def register(P, page):
         "Tell us the date and the ambition. We'll handle the rest. Same-day response on every enquiry.",
         CONTACT_BODY,
         crumbs=[('index.html', 'Home'), ('contact.html', 'Contact')],
-        extra_head='<script defer src="assets/js/form.js?v=1"></script>')
+        extra_head='<script defer src="assets/js/form.js?'+_CSSV+'"></script>')
 
     P['privacy.html'] = page(
         'privacy.html',

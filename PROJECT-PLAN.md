@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 49
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 50
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `daf1681` | Demo switcher between the four demos, and four real brand scenarios |
 | 2026-09-12 | `f2de199` | Fix conflicting experience claims; add IndexNow key and submitter |
 | 2026-09-12 | `4d55e83` | Record the function URL CORS and permission learnings in CLAUDE.md |
 | 2026-09-12 | `28d56b3` | Switch the enquiry form to the live endpoint |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `72975d8` | Fix three label rules where the new colour was overridden by the old one |
 | 2026-09-12 | `d9c3614` | Darken the phone LIVE badge to match the broadcast one |
 | 2026-09-12 | `4059cb4` | Clear the last small-label contrast misses |
-| 2026-09-12 | `960c5b1` | Scope the demo dark-lock to the dark surfaces only |
 
 ## How this file stays current
 

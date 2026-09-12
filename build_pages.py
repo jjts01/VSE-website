@@ -21,7 +21,8 @@ try:
 except Exception:
     FORM_ENDPOINT = ""
 TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
-CSSV = "v=31"
+import re as _re
+CSSV = "v=32"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -247,7 +248,14 @@ register_platform(P, page)
 from content_forms import register as register_forms, FORM_ENDPOINT
 register_forms(P, page)
 
+# Any module can hard-code a ?v= on its own script tag, and more than one has:
+# form.js and demo.js both sat at ?v=1 for weeks, so browsers kept running a
+# stale script against fresh markup. Stamp the current version on every local
+# asset reference here, centrally, rather than trusting each module to remember.
+_ASSET_V = _re.compile(r'(assets/(?:js|css)/[\w.-]+)\?v=\d+')
+
 for name, content in P.items():
+    content = _ASSET_V.sub(lambda m: m.group(1) + '?' + CSSV, content)
     open(name,'w').write(content)
     print('wrote', name)
 
@@ -262,7 +270,7 @@ open('sitemap.xml','w').write(xml)
 print('sitemap:', len(urls), 'urls')
 
 # ---- keep hand-built index.html chrome in sync ----
-import re as _re
+
 idx = open('index.html').read()
 sample = P['services.html']
 nav_new = _re.search(r'<nav id="nav">.*?</nav>', sample, _re.S).group(0).replace(' aria-current="page"','')
