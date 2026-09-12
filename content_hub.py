@@ -24,7 +24,7 @@ PILLARS = [
       h1='Sets &amp; studios: <span class="em">designing for the lens.</span>',
       lede='A room that looks great to the audience in it can look flat on a stream. These guides are about building for the camera first.',
       blurb='Set building, backdrops, lighting, graphics and presenting to camera.'),
- dict(img='gen/pillar-live-production.jpg', img_alt='Live production gallery with preview monitors and a vision desk', key='live-production', slug='pillar-live-production.html', name='Live production', num='04',
+ dict(vid='gallery', img='gen/pillar-live-production.jpg', img_alt='Live production gallery with preview monitors and a vision desk', key='live-production', slug='pillar-live-production.html', name='Live production', num='04',
       title='Live Event Production: Gallery Roles, Show Calling & Recovery | Virtual Studio Events',
       desc='Inside the production gallery: crew roles, show calling and comms, running live Q&A and polls, hybrid room-plus-stream delivery, simulcasting and what to do when it goes wrong.',
       h1='Live production: <span class="em">standby… go.</span>',
@@ -94,7 +94,13 @@ def guide_list(guides):
 def pillar_page(page, p):
     gs=[g for g in GUIDES if g['pillar']==p['key']]
     intro=p.get('intro','')
-    banner=f'<div class="media-band reveal"><img src="assets/img/{p["img"]}" alt="{p["img_alt"]}" loading="lazy"></div>' if p.get('img') else ''
+    if p.get('vid'):
+        banner=('<div class="media-band reveal"><video autoplay muted loop playsinline preload="none" poster="assets/img/gen/poster-'
+                +p['vid']+'.jpg" aria-label="'+p['img_alt']+'"><source src="assets/video/'+p['vid']+'.mp4" type="video/mp4"></video></div>')
+    elif p.get('img'):
+        banner=f'<div class="media-band reveal"><img src="assets/img/{p["img"]}" alt="{p["img_alt"]}" loading="lazy"></div>'
+    else:
+        banner=''
     body=f'''<section class="content-sec"><div class="wrap reveal">{banner}{intro}{guide_list(gs)}
 <div style="margin-top:70px"><span class="eyebrow">Explore the other pillars</span><div class="pillar-grid" style="margin-top:30px">'''+''.join(f'<a class="pillar-card" href="{q["slug"]}"><span class="num">{q["num"]}</span><h3>{q["name"]}</h3><p>{q["blurb"]}</p></a>' for q in PILLARS if q['key']!=p['key'])+'</div></div></div></section>'
     crumbs=[('index.html','Home'),('resources.html','Resources'),(p['slug'],p['name'])]
@@ -103,11 +109,16 @@ def pillar_page(page, p):
 # ---------------- event-type landing pages ----------------
 from content_events import EVENTS, EVENT_FAQ_SCHEMA
 def event_page(page, e):
+    if e.get('vid'):
+        vidblock=('<div class="img-frame"><video autoplay muted loop playsinline preload="none" poster="assets/img/gen/poster-'
+                  +e['vid']+'.jpg" aria-label="'+e['img_alt']+'"><source src="assets/video/'+e['vid']+'.mp4" type="video/mp4"></video></div>')
+    else:
+        vidblock='<div class="img-frame"><img src="assets/img/'+e['img']+'" alt="'+e['img_alt']+'" loading="lazy"></div>'
     faqs=e.get('faqs',[])
     faq_html='' if not faqs else '<div style="margin-top:80px"><span class="eyebrow">Common questions</span><h2 class="big">'+e['faq_title']+'</h2><div class="rate-table">'+''.join(f'<div class="rate-row"><h4>{q}</h4><p>{a}</p><span></span></div>' for q,a in faqs)+'</div></div>'
     rel=[GUIDE_BY_SLUG[s] for s in e.get('related',[]) if s in GUIDE_BY_SLUG]
     rel_html='' if not rel else '<div style="margin-top:80px"><span class="eyebrow">Plan it properly</span><h2 class="big">Guides for this kind of event</h2>'+guide_list(rel)+'</div>'
-    body=f'''<section class="content-sec"><div class="wrap reveal"><div class="two-col"><div class="prose">{e['intro']}</div><div class="img-frame"><img src="assets/img/{e['img']}" alt="{e['img_alt']}" loading="lazy"></div></div>
+    body=f'''<section class="content-sec"><div class="wrap reveal"><div class="two-col"><div class="prose">{e['intro']}</div>{vidblock}</div>
 <div style="margin-top:80px"><span class="eyebrow">What we deliver</span><h2 class="big">{e['deliver_title']}</h2><div class="detail-list">'''+''.join(f'<div class="detail"><span class="num">{n}</span><h3>{t}</h3><p>{d}</p></div>' for n,t,d in e['deliverables'])+f'''</div></div>{rel_html}{faq_html}</div></section>'''
     extra='' if not faqs else EVENT_FAQ_SCHEMA(faqs)
     crumbs=[('index.html','Home'),('event-types.html','Event types'),(e['slug'],e['name'])]

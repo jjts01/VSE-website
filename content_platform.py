@@ -23,7 +23,7 @@ MODULES = [
    ('Multi-language & multi-currency',"Registration and confirmations in the attendee's language; ticketing in GBP, EUR, USD and more with local VAT handling."),
   ],
   related=['guide-registration-data-gdpr.html','guide-virtual-event-platform.html']),
- dict(img='gen/mod-engage.jpg', img_alt='Audience in a darkened auditorium holding up glowing phones', key='engage', slug='platform-engage.html', name='Engage', tag='Live audience participation',
+ dict(vid='audience', img='gen/mod-engage.jpg', img_alt='Audience in a darkened auditorium holding up glowing phones', key='engage', slug='platform-engage.html', name='Engage', tag='Live audience participation',
   title='Live Audience Participation Platform: Q&A, Polls, Quizzes, Reactions | VSE Platform',
   desc='Branded live audience participation for virtual, hybrid and in-room events: moderated Q&A with upvoting, polls and quizzes with on-screen results, reactions, word clouds, live chat, captions and translation.',
   h1='Engage: <span class="em">the audience in the show, not just watching it.</span>',
@@ -78,7 +78,7 @@ MODULES = [
    ('Attendee AI assistant',"A branded assistant that answers 'where is the ROI session?' and 'what did I miss?' from the event's own data."),
   ],
   related=['guide-on-demand-repurposing.html','guide-speaker-prep.html']),
- dict(img='gen/mod-broadcast.jpg', img_alt='Global network of streaming signal paths across a dark globe', key='broadcast', slug='platform-broadcast.html', name='Broadcast', tag='Production & streaming',
+ dict(vid='global-network', img='gen/mod-broadcast.jpg', img_alt='Global network of streaming signal paths across a dark globe', key='broadcast', slug='platform-broadcast.html', name='Broadcast', tag='Production & streaming',
   title='Broadcast-Grade Production Integrated With Your Event Platform | VSE Platform',
   desc='The difference between a platform and a show: VSE studios, cloud galleries, remote contribution, redundant streaming and broadcast graphics feeding the platform — produced by the crew behind the BBC, ITV and Waitrose events.',
   h1='Broadcast: <span class="em">a platform is a venue. This is the show.</span>',
@@ -176,7 +176,13 @@ def module_page(page, m):
     feats=''.join(f'<div class="detail"><span class="num">{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(m['features'],1))
     others=''.join(f'<a class="pillar-card" href="{o["slug"]}"><span class="num">{o["name"]}</span><h3>{o["tag"]}</h3><p>{o["lede"][:110]}…</p></a>' for o in MODULES if o['key']!=m['key'])
     rel=[GUIDE_BY_SLUG[s] for s in m.get('related',[]) if s in GUIDE_BY_SLUG]
-    banner=f'<div class="media-band reveal"><img src="assets/img/{m["img"]}" alt="{m["img_alt"]}" loading="lazy"></div>' if m.get('img') else ''
+    if m.get('vid'):
+        banner=('<div class="media-band reveal"><video autoplay muted loop playsinline preload="none" poster="assets/img/gen/poster-'
+                +m['vid']+'.jpg" aria-label="'+m['img_alt']+'"><source src="assets/video/'+m['vid']+'.mp4" type="video/mp4"></video></div>')
+    elif m.get('img'):
+        banner=f'<div class="media-band reveal"><img src="assets/img/{m["img"]}" alt="{m["img_alt"]}" loading="lazy"></div>'
+    else:
+        banner=''
     body=f'''<section class="content-sec"><div class="wrap reveal">{banner}
 <div class="demo-cta"><div><span class="eyebrow">Interactive demo</span><h3>{m['demo_label']}</h3><p>Runs in your browser, no sign-up. Switch the brand live.</p></div><a class="cta-btn" href="{m['demo']}">Open demo →</a></div>
 <div style="margin-top:80px"><span class="eyebrow">Capabilities</span><h2 class="big">What {m['name']} does</h2><div class="detail-list">{feats}</div></div>
@@ -196,7 +202,7 @@ def platform_overview(page):
 <a class="pillar-card" href="demo-analytics.html"><span class="num">Demo 04</span><h3>Live analytics dashboard</h3><p>Concurrent viewers against the run order, engagement, leads and sponsor ROI, updating live.</p></a></div>'''
     pk=''.join(f'<div class="pkg"><span class="num">{n}</span><h3>{p}</h3><p>{d}</p><ul>'+''.join(f'<li>{x}</li>' for x in items)+'</ul><a class="ghost-btn" href="contact.html">Talk to us</a></div>' for n,p,d,items in [(p[2],p[0],p[1],p[3]) for p in PACKAGES])
     body=f'''<section class="content-sec"><div class="wrap reveal">
-<div class="media-band reveal"><img src="assets/img/gen/platform-hero.jpg" alt="Abstract broadcast technology visual" loading="lazy"></div>
+<div class="media-band reveal"><video autoplay muted loop playsinline preload="none" poster="assets/img/gen/poster-platform-arcs.jpg" aria-label="Abstract rotating broadcast technology visual"><source src="assets/video/platform-arcs.mp4" type="video/mp4"></video></div>
 <span class="eyebrow">Seven modules · one roof</span><h2 class="big">Registration to ROI, produced like a broadcast</h2>
 <p style="color:var(--ink-dim);max-width:64ch;margin-top:16px">Most event platforms are software that hopes you have a production team. Most production companies hand you a stream and no data. VSE Platform is both: the registration, participation, networking and analytics layers of a modern event platform, fed by a real broadcast gallery and delivered by the crew.</p>
 <div class="pillar-grid">{mods}</div>

@@ -79,7 +79,7 @@ dict(slug='event-awards-show.html', name='Awards shows', kicker='Awards',
  h1='Awards shows <span class="em">with pace, polish and no dead air.</span>',
  lede='Our first-ever contract was an awards show watched by 75,000 people. We\'ve been refining the format since: pre-record what can\'t fail, keep the reveals live, and never leave a gap.',
  card='Ceremonies for online, hybrid and live audiences, from nominee VTs to winner reveals.',
- img='gen/ev-awards-show.jpg', img_alt='Awards ceremony stage lit for broadcast',
+ vid='awards', img='gen/ev-awards-show.jpg', img_alt='Awards ceremony stage lit for broadcast',
  intro='''<p>Awards shows live or die on pace. A ceremony that takes four minutes to get each winner on screen loses its audience by the third category. The production answer is preparation: nominee packages pre-produced, winner graphics built for every possible outcome, remote acceptance speeches tested in advance, and a host and gallery working from a run order timed to the second.</p>
 <p>We produce awards for virtual audiences, hybrid audiences with a room and a stream, and fully live ceremonies with broadcast output. Studio hosting from our own space or a partner studio, or a full production in your venue — with the graphics, VT playback, remote links and comms that make a ceremony feel like a broadcast rather than a video call with trophies.</p>''',
  deliver_title='What a VSE awards show includes',

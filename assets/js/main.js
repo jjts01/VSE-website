@@ -80,3 +80,19 @@ let t=0;
 const mb=document.getElementById('menuBtn');
 if(mb){mb.addEventListener('click',()=>{const open=document.body.classList.toggle('nav-open');mb.setAttribute('aria-expanded',open);mb.setAttribute('aria-label',open?'Close menu':'Open menu')});
 document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('nav-open')))}
+
+
+/* ---- decorative video: respect reduced motion, pause when off-screen ---- */
+(function pauseDecorativeVideo(){
+  const vids=[...document.querySelectorAll('.hero-video, .media-band video, .img-frame video')];
+  if(!vids.length) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    vids.forEach(v=>{v.removeAttribute('autoplay');v.pause();});
+    return;
+  }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){ if(v.paused) v.play().catch(()=>{}); } else { v.pause(); }
+  }),{threshold:.1});
+  vids.forEach(v=>io.observe(v));
+})();

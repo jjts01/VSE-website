@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 21
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 22
 
 ## Where the project stands
 
@@ -15,7 +15,7 @@
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
 | Words of original content | ~31,160 |
-| Images / videos in repo | 12 / 0 |
+| Images / videos in repo | 12 / 6 |
 
 ## Site inventory
 
@@ -72,6 +72,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `4b92c30` | Add CLAUDE.md brief and self-updating PROJECT-PLAN.md; 24 generated brand images across event types, pillars, platform modules and studios |
 | 2026-09-12 | `6248fd7` | Tracking on 404 page |
 | 2026-09-12 | `97bae60` | Add Microsoft Clarity and Google Analytics (GA4) tags to every page |
 | 2026-09-12 | `8ce2b11` | Packages meta pricing |
@@ -83,7 +84,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `761882f` | Knowledge hub: 6 pillars, 32 guides, 7 event-type landing pages, tools, templates, glossary, news; mobile nav; footer sitemap; breadcrumbs; auto sitemap |
 | 2026-06-11 | `f87c87a` | SEO pass 2: keyword titles/metas, LocalBusiness schema (Chichester), Resources hub + 4 guides with Article/FAQ schema, sitemap |
 | 2026-06-11 | `2b0526f` | SEO/security pass 1: Organization schema, OG/twitter meta, font preloads, remove dead logo hotlinks |
-| 2026-06-11 | `ba07027` | Revert 'Hire & Rates page' (intended for a different project) |
 
 ## How this file stays current
 
