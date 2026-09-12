@@ -92,7 +92,7 @@ document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>d
   }
   const io=new IntersectionObserver(es=>es.forEach(e=>{
     const v=e.target;
-    if(e.isIntersecting){ if(v.paused) v.play().catch(()=>{}); } else { v.pause(); }
+    if(e.isIntersecting){ if(v.readyState===0) v.load(); if(v.paused) v.play().catch(()=>{}); } else { v.pause(); }
   }),{threshold:.1});
   vids.forEach(v=>io.observe(v));
 })();

@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 24
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 26
 
 ## Where the project stands
 
@@ -75,6 +75,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `b75b82b` | Revert workflow change (PAT lacks workflow scope); roadmap notes the manual line to add |
+| 2026-09-12 | `703620f` | Roadmap: note workflow video-sync gap |
 | 2026-09-12 | `20ca3a0` | Deploy: sync assets/video with video/mp4 content-type |
 | 2026-09-12 | `7694891` | Six generated video loops (hero, platform, gallery, awards, global network, audience) with posters and reduced-motion handling |
 | 2026-09-12 | `4b92c30` | Add CLAUDE.md brief and self-updating PROJECT-PLAN.md; 24 generated brand images across event types, pillars, platform modules and studios |
@@ -85,8 +87,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `2ed0260` | Hub meeting card layout |
 | 2026-09-12 | `a7dd62b` | Fix demo background image paths |
 | 2026-09-12 | `ad8463f` | VSE Platform: overview, 7 modules, pipeline, packages/integrations, 4 working demos (participation, registration, event hub, analytics); nav/footer/homepage integration |
-| 2026-09-12 | `79d17c8` | Fix breadcrumb inheriting header nav styles |
-| 2026-09-12 | `761882f` | Knowledge hub: 6 pillars, 32 guides, 7 event-type landing pages, tools, templates, glossary, news; mobile nav; footer sitemap; breadcrumbs; auto sitemap |
 
 ## How this file stays current
 
