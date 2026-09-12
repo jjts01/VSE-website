@@ -1,9 +1,13 @@
 """Contact/enquiry form and privacy notice."""
 
-# Set this to the Lambda Function URL once the CloudFormation stack is deployed.
-# While empty the form validates fully and then falls back to a pre-filled mailto,
-# so it never looks broken to a visitor.
-FORM_ENDPOINT = ""
+# The Lambda Function URL. Verified end-to-end on 12 September 2026: validation,
+# spam traps and SES delivery all confirmed from the live origin.
+# If this is ever blanked, the form still works - it validates fully and falls
+# back to a pre-filled mailto, so it never looks broken to a visitor.
+# Note: CORS is configured on the function URL, never in the Lambda response.
+# Sending it from both places duplicates Access-Control-Allow-Origin and the
+# browser rejects the reply while the mail still sends.
+FORM_ENDPOINT = "https://5vyyyazykmpyo3liwlnxzcxznq0xcose.lambda-url.eu-west-2.on.aws/"
 
 CONTACT_BODY = """
 <section class="content-sec"><div class="wrap reveal">

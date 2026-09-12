@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 43
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 46
 
 ## Where the project stands
 
@@ -83,6 +83,9 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `f1d933a` | Keep both origins in the template so a redeploy doesn't drop the apex domain |
+| 2026-09-12 | `103987a` | Stop the Lambda sending its own CORS headers: the function URL already does |
+| 2026-09-12 | `ae4b7bc` | Footer base link tap targets; record the theme-audit learnings in CLAUDE.md |
 | 2026-09-12 | `6d6df8e` | Give footer links a 24px tap target |
 | 2026-09-12 | `bfcc246` | Make the event-hub demo's placeholder actions inert spans, not href=# links |
 | 2026-09-12 | `72975d8` | Fix three label rules where the new colour was overridden by the old one |
@@ -92,9 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `3329229` | Add house style rules to CLAUDE.md so they govern every word written, not just the site |
 | 2026-09-12 | `897945f` | Fix light/dark visibility: wordmark, demo surfaces, skip link, small labels |
 | 2026-09-12 | `f33c2b1` | Rewrite site copy to remove AI writing tells |
-| 2026-09-12 | `33143f3` | Default to dark theme; fix accumulated duplicate theme scripts in hand-built pages; keep 404 on current asset version |
-| 2026-09-12 | `5628722` | Fix Lambda Function URL permission (use !Ref and DependsOn so the public-invoke policy attaches) |
-| 2026-09-12 | `3b456ea` | Fix: define UTM helper before the analytics loader uses it |
 
 ## How this file stays current
 
