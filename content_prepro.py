@@ -112,7 +112,7 @@ dict(slug='guide-risk-redundancy.html', pillar='pre-production',
  title='Redundancy & Risk Planning for Live Streaming: What Fails and What to Do | Virtual Studio Events',
  desc='A broadcast engineer\'s risk register for virtual and hybrid events: the failures that actually happen, how likely they are, and the redundancy that prevents each one.',
  h1='Redundancy: <span class="em">plan for the failure you\'ll actually get.</span>', h1_plain='Redundancy: plan for the failure you\'ll actually get',
- lede='Everything that has gone wrong on our shows in six years, ranked by how often, with the fix for each.',
+ lede='Everything that has gone wrong on our shows, ranked by how often, with the fix for each.',
  related=['guide-internet-connectivity.html','guide-encoders-bitrates.html','guide-when-it-goes-wrong.html','guide-rehearsals.html'],
  body='''
 <p>Redundancy is insurance, and like insurance it's cheap compared with the claim. A second encoder and a bonded backup connection add a few hundred pounds to a production; the alternative is your all-hands going black in front of 3,000 employees. This is our working risk register. The things that actually break, in roughly the order they break.</p>

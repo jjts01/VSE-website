@@ -22,7 +22,7 @@ except Exception:
     FORM_ENDPOINT = ""
 TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
 import re as _re
-CSSV = "v=33"
+CSSV = "v=34"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -165,7 +165,7 @@ P['services.html'] = page('services.html',
 <p>Show opens, sizzle reels, highlight edits and same-day session turnarounds. Because we were in the gallery, the edit starts before the show ends.</p>
 <ul><li>Highlights &amp; sizzle reels</li><li>Session edits &amp; speaker cutdowns</li><li>Graphics &amp; motion</li></ul></article>
 <article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-hybrid.jpg" alt="Presenter on stage with remote participants on screen" loading="lazy"></div><span class="num">05: Hybrid &amp; virtual events</span><h3>The capability we built our name on.</h3>
-<p>Interactive event platforms with agendas, Q&amp;A, chat and breakouts; remote contribution; audiences in the room and online, seamlessly together. Born in 2020, refined on every show since.</p>
+<p>Interactive event platforms with agendas, Q&amp;A, chat and breakouts; remote contribution; audiences in the room and online, seamlessly together. Born in the 2020 shutdown, when a stream was the only way to hold an event at all, and refined on every show since.</p>
 <ul><li>Event platform &amp; registration</li><li>Remote speaker contribution</li><li>Hybrid room + stream design</li></ul></article>
 <article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-podcast.jpg" alt="Podcast studio with two microphones" loading="lazy"></div><span class="num">06: Podcast production</span><h3>End-to-end podcasts for brands.</h3>
 <p>Recording (in studio or remote), editing, artwork and managed hosting with monthly distribution: an ongoing service, not a one-off.</p>
@@ -199,7 +199,7 @@ P['work.html'] = page('work.html',
  "A few of the productions we can talk about. Much of our best work ships under our clients' names.",
  '''<section class="content-sec"><div class="wrap">
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/work-awards.jpg" alt="Awards ceremony seen from the back of a packed auditorium"></div>
-<div><span class="card-tag">Awards · 2020</span><h3>The 75,000-viewer awards show</h3><p>Our first contract: a full awards production streamed live to seventy-five thousand people. Vision mixing, graphics, audio and delivery, end to end. The show that proved the model.</p></div></article>
+<div><span class="card-tag">Awards · 2020</span><h3>The 75,000-viewer awards show</h3><p>Our first contract, in the first weeks of the 2020 lockdown: a full awards production streamed live to seventy-five thousand people. Vision mixing, graphics, audio and delivery, end to end. The show that proved the model.</p></div></article>
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/work-townhall.jpg" alt="Presenter addressing camera on a town hall studio set"></div>
 <div><span class="card-tag">Retail townhalls</span><h3>National retail, live to every store</h3><p>Studio townhalls and supplier conferences for the UK's biggest retailers (Waitrose, Morrisons, ASDA and John Lewis among them), interactive Q&amp;A, polls and tens of thousands of colleagues watching live.</p></div></article>
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/pillar-platforms.jpg" alt="Event platform shown on a laptop and phone"></div>
@@ -209,12 +209,12 @@ P['work.html'] = page('work.html',
 </div></section>''')
 
 P['about.html'] = page('about.html',
- 'About Virtual Studio Events | UK Event Production Experts',"The crew behind broadcasts for the BBC, ITV, Waitrose, Morrisons and John Lewis. Broadcast-grade live, hybrid and virtual event production across the UK.",
+ 'About Virtual Studio Events | UK Event Production Experts',"Founded when the 2020 pandemic closed every venue in the country, by the crew behind broadcasts for the BBC, ITV, Waitrose, Morrisons and John Lewis. Broadcast-grade live, hybrid and virtual event production across the UK.",
  'The studio','Built in a crisis. <span class="em">Proven on every show since.</span>',
- "Careers spent in galleries and outside broadcast trucks, brought to live, hybrid and virtual events.",
+ "Careers spent in galleries and outside broadcast trucks, turned to virtual events in March 2020 when the pandemic shut every venue in the country.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="two-col">
 <div class="prose">
-<p>Virtual Studio Events started by streaming an awards show to <strong>75,000 people</strong> when the world shut down. While venues were dark, we built the platform, the cloud galleries and the remote workflows that kept our clients' audiences connected.</p>
+<p>Virtual Studio Events started by streaming an awards show to <strong>75,000 people</strong> when the world shut down during the 2020 global pandemic. While venues were dark, we built the platform, the cloud galleries and the remote workflows that kept our clients' audiences connected.</p>
 <p>When live came back, we kept the lot. Today the same go-big-or-go-home crew delivers the technical layer of live, hybrid and broadcast events for the UK's leading production companies, agencies, charities and brands, in the gallery, in the studio, and in the cloud.</p>
 <p><strong>James Jones</strong> and <strong>Ben O'Dwyer</strong> lead every project personally. No account managers, no hand-offs: the people you brief are the people on comms.</p>
 </div>
@@ -223,7 +223,7 @@ P['about.html'] = page('about.html',
 <div class="stat-row">
 <div class="stat"><b>75<small>K</small></b><span>Peak live audience</span></div>
 <div class="stat"><b>40<small>+</small></b><span>Years combined experience</span></div>
-<div class="stat"><b>500<small>+</small></b><span>Shows delivered</span></div>
+<div class="stat"><b>500<small>+</small></b><span>Shows delivered since 2020</span></div>
 <div class="stat"><b>UK</b><span>Studio network, runs worldwide</span></div>
 </div></div></section>''')
 

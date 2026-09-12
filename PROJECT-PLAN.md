@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 51
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 53
 
 ## Where the project stands
 
@@ -14,7 +14,7 @@
 | Pages published | 75 |
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
-| Words of original content | ~30,868 |
+| Words of original content | ~30,878 |
 | Images / videos in repo | 13 / 12 |
 
 ## Site inventory
@@ -83,6 +83,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `98d1ad6` | Sync .txt, search index and video in CI; submit to IndexNow on deploy |
+| 2026-09-12 | `66977ed` | Tidy the new copy against house style; document the demo scenarios and IndexNow |
 | 2026-09-12 | `36898e5` | Stamp the cache-busting version on every asset reference centrally |
 | 2026-09-12 | `daf1681` | Demo switcher between the four demos, and four real brand scenarios |
 | 2026-09-12 | `f2de199` | Fix conflicting experience claims; add IndexNow key and submitter |
@@ -93,8 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `ae4b7bc` | Footer base link tap targets; record the theme-audit learnings in CLAUDE.md |
 | 2026-09-12 | `6d6df8e` | Give footer links a 24px tap target |
 | 2026-09-12 | `bfcc246` | Make the event-hub demo's placeholder actions inert spans, not href=# links |
-| 2026-09-12 | `72975d8` | Fix three label rules where the new colour was overridden by the old one |
-| 2026-09-12 | `d9c3614` | Darken the phone LIVE badge to match the broadcast one |
 
 ## How this file stays current
 

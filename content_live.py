@@ -111,7 +111,7 @@ dict(slug='guide-when-it-goes-wrong.html', pillar='live-production',
  lede='Something will break on air eventually. The difference between a blip and a disaster is what the crew does in the first minute, and whether they\'ve rehearsed it.',
  related=['guide-risk-redundancy.html','guide-rehearsals.html','guide-show-calling-comms.html'],
  body='''
-<p>In six years we've had encoders die, keynotes drop off mid-sentence, venue power trip and platforms fall over. Almost none of those became something the audience remembers, because the response was already written down. This is that playbook.</p>
+<p>Across more than five hundred shows we've had encoders die, keynotes drop off mid-sentence, venue power trip and platforms fall over. Almost none of those became something the audience remembers, because the response was already written down. This is that playbook.</p>
 <h2>Second 0: cover the picture</h2>
 <p>Whatever has failed, the audience must never see black, a frozen frame or a gallery desktop. The first call is always "fade to holding". The branded "back in a moment" graphic with the music bed. It buys time and it looks intentional. Every show has this graphic loaded on a hot key; if yours doesn't, that's the first thing to fix.</p>
 <h2>Seconds 0–15: diagnose out loud, once</h2>

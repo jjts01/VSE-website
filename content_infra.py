@@ -76,7 +76,7 @@ dict(slug='guide-cloud-production.html', pillar='infrastructure',
 <p>Very large in-room audiences where the room screens are the priority; venues with no usable internet at all (though bonded cellular often solves that); shows with heavy on-site graphics interaction with an LED wall. In those cases the cloud gallery becomes a superb backup path rather than the primary.</p>
 <h2>What it costs</h2>
 <p>A cloud gallery for a show day typically runs a few hundred pounds in infrastructure plus the operator's day rate, often a third to a half of an equivalent on-site production. Our <a href="guide-live-streaming-cost.html">cost guide</a> puts it in context.</p>
-<div class="callout"><p>We've been running cloud galleries since 2020 and built our own AWS routing and infrastructure for it. <a href="services.html">Ask us</a> about it for your next show.</p></div>
+<div class="callout"><p>We've been running cloud galleries since 2020, when they were the only way to put a show on air, and we built our own AWS routing and infrastructure for it. <a href="services.html">Ask us</a> about it for your next show.</p></div>
 '''),
 
 dict(slug='guide-remote-contribution.html', pillar='infrastructure',
