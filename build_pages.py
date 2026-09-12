@@ -16,6 +16,11 @@ SWIRL = '''<div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fi
 
 NAV_ITEMS = [("platform.html","Platform"),("services.html","Services"),("event-types.html","Event types"),("work.html","Work"),("resources.html","Resources"),("news.html","News"),("contact.html","Contact")]
 SITE = "https://www.virtualstudio.events/"
+TRACKING = """<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "yh85iv2y4g");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVVZ8ZEVK"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-1SVVZ8ZEVK');</script>"""
 CSSV = "v=12"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
@@ -62,6 +67,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
 <meta property="og:url" content="{url}">
 <meta property="og:site_name" content="Virtual Studio Events">
 <meta name="twitter:card" content="summary_large_image">
+{TRACKING}
 <link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
 {ORG_SCHEMA}
@@ -242,5 +248,11 @@ foot_new = _re.search(r'<footer>.*?</footer>', sample, _re.S).group(0)
 idx = _re.sub(r'<nav id="nav">.*?</nav>', lambda m: nav_new, idx, flags=_re.S)
 idx = _re.sub(r'<footer>.*?</footer>', lambda m: foot_new, idx, flags=_re.S)
 idx = _re.sub(r'main\.css\?v=\d+', 'main.css?'+CSSV, idx); idx = _re.sub(r'main\.js\?v=\d+', 'main.js?'+CSSV, idx)
+if 'clarity.ms' not in idx:
+    idx = idx.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary_large_image">\n'+TRACKING,1)
 open('index.html','w').write(idx)
-print('index chrome synced')
+nf = open('404.html').read()
+if 'clarity.ms' not in nf:
+    nf = nf.replace('<link rel="stylesheet" href="/assets/css/main.css">', TRACKING+'\n<link rel="stylesheet" href="/assets/css/main.css">',1)
+    open('404.html','w').write(nf)
+print('index chrome synced + tracking')
