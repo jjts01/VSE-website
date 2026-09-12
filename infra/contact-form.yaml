@@ -1,0 +1,221 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Virtual Studio Events - enquiry form backend. Creates a Lambda execution role,
+  a Python Lambda that validates an enquiry and sends it via SES, and a public
+  Lambda Function URL locked to the site's origin by CORS. No API Gateway needed.
+
+Parameters:
+  ToAddress:
+    Type: String
+    Default: enquiries@virtualstudio.events
+    Description: Where enquiries are delivered.
+  FromAddress:
+    Type: String
+    Default: website@virtualstudio.events
+    Description: >
+      Envelope sender. Must be covered by a verified SES identity -
+      the virtualstudio.events domain identity covers any address on it.
+  AllowedOrigin:
+    Type: String
+    Default: https://www.virtualstudio.events
+    Description: Origin permitted to POST to the function URL.
+  SesRegion:
+    Type: String
+    Default: eu-west-2
+    Description: Region where the SES identity is verified.
+
+Resources:
+
+  ContactFormRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: vse-contact-form-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: SendEnquiryEmail
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: [ 'ses:SendEmail', 'ses:SendRawEmail' ]
+                Resource: '*'
+                Condition:
+                  StringEquals:
+                    'ses:FromAddress': !Ref FromAddress
+
+  ContactFormFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: vse-contact-form
+      Runtime: python3.12
+      Handler: index.handler
+      Role: !GetAtt ContactFormRole.Arn
+      Timeout: 10
+      MemorySize: 256
+      Environment:
+        Variables:
+          TO_ADDRESS: !Ref ToAddress
+          FROM_ADDRESS: !Ref FromAddress
+          ALLOWED_ORIGIN: !Ref AllowedOrigin
+          SES_REGION: !Ref SesRegion
+      Code:
+        ZipFile: |
+          import json, os, re, time, html, boto3
+          from collections import defaultdict
+
+          TO = os.environ['TO_ADDRESS']
+          FROM = os.environ['FROM_ADDRESS']
+          ORIGIN = os.environ['ALLOWED_ORIGIN']
+          ses = boto3.client('ses', region_name=os.environ.get('SES_REGION', 'eu-west-2'))
+
+          EMAIL_RE = re.compile(r'^[^\s@]+@[^\s@]+\.[^\s@]{2,}$')
+          FIELDS = ['name', 'email', 'organisation', 'phone', 'event_type',
+                    'event_date', 'budget', 'location', 'message']
+          # crude in-memory throttle; resets when the container recycles
+          _hits = defaultdict(list)
+
+          def reply(code, body):
+              return {
+                  'statusCode': code,
+                  'headers': {
+                      'Content-Type': 'application/json',
+                      'Access-Control-Allow-Origin': ORIGIN,
+                      'Access-Control-Allow-Headers': 'Content-Type',
+                      'Access-Control-Allow-Methods': 'POST,OPTIONS',
+                      'Cache-Control': 'no-store',
+                  },
+                  'body': json.dumps(body),
+              }
+
+          def clean(v, limit=4000):
+              return html.escape(str(v or '').strip())[:limit]
+
+          def handler(event, context):
+              method = (event.get('requestContext', {})
+                             .get('http', {}).get('method', 'POST')).upper()
+              if method == 'OPTIONS':
+                  return reply(200, {'ok': True})
+              if method != 'POST':
+                  return reply(405, {'error': 'Method not allowed'})
+
+              ip = (event.get('requestContext', {})
+                         .get('http', {}).get('sourceIp', 'unknown'))
+              now = time.time()
+              _hits[ip] = [t for t in _hits[ip] if now - t < 3600]
+              if len(_hits[ip]) >= 5:
+                  return reply(429, {'error': 'Too many enquiries from this address.'})
+
+              try:
+                  data = json.loads(event.get('body') or '{}')
+              except Exception:
+                  return reply(400, {'error': 'Malformed request.'})
+
+              # spam traps
+              if data.get('website'):
+                  return reply(200, {'ok': True})           # honeypot: accept silently
+              try:
+                  if int(data.get('elapsed_ms', 0)) < 2500:
+                      return reply(400, {'error': 'That was submitted a little too quickly.'})
+              except Exception:
+                  pass
+
+              name = clean(data.get('name'), 80)
+              email = clean(data.get('email'), 120)
+              message = clean(data.get('message'))
+              if len(name) < 2:
+                  return reply(400, {'error': 'Please include your name.'})
+              if not EMAIL_RE.match(data.get('email', '').strip()):
+                  return reply(400, {'error': 'That email address does not look right.'})
+              if len(message) < 10:
+                  return reply(400, {'error': 'Please tell us a little about the event.'})
+              if not data.get('consent'):
+                  return reply(400, {'error': 'We need your permission to reply.'})
+
+              vals = {f: clean(data.get(f), 200 if f != 'message' else 4000) for f in FIELDS}
+              utm = data.get('utm') or {}
+              utm_txt = '\n'.join(f'{k}: {clean(v,120)}' for k, v in utm.items() if v) or 'direct'
+
+              text = (
+                  f"New enquiry from virtualstudio.events\n\n"
+                  f"Name:         {vals['name']}\n"
+                  f"Email:        {vals['email']}\n"
+                  f"Organisation: {vals['organisation']}\n"
+                  f"Phone:        {vals['phone']}\n"
+                  f"Event type:   {vals['event_type']}\n"
+                  f"Event date:   {vals['event_date']}\n"
+                  f"Budget:       {vals['budget']}\n"
+                  f"Location:     {vals['location']}\n\n"
+                  f"Message:\n{vals['message']}\n\n"
+                  f"--- attribution ---\n{utm_txt}\n"
+                  f"page: {clean(data.get('page'), 300)}\n"
+                  f"ip:   {ip}\n"
+              )
+              rows = ''.join(
+                  f"<tr><td style='padding:6px 12px;color:#667;white-space:nowrap'>{k.replace('_',' ').title()}</td>"
+                  f"<td style='padding:6px 12px'><strong>{vals[k] or '&mdash;'}</strong></td></tr>"
+                  for k in FIELDS if k != 'message')
+              body_html = (
+                  "<div style=\"font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px\">"
+                  "<h2 style='color:#212b54;margin:0 0 4px'>New enquiry</h2>"
+                  "<p style='color:#667;margin:0 0 18px'>via virtualstudio.events</p>"
+                  f"<table style='border-collapse:collapse;font-size:14px'>{rows}</table>"
+                  f"<h3 style='color:#212b54;margin:22px 0 6px'>Message</h3>"
+                  f"<p style='font-size:15px;line-height:1.6;white-space:pre-wrap'>{vals['message']}</p>"
+                  f"<h3 style='color:#212b54;margin:22px 0 6px'>Attribution</h3>"
+                  f"<pre style='font-size:12px;color:#667;white-space:pre-wrap'>{html.escape(utm_txt)}\n"
+                  f"page: {clean(data.get('page'),300)}</pre></div>")
+
+              try:
+                  ses.send_email(
+                      Source=f'VSE Website <{FROM}>',
+                      Destination={'ToAddresses': [TO]},
+                      ReplyToAddresses=[vals['email']],
+                      Message={
+                          'Subject': {'Data': f"Enquiry: {vals['name']}"
+                                              + (f" — {vals['event_type']}" if vals['event_type'] else '')},
+                          'Body': {'Text': {'Data': text}, 'Html': {'Data': body_html}},
+                      },
+                  )
+              except Exception as e:
+                  print('SES error:', repr(e))
+                  return reply(502, {'error': 'We could not send that just now.'})
+
+              _hits[ip].append(now)
+              return reply(200, {'ok': True})
+
+  ContactFormUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt ContactFormFunction.Arn
+      AuthType: NONE
+      Cors:
+        AllowOrigins: [ !Ref AllowedOrigin ]
+        AllowMethods: [ POST ]
+        AllowHeaders: [ content-type ]
+        MaxAge: 3600
+
+  ContactFormUrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt ContactFormFunction.Arn
+      Action: lambda:InvokeFunctionUrl
+      Principal: '*'
+      FunctionUrlAuthType: NONE
+
+  ContactFormLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${ContactFormFunction}'
+      RetentionInDays: 30
+
+Outputs:
+  FormEndpoint:
+    Description: Paste this into FORM_ENDPOINT in content_forms.py, then rebuild and deploy.
+    Value: !GetAtt ContactFormUrl.FunctionUrl

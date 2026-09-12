@@ -5,13 +5,13 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 28
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 29
 
 ## Where the project stands
 
 | Metric | Value |
 |---|---|
-| Pages published | 74 |
+| Pages published | 75 |
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
 | Words of original content | ~31,160 |
@@ -21,7 +21,7 @@
 
 | Section | Pages | Examples |
 |---|---|---|
-| Core | 7 | 404.html, about.html, contact.html, index.html … |
+| Core | 8 | 404.html, about.html, contact.html, index.html … |
 | VSE Platform | 12 | demos.html, pipeline.html, platform-brand.html, platform-broadcast.html … |
 | Interactive demos | 4 | demo-analytics.html, demo-audience.html, demo-event-hub.html, demo-registration.html |
 | Event-type landing pages | 8 | event-agm-investor.html, event-awards-show.html, event-hybrid-conference.html, event-product-launch.html … |
@@ -77,6 +77,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `ebaf9a3` | Roadmap: note unverified video playback |
 | 2026-09-12 | `2bf432c` | Add WebM/VP9 sources alongside MP4 for all video loops |
 | 2026-09-12 | `9550886` | Fix video autoplay: preload auto for hero, metadata for bands, load() before play() |
 | 2026-09-12 | `b75b82b` | Revert workflow change (PAT lacks workflow scope); roadmap notes the manual line to add |
@@ -88,7 +89,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `97bae60` | Add Microsoft Clarity and Google Analytics (GA4) tags to every page |
 | 2026-09-12 | `8ce2b11` | Packages meta pricing |
 | 2026-09-12 | `0c63172` | Market-benchmarked pricing (Sept 2026), platform-only and Engage-only tiers, full feature matrix page, global CDN + UK/EU residency + AI + security features, cost guide benchmarks with sources, news item |
-| 2026-09-12 | `2ed0260` | Hub meeting card layout |
 
 ## How this file stays current
 
