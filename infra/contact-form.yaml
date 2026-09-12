@@ -18,7 +18,13 @@ Parameters:
   AllowedOrigin:
     Type: String
     Default: https://www.virtualstudio.events
-    Description: Origin permitted to POST to the function URL.
+    Description: Primary origin permitted to POST to the function URL.
+  AllowedOriginApex:
+    Type: String
+    Default: https://virtualstudio.events
+    Description: >
+      The bare domain. Fasthosts forwards it to www, but a visitor who lands
+      there before the redirect still posts from this origin.
   SesRegion:
     Type: String
     Default: eu-west-2
@@ -201,7 +207,7 @@ Resources:
       TargetFunctionArn: !GetAtt ContactFormFunction.Arn
       AuthType: NONE
       Cors:
-        AllowOrigins: [ !Ref AllowedOrigin ]
+        AllowOrigins: [ !Ref AllowedOrigin, !Ref AllowedOriginApex ]
         AllowMethods: [ POST ]
         AllowHeaders: [ content-type ]
         MaxAge: 3600
