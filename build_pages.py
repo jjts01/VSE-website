@@ -21,7 +21,7 @@ TRACKING = """<!-- Microsoft Clarity -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVVZ8ZEVK"></script>
 <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-1SVVZ8ZEVK');</script>"""
-CSSV = "v=12"
+CSSV = "v=13"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -62,7 +62,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
 <link rel="canonical" href="{url}">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
-<meta property="og:image" content="https://www.virtualstudio.events/assets/img/hero-manchester.jpg">
+<meta property="og:image" content="https://www.virtualstudio.events/assets/img/gen/hero-studio-wide.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
 <meta property="og:site_name" content="Virtual Studio Events">
@@ -166,6 +166,9 @@ P['studios.html'] = page('studios.html',
 <div class="img-frame"><img src="assets/img/fareham-set.jpg" alt="Fareham studio interview set" loading="lazy"></div>
 <div class="img-frame"><img src="assets/img/norwich-blue.jpg" alt="Norwich studio, blue neon" loading="lazy"></div>
 <div class="img-frame"><img src="assets/img/fareham-blue.jpg" alt="Fareham studio in blue" loading="lazy"></div>
+<div class="img-frame"><img src="assets/img/gen/hero-studio-wide.jpg" alt="Broadcast studio with a lit cyclorama and camera pedestal" loading="lazy"></div>
+<div class="img-frame"><img src="assets/img/gen/pillar-set-design.jpg" alt="Studio set lit in teal and navy" loading="lazy"></div>
+<div class="img-frame"><img src="assets/img/gen/audio-desk.jpg" alt="Audio mixing desk in a production gallery" loading="lazy"></div>
 </div>
 <div class="content-sec prose">
 <p><strong>Manchester · Norwich · Fareham · Chichester</strong> — plus our studio partner <a href="https://granary.digital/"><strong>Granary Digital</strong></a>. Every partner studio meets a minimum specification for broadcast-quality content: proper lighting, acoustics, gallery space and connectivity.</p>
@@ -248,6 +251,7 @@ foot_new = _re.search(r'<footer>.*?</footer>', sample, _re.S).group(0)
 idx = _re.sub(r'<nav id="nav">.*?</nav>', lambda m: nav_new, idx, flags=_re.S)
 idx = _re.sub(r'<footer>.*?</footer>', lambda m: foot_new, idx, flags=_re.S)
 idx = _re.sub(r'main\.css\?v=\d+', 'main.css?'+CSSV, idx); idx = _re.sub(r'main\.js\?v=\d+', 'main.js?'+CSSV, idx)
+idx = idx.replace('assets/img/hero-manchester.jpg"', 'assets/img/gen/hero-studio-wide.jpg"')
 if 'clarity.ms' not in idx:
     idx = idx.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary_large_image">\n'+TRACKING,1)
 open('index.html','w').write(idx)
@@ -256,3 +260,11 @@ if 'clarity.ms' not in nf:
     nf = nf.replace('<link rel="stylesheet"', TRACKING+'\n<link rel="stylesheet"',1)
     open('404.html','w').write(nf)
 print('index chrome synced + tracking')
+
+# ---- keep PROJECT-PLAN.md in sync with reality on every build ----
+try:
+    import plan as _plan
+    _p, _g, _w = _plan.build()
+    print(f'PROJECT-PLAN.md updated: {_p} pages, {_g} guides, ~{_w:,} words')
+except Exception as _e:
+    print('plan update skipped:', _e)

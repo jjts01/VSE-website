@@ -1,0 +1,117 @@
+# CLAUDE.md — Virtual Studio Events website & platform
+
+**Read this first in any session touching virtualstudio.events.** It is the canonical brief: strategy, conventions and coordinates. `PROJECT-PLAN.md` alongside it is the living plan and changelog — it is **rewritten automatically by `build_pages.py` on every build**, so never hand-edit the sections marked auto-generated.
+
+---
+
+## 1. Who and what
+
+Virtual Studio Events Limited (VSE) — UK live, hybrid and virtual event production company. Founded March 2020 by **James Jones** and **Ben O'Dwyer** (40+ years combined live event experience). Studio in **Chichester, West Sussex**, partner studios in Manchester, Norwich and Fareham, cloud galleries on AWS. Studio partner: Granary Digital.
+
+- Site: https://www.virtualstudio.events
+- Contact: enquiries@virtualstudio.events · +44 020 359 86555
+- Repo: `jjts01/VSE-website` (GitHub, private)
+
+## 2. Strategy — the one thing to understand
+
+The 2020 site sold a "virtual events platform". The invoice data (571 lines, 2020–2026) showed the actual business is **senior technical crew and production delivery sold largely to other production companies**: 2024–26 revenue was ~£84k crew & engineering, ~£57k production management/HOD/technical delivery, ~£29k editing. Top clients are Apple Peel Productions, Reach Charity, Pure Communications, Universal Live, Production Bureau — trade, not end-clients.
+
+So the site is positioned on three layers, in this order of commercial weight:
+
+1. **Production company** — broadcast-grade crew, streaming engineering, studios. White-label for agencies; end-to-end for brands.
+2. **VSE Platform** — an all-in-one event platform (registration, live participation, networking, agenda/on-demand, analytics) with a real production gallery behind it. The differentiator: platforms have no crew, production companies have no data; VSE has both under one contract.
+3. **Knowledge authority** — 32+ guides, tools, templates, glossary and a sourced news page, to win organic search and be the reference people cite.
+
+**Target audiences** (given by James): production companies needing crew; brands/corporates needing full event production; companies needing hybrid/virtual events. **Geography: UK-wide.** Named competitors to watch: Fresh Productions, MOD Streaming, Gass Productions, Concept LIVE.
+
+**Voice:** plain, confident, specific. Gallery language ("standby… go"). Serif-italic accent words inside display headings. Never hype, never "solutions". Numbers and honest trade-offs beat adjectives — the honesty *is* the marketing.
+
+## 3. Commercial position (benchmarked September 2026)
+
+Full research with sources: Dropbox → `Website assets/Market pricing research - Sept 2026.md`.
+
+| | Price | Note |
+|---|---|---|
+| Broadcast package | from £1,750/event | Produced stream into existing tools |
+| Engage package | from £7,500/event | + registration, agenda, full participation |
+| Enterprise programme | from £30,000/year | 5+ events, networking/expo, white-label, SSO |
+| Platform-only (agencies) | from £1,500/event · £12,000/yr | No VSE crew |
+| Engage-only | from £350/event · £2,400/yr | Participation layer for any show |
+
+Market context: UK production runs £499–£1,000 (single camera) → £895–£3,500 (multi-camera) → **£5k–£15k/day (hybrid conference)** → £15k–£50k+ (multi-stage); specialist crew £450–£750/day. Platform licences alone run £1k–£5k/yr (self-serve) → **$10k–$50k per event/year (mid-market)** → $25k–$500k+ (ON24/Bizzabo/Cvent). **The bundle is the story**: an Enterprise programme including crew undercuts platform-only licences.
+
+**Claims discipline.** Security wording is deliberately "built on ISO 27001 / SOC 2-certified infrastructure, controls *aligned to* ISO 27001" — do not upgrade to "we are certified" unless VSE actually is. Prices on the site are recommendations benchmarked to market; James redlines them.
+
+## 4. Architecture
+
+Static site, no framework. Python generates every page.
+
+```
+build_pages.py      # chrome (head, nav, footer, tracking), core pages, sitemap,
+                    # syncs nav/footer into hand-built index.html + 404.html,
+                    # and REGENERATES PROJECT-PLAN.md on every run
+content_hub.py      # knowledge-hub engine: pillars, guide template (TOC, related,
+                    # Article schema, breadcrumbs), resources hub, glossary, news, tools
+content_prepro.py content_infra.py content_sets.py
+content_live.py content_platforms.py content_analytics.py   # the 32 guides, by pillar
+content_events.py   # 7 event-type landing pages (+ FAQ schema)
+content_platform.py # VSE Platform: 7 modules, pipeline, packages, features, 4 demos
+content_misc.py     # FAQs, glossary, news items, tools & templates HTML
+assets/css/main.css # single stylesheet; bump CSSV in build_pages.py when it changes
+assets/js/main.js   # site behaviour (loader, reveals, mobile nav, hero canvas)
+assets/js/tools.js  # bandwidth + budget calculators, template downloads
+assets/js/demo.js   # the four platform demos
+assets/img/ assets/fonts/
+```
+
+`index.html` and `404.html` are **hand-built** — the build script injects nav, footer, tracking and cache-busting into them rather than regenerating them.
+
+### Workflow
+1. Edit the relevant `content_*.py` (or `index.html` directly).
+2. `python3 build_pages.py`
+3. Bump `CSSV` in `build_pages.py` if CSS or JS changed (cache-busting).
+4. Commit and push to `main` → GitHub Actions deploys to S3 + CloudFront and invalidates.
+
+### Adding a guide
+Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `title` (SEO), `desc`, `h1` (HTML, with a `<span class="em">` accent), `h1_plain`, `lede`, `related` (slugs), `body` (HTML using `<h2>` sections). Rebuild — it appears in the pillar page, resources hub, sitemap, footer and related-links automatically.
+
+## 5. Infrastructure
+
+| Thing | Value |
+|---|---|
+| S3 bucket | `vse-website-prod` (eu-west-2), CloudFront-only access via OAC |
+| CloudFront | `E2MF96XZ37SRTT` → `d3lv0o5sgzlfow.cloudfront.net` |
+| ACM cert | us-east-1, covers apex + www, DNS-validated |
+| DNS | **Fasthosts** (ns1/ns2.livedns.co.uk). `www` CNAME → CloudFront; apex via Fasthosts web forwarding. Leave the two `_acm-validations` CNAMEs in place forever — they auto-renew the cert |
+| Deploy | GitHub Actions on push to `main`; secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`, `CLOUDFRONT_DIST_ID` |
+| Analytics | GA4 `G-1SVVZ8ZEVK` + Microsoft Clarity `yh85iv2y4g`, injected into every page via `TRACKING` in `build_pages.py` |
+| Security headers | CloudFront managed policy `67f7725c-…` (HSTS, nosniff, X-Frame-Options, referrer-policy) |
+
+## 6. Hard-won learnings — read before repeating a mistake
+
+- **MIME types break the site silently.** `aws s3 sync` stamps `binary/octet-stream` unless told otherwise; Chrome then refuses the stylesheet and the page renders white while every other tool reports 200 OK. The Actions workflow now sets `--content-type` per asset class. Never remove that.
+- **Always bump `CSSV`** after CSS/JS changes or browsers serve the old file against new HTML.
+- **HTML is cached 5 minutes, assets 7 days** — a "stale" page right after deploy is normal and self-heals.
+- **Git inside the mounted Dropbox folder fails** ("Operation not permitted" on lock files). Work in `/tmp/vse-website`, then `rsync` a copy to the outputs folder.
+- **Fine-grained GitHub PATs need explicit repo access** plus Contents: Read **and write**. Several tokens in this project were read-only and pushes 403'd; classic tokens worked.
+- **The AWS deploy user is scoped** — it can sync and invalidate but cannot create a custom CloudFront response-headers policy (needed for a full CSP). That is the one outstanding IAM gap.
+- **If a CSP is ever added**, allow-list `clarity.ms` and `googletagmanager.com` in `script-src`/`connect-src` or analytics dies silently.
+- Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
+
+## 7. Open items
+
+- Client logo image files (currently the logo marquee is removed; text client cloud carries the names). Originals are on the old WordPress host.
+- Google Search Console verification + sitemap submission; Google Business Profile for Chichester.
+- Rotate credentials pasted in chat during setup (GitHub PATs, AWS keys).
+- Bare domain `virtualstudio.events` → confirm Fasthosts web forwarding to `www` is live.
+- Milliard is a commercial typeface (Rene Bieder) — confirm the licence covers web embedding.
+
+## 8. Recurring automation
+
+`vse-competitor-intel` — scheduled task, 1st of each month 08:00. Researches UK production competitors, platform pricing, feature gaps and SEO positions; writes `Website assets/Competitor intel/YYYY-MM competitor briefing.md` to Dropbox and compares against the previous month.
+
+## 9. Where things live
+
+- Repo / working copy: `/tmp/vse-website` in session; mirrored to the Cowork outputs folder.
+- Dropbox: `Virtual Studio Event Dropbox/Virtual Studio Events/` — `Website assets/` (research, DNS notes, competitor intel), `Design elements/` (logos, Milliard font, backgrounds), `Studio Media/` (Chichester, Fareham, Norwich, Manchester photography), `Clients/`, `Showreel/`.
+- Brand: navy `#212b54`, teal `#6a9799`, light teal `#9fc4c5`; Milliard (display + body), Instrument Serif italic for accent words.

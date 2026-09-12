@@ -6,37 +6,37 @@ SITE = "https://www.virtualstudio.events/"
 DATE = "2026-09-12"
 
 PILLARS = [
- dict(key='pre-production', slug='pillar-pre-production.html', name='Pre-production & planning', num='01',
+ dict(img='gen/pillar-pre-production.jpg', img_alt='Production planning desk with run order sheets and headphones', key='pre-production', slug='pillar-pre-production.html', name='Pre-production & planning', num='01',
       title='Virtual Event Pre-Production & Planning Guides | Virtual Studio Events',
       desc='How to plan a virtual or hybrid event: run orders, speaker preparation, rehearsals, redundancy planning, budgets and accessibility — from working broadcast engineers.',
       h1='Pre-production: <span class="em">where shows are won.</span>',
       lede='Every flawless live event was boring in the gallery because the work happened weeks earlier. These guides cover the planning that makes show day calm.',
       blurb='Run orders, speaker prep, rehearsals, redundancy, budgets and accessibility.'),
- dict(key='infrastructure', slug='pillar-infrastructure.html', name='Streaming infrastructure', num='02',
+ dict(img='gen/pillar-infrastructure.jpg', img_alt='Streaming equipment rack with encoders and patch cables', key='infrastructure', slug='pillar-infrastructure.html', name='Streaming infrastructure', num='02',
       title='Live Streaming Infrastructure Explained: Internet, Encoders, Cloud Galleries | Virtual Studio Events',
       desc='Plain-English engineering guides to live streaming infrastructure: connectivity and bonding, encoders and bitrates, cloud production on AWS, remote contribution, audio and CDNs.',
       h1='Infrastructure: <span class="em">the bit nobody sees.</span>',
       lede='Bandwidth, encoders, cloud galleries, contribution links and delivery — the plumbing behind a stream that never drops, explained without the jargon.',
       blurb='Connectivity, encoders, cloud production, remote contribution, audio and delivery.'),
- dict(key='set-design', slug='pillar-set-design.html', name='Sets, studios & on-screen look', num='03',
+ dict(img='gen/pillar-set-design.jpg', img_alt='Empty broadcast set with a lit cyclorama and lighting grid', key='set-design', slug='pillar-set-design.html', name='Sets, studios & on-screen look', num='03',
       title='Set Design, Studio Lighting & On-Screen Graphics for Streaming | Virtual Studio Events',
       desc='How to design sets for camera, choose between LED walls, green screen and cyc, light for broadcast, brand your stream with graphics and get presenters looking their best.',
       h1='Sets &amp; studios: <span class="em">designing for the lens.</span>',
       lede='A room that looks great to the audience in it can look flat on a stream. These guides are about building for the camera first.',
       blurb='Set building, backdrops, lighting, graphics and presenting to camera.'),
- dict(key='live-production', slug='pillar-live-production.html', name='Live production', num='04',
+ dict(img='gen/pillar-live-production.jpg', img_alt='Live production gallery with preview monitors and a vision desk', key='live-production', slug='pillar-live-production.html', name='Live production', num='04',
       title='Live Event Production: Gallery Roles, Show Calling & Recovery | Virtual Studio Events',
       desc='Inside the production gallery: crew roles, show calling and comms, running live Q&A and polls, hybrid room-plus-stream delivery, simulcasting and what to do when it goes wrong.',
       h1='Live production: <span class="em">standby… go.</span>',
       lede='What actually happens on show day — who does what, how the calls are made, and how professionals recover when something breaks on air.',
       blurb='Gallery roles, comms, live interaction, hybrid delivery and recovery playbooks.'),
- dict(key='platforms', slug='pillar-platforms.html', name='Platforms & registration', num='05',
+ dict(img='gen/pillar-platforms.jpg', img_alt='Laptop and phone showing event platform interfaces', key='platforms', slug='pillar-platforms.html', name='Platforms & registration', num='05',
       title='Virtual Event Platforms: Comparison, Features, Registration & GDPR | Virtual Studio Events',
       desc='Choosing and running a virtual event platform: feature checklists, Teams vs Zoom vs YouTube vs dedicated platforms, registration flows, attendee data and GDPR, engagement tools.',
       h1='Platforms: <span class="em">the venue is software.</span>',
       lede='Independent, platform-agnostic guidance on where your audience watches, how they register, and what to do with the data — from a team that runs shows on all of them.',
       blurb='Platform comparison, feature checklists, registration, data and engagement.'),
- dict(key='analytics', slug='pillar-analytics.html', name='Analytics, ROI & after the show', num='06',
+ dict(img='gen/pillar-analytics.jpg', img_alt='Abstract event analytics curve visualisation', key='analytics', slug='pillar-analytics.html', name='Analytics, ROI & after the show', num='06',
       title='Virtual Event Analytics, ROI & Post-Event Content | Virtual Studio Events',
       desc='Which virtual event metrics matter, how to measure ROI, how to turn a live event into on-demand and social content, and how to write the post-event report leadership will read.',
       h1='After the show: <span class="em">proving it worked.</span>',
@@ -94,7 +94,8 @@ def guide_list(guides):
 def pillar_page(page, p):
     gs=[g for g in GUIDES if g['pillar']==p['key']]
     intro=p.get('intro','')
-    body=f'''<section class="content-sec"><div class="wrap reveal">{intro}{guide_list(gs)}
+    banner=f'<div class="media-band reveal"><img src="assets/img/{p["img"]}" alt="{p["img_alt"]}" loading="lazy"></div>' if p.get('img') else ''
+    body=f'''<section class="content-sec"><div class="wrap reveal">{banner}{intro}{guide_list(gs)}
 <div style="margin-top:70px"><span class="eyebrow">Explore the other pillars</span><div class="pillar-grid" style="margin-top:30px">'''+''.join(f'<a class="pillar-card" href="{q["slug"]}"><span class="num">{q["num"]}</span><h3>{q["name"]}</h3><p>{q["blurb"]}</p></a>' for q in PILLARS if q['key']!=p['key'])+'</div></div></div></section>'
     crumbs=[('index.html','Home'),('resources.html','Resources'),(p['slug'],p['name'])]
     return page(p['slug'],p['title'],p['desc'],'Knowledge hub · '+p['num'],p['h1'],p['lede'],body,crumbs=crumbs)

@@ -4,7 +4,7 @@ import json, re
 SITE="https://www.virtualstudio.events/"
 
 MODULES = [
- dict(key='register', slug='platform-register.html', name='Register', tag='Registration, ticketing & check-in',
+ dict(img='gen/mod-register.jpg', img_alt='Phone showing a check-in code beside a blank badge and badge printer', key='register', slug='platform-register.html', name='Register', tag='Registration, ticketing & check-in',
   title='Event Registration, Ticketing & Check-in Software | VSE Platform',
   desc='Branded event registration with ticket types, payments, invitations, approval workflows, SSO, waitlists, calendar sync, QR check-in and badge printing for virtual, hybrid and live events.',
   h1='Register: <span class="em">from invite to badge in one flow.</span>',
@@ -23,7 +23,7 @@ MODULES = [
    ('Multi-language & multi-currency',"Registration and confirmations in the attendee's language; ticketing in GBP, EUR, USD and more with local VAT handling."),
   ],
   related=['guide-registration-data-gdpr.html','guide-virtual-event-platform.html']),
- dict(key='engage', slug='platform-engage.html', name='Engage', tag='Live audience participation',
+ dict(img='gen/mod-engage.jpg', img_alt='Audience in a darkened auditorium holding up glowing phones', key='engage', slug='platform-engage.html', name='Engage', tag='Live audience participation',
   title='Live Audience Participation Platform: Q&A, Polls, Quizzes, Reactions | VSE Platform',
   desc='Branded live audience participation for virtual, hybrid and in-room events: moderated Q&A with upvoting, polls and quizzes with on-screen results, reactions, word clouds, live chat, captions and translation.',
   h1='Engage: <span class="em">the audience in the show, not just watching it.</span>',
@@ -41,7 +41,7 @@ MODULES = [
    ('Scales to 50,000+','Load-tested for town halls with tens of thousands of participants, rate-limited and moderated for public events.'),
   ],
   related=['guide-live-interaction.html','guide-engagement-features.html','guide-accessibility.html']),
- dict(key='connect', slug='platform-connect.html', name='Connect', tag='Networking, expo & sponsors',
+ dict(img='gen/mod-connect.jpg', img_alt='Two people meeting at an exhibition stand', key='connect', slug='platform-connect.html', name='Connect', tag='Networking, expo & sponsors',
   title='Virtual Event Networking, Expo Booths & Sponsor Platform | VSE Platform',
   desc='Networking and commercial features for virtual and hybrid events: 1:1 meeting scheduling, AI matchmaking, hosted roundtables, virtual expo booths with lead capture, sponsor visibility and ROI reporting.',
   h1='Connect: <span class="em">the conversations around the content.</span>',
@@ -59,7 +59,7 @@ MODULES = [
    ('Exhibitor self-serve portal','Exhibitors build their own booth, upload content, invite staff and download their leads — no organiser admin.'),
   ],
   related=['guide-engagement-features.html','guide-measuring-roi.html']),
- dict(key='stage', slug='platform-stage.html', name='Stage', tag='Agenda, sessions & content',
+ dict(img='gen/mod-stage.jpg', img_alt='Grid of on-demand video thumbnails with a play button', key='stage', slug='platform-stage.html', name='Stage', tag='Agenda, sessions & content',
   title='Event Agenda, Sessions, Breakouts & On-Demand Content Platform | VSE Platform',
   desc='The attendee experience: personalised multi-track agendas, session rooms with embedded broadcast streams, breakouts, speaker portal and green room, resource library and an on-demand hub with the same analytics after the event.',
   h1='Stage: <span class="em">where the audience watches, and comes back.</span>',
@@ -78,7 +78,7 @@ MODULES = [
    ('Attendee AI assistant',"A branded assistant that answers 'where is the ROI session?' and 'what did I miss?' from the event's own data."),
   ],
   related=['guide-on-demand-repurposing.html','guide-speaker-prep.html']),
- dict(key='broadcast', slug='platform-broadcast.html', name='Broadcast', tag='Production & streaming',
+ dict(img='gen/mod-broadcast.jpg', img_alt='Global network of streaming signal paths across a dark globe', key='broadcast', slug='platform-broadcast.html', name='Broadcast', tag='Production & streaming',
   title='Broadcast-Grade Production Integrated With Your Event Platform | VSE Platform',
   desc='The difference between a platform and a show: VSE studios, cloud galleries, remote contribution, redundant streaming and broadcast graphics feeding the platform — produced by the crew behind the BBC, ITV and Waitrose events.',
   h1='Broadcast: <span class="em">a platform is a venue. This is the show.</span>',
@@ -96,7 +96,7 @@ MODULES = [
    ('Any ingest, any latency','RTMP and SRT ingest from any gallery; standard, low-latency and sub-second delivery modes chosen per session.'),
   ],
   related=['guide-cloud-production.html','guide-hybrid-event-checklist.html','guide-risk-redundancy.html']),
- dict(key='insight', slug='platform-insight.html', name='Insight', tag='Analytics, reporting & integrations',
+ dict(img='gen/pillar-analytics.jpg', img_alt='Abstract event analytics curve visualisation', key='insight', slug='platform-insight.html', name='Insight', tag='Analytics, reporting & integrations',
   title='Event Analytics, Engagement Reporting & CRM Integration | VSE Platform',
   desc='Live and post-event analytics: concurrent viewers, attendance curves against the run order, engagement per session, lead scoring, sponsor reports, exports and real-time sync to HubSpot, Salesforce, Marketo and Dynamics.',
   h1='Insight: <span class="em">the report that gets next year approved.</span>',
@@ -114,7 +114,7 @@ MODULES = [
    ('Attribution & pipeline',"Attendees matched to CRM opportunities so the event's influenced pipeline is reported, not guessed."),
   ],
   related=['guide-event-metrics.html','guide-measuring-roi.html','guide-post-event-report.html']),
- dict(key='brand', slug='platform-brand.html', name='Brand & trust', tag='White-label, security & accessibility',
+ dict(img='gen/mod-brand.jpg', img_alt='Glowing padlock in a secure data centre corridor', key='brand', slug='platform-brand.html', name='Brand & trust', tag='White-label, security & accessibility',
   title='White-Label Event Platform: Branding, Security, GDPR & Accessibility | VSE Platform',
   desc='A fully white-label event platform on your domain, with enterprise security (SSO, roles, audit logs, UK/EU data residency), GDPR tooling, WCAG 2.1 AA accessibility, captions and BSL — for brands and for agencies reselling under their own name.',
   h1='Brand &amp; trust: <span class="em">your name on it, our standards under it.</span>',
@@ -176,7 +176,8 @@ def module_page(page, m):
     feats=''.join(f'<div class="detail"><span class="num">{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(m['features'],1))
     others=''.join(f'<a class="pillar-card" href="{o["slug"]}"><span class="num">{o["name"]}</span><h3>{o["tag"]}</h3><p>{o["lede"][:110]}…</p></a>' for o in MODULES if o['key']!=m['key'])
     rel=[GUIDE_BY_SLUG[s] for s in m.get('related',[]) if s in GUIDE_BY_SLUG]
-    body=f'''<section class="content-sec"><div class="wrap reveal">
+    banner=f'<div class="media-band reveal"><img src="assets/img/{m["img"]}" alt="{m["img_alt"]}" loading="lazy"></div>' if m.get('img') else ''
+    body=f'''<section class="content-sec"><div class="wrap reveal">{banner}
 <div class="demo-cta"><div><span class="eyebrow">Interactive demo</span><h3>{m['demo_label']}</h3><p>Runs in your browser, no sign-up. Switch the brand live.</p></div><a class="cta-btn" href="{m['demo']}">Open demo →</a></div>
 <div style="margin-top:80px"><span class="eyebrow">Capabilities</span><h2 class="big">What {m['name']} does</h2><div class="detail-list">{feats}</div></div>
 {('<div style="margin-top:90px"><span class="eyebrow">Read the thinking behind it</span><h2 class="big">Guides</h2>'+guide_list(rel)+'</div>') if rel else ''}
@@ -195,6 +196,7 @@ def platform_overview(page):
 <a class="pillar-card" href="demo-analytics.html"><span class="num">Demo 04</span><h3>Live analytics dashboard</h3><p>Concurrent viewers against the run order, engagement, leads and sponsor ROI, updating live.</p></a></div>'''
     pk=''.join(f'<div class="pkg"><span class="num">{n}</span><h3>{p}</h3><p>{d}</p><ul>'+''.join(f'<li>{x}</li>' for x in items)+'</ul><a class="ghost-btn" href="contact.html">Talk to us</a></div>' for n,p,d,items in [(p[2],p[0],p[1],p[3]) for p in PACKAGES])
     body=f'''<section class="content-sec"><div class="wrap reveal">
+<div class="media-band reveal"><img src="assets/img/gen/platform-hero.jpg" alt="Abstract broadcast technology visual" loading="lazy"></div>
 <span class="eyebrow">Seven modules · one roof</span><h2 class="big">Registration to ROI, produced like a broadcast</h2>
 <p style="color:var(--ink-dim);max-width:64ch;margin-top:16px">Most event platforms are software that hopes you have a production team. Most production companies hand you a stream and no data. VSE Platform is both: the registration, participation, networking and analytics layers of a modern event platform, fed by a real broadcast gallery and delivered by the crew.</p>
 <div class="pillar-grid">{mods}</div>
