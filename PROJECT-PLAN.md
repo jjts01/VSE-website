@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 27
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 28
 
 ## Where the project stands
 
@@ -46,6 +46,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 <!-- MANUAL:START -->
 ### Now (this quarter)
 
+- [ ] **Confirm the video loops actually play in a real browser.** Six generated loops (hero, platform, gallery, awards, global-network, audience) are deployed as MP4 (H.264, faststart) + WebM (VP9), with poster images and reduced-motion handling. Files serve correctly (200/206, right MIME, Accept-Ranges) and the markup is valid, but the automated browser used to verify would not decode either codec (readyState stayed 0), so playback is unverified. The poster frames render correctly as a fallback, so nothing looks broken either way. Check on a normal machine; if they don't play, the posters can simply stay.
+
 - [ ] **Deploy workflow is missing the video sync line.** The PAT used for pushes lacks `workflow` scope, so `.github/workflows/deploy.yml` could not be updated. Videos are currently uploaded to S3 by hand. Add this line after the `*.png` sync line in the "Sync assets" step:
       `aws s3 sync assets/video s3://${{ secrets.S3_BUCKET }}/assets/video --content-type "video/mp4" --cache-control "public,max-age=2592000"`
 
@@ -75,6 +77,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `2bf432c` | Add WebM/VP9 sources alongside MP4 for all video loops |
 | 2026-09-12 | `9550886` | Fix video autoplay: preload auto for hero, metadata for bands, load() before play() |
 | 2026-09-12 | `b75b82b` | Revert workflow change (PAT lacks workflow scope); roadmap notes the manual line to add |
 | 2026-09-12 | `703620f` | Roadmap: note workflow video-sync gap |
@@ -86,7 +89,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `8ce2b11` | Packages meta pricing |
 | 2026-09-12 | `0c63172` | Market-benchmarked pricing (Sept 2026), platform-only and Engage-only tiers, full feature matrix page, global CDN + UK/EU residency + AI + security features, cost guide benchmarks with sources, news item |
 | 2026-09-12 | `2ed0260` | Hub meeting card layout |
-| 2026-09-12 | `a7dd62b` | Fix demo background image paths |
 
 ## How this file stays current
 
