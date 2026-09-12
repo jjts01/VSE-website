@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 34
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 35
 
 ## Where the project stands
 
@@ -15,7 +15,7 @@
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
 | Words of original content | ~30,836 |
-| Images / videos in repo | 12 / 12 |
+| Images / videos in repo | 13 / 12 |
 
 ## Site inventory
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `f33c2b1` | Rewrite site copy to remove AI writing tells |
 | 2026-09-12 | `33143f3` | Default to dark theme; fix accumulated duplicate theme scripts in hand-built pages; keep 404 on current asset version |
 | 2026-09-12 | `5628722` | Fix Lambda Function URL permission (use !Ref and DependsOn so the public-invoke policy attaches) |
 | 2026-09-12 | `3b456ea` | Fix: define UTM helper before the analytics loader uses it |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `b75b82b` | Revert workflow change (PAT lacks workflow scope); roadmap notes the manual line to add |
 | 2026-09-12 | `703620f` | Roadmap: note workflow video-sync gap |
 | 2026-09-12 | `20ca3a0` | Deploy: sync assets/video with video/mp4 content-type |
-| 2026-09-12 | `7694891` | Six generated video loops (hero, platform, gallery, awards, global network, audience) with posters and reduced-motion handling |
 
 ## How this file stays current
 

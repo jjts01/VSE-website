@@ -11,6 +11,8 @@
   --bg:#212b54; --bg2:#26305c; --panel:#2b3663;
   --ink:#f4f6f9; --ink-dim:#a9b1cc; --line:rgba(255,255,255,.10);
   --accent:#6a9799; --accent2:#9fc4c5; --arc:rgba(255,255,255,.14);
+  /* small uppercase labels need more contrast than --accent gives on navy */
+  --label:#9fc4c5;
   --display:'Milliard',system-ui,sans-serif;
   --body:'Milliard',system-ui,sans-serif;
   --serif:'Instrument Serif',Georgia,serif;
@@ -97,7 +99,7 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2.5rem,6.6vw,5.6re
 
 /* ---------- studio statement ---------- */
 .statement{padding:150px 0 120px}
-.eyebrow{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:block}
+.eyebrow{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--label);margin-bottom:28px;display:block}
 h2.big{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3.8vw,3.1rem);line-height:1.12;letter-spacing:-.01em;max-width:26ch}
 .statement p.body{max-width:62ch;color:var(--ink-dim);margin-top:34px;font-size:1.05rem}
 .stat-row{display:flex;gap:0;margin-top:70px;border-top:1px solid var(--line)}
@@ -124,7 +126,7 @@ h2.big{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3.8vw,3
 .card:hover .card-img{border-color:rgba(106,151,153,.55);box-shadow:0 24px 70px rgba(0,0,0,.35)}
 .card:hover .card-img::after{opacity:0}
 .card:hover .card-img img{scale:1.06;filter:saturate(1.12)}
-.card-tag{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:16px;transition:letter-spacing .4s}
+.card-tag{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--label);display:block;margin-bottom:16px;transition:letter-spacing .4s}
 .card:hover .card-tag{letter-spacing:.34em}
 .card h3{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.15;margin-bottom:16px;
   display:inline;background:linear-gradient(var(--accent2),var(--accent2)) no-repeat left 1.06em/0 2px;transition:background-size .5s cubic-bezier(.2,.7,.2,1)}
@@ -204,7 +206,7 @@ footer img{height:32px;opacity:.85}
 .detail{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:42px 38px;transition:transform .35s,border-color .35s,box-shadow .35s}
 .detail:hover{transform:translateY(-5px);border-color:rgba(106,151,153,.5);box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .detail h3{font-family:var(--display);font-size:1.3rem;margin-bottom:12px}
-.detail .num{font-family:var(--display);font-size:.78rem;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:16px}
+.detail .num{font-family:var(--display);font-size:.78rem;letter-spacing:.2em;color:var(--label);display:block;margin-bottom:16px}
 .detail p{color:var(--ink-dim)}
 .detail ul{margin:18px 0 0 1.2em;color:var(--ink-dim)}
 .detail li{margin-bottom:6px}
@@ -277,7 +279,7 @@ footer ul{list-style:none} footer li{margin-bottom:8px;font-size:.86rem} footer 
 @media(max-width:900px){.pillar-grid{grid-template-columns:1fr}}
 .pillar-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 30px;transition:transform .35s,border-color .35s;display:block}
 .pillar-card:hover{transform:translateY(-6px);border-color:var(--accent)}
-.pillar-card .num{font-family:var(--display);font-size:.78rem;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:14px}
+.pillar-card .num{font-family:var(--display);font-size:.78rem;letter-spacing:.2em;color:var(--label);display:block;margin-bottom:14px}
 .pillar-card h3{font-family:var(--display);font-size:1.15rem;margin-bottom:10px}
 .pillar-card p{color:var(--ink-dim);font-size:.93rem}
 .pillar-card .cnt{display:block;margin-top:16px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
@@ -309,7 +311,7 @@ footer ul{list-style:none} footer li{margin-bottom:8px;font-size:.86rem} footer 
 .gloss-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px} .gloss-nav a{border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.85rem} .gloss-nav a:hover{border-color:var(--accent);color:var(--accent)}
 /* news */
 .news-item{padding:34px 0;border-bottom:1px solid var(--line)}
-.news-item .date{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:block}
+.news-item .date{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--label);margin-bottom:10px;display:block}
 .news-item h3{font-family:var(--display);font-size:1.25rem;margin-bottom:12px}
 .news-item p{color:var(--ink-dim);max-width:75ch} .news-item a{color:var(--accent2)}
 .news-item .src{font-size:.82rem;margin-top:10px;color:var(--ink-dim)}
@@ -323,7 +325,7 @@ nav.crumbs{position:static;display:block;padding:0;background:none;border:0;back
 .pipeline{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:40px}
 .pipe-step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 16px;position:relative;transition:transform .35s,border-color .35s}
 .pipe-step:hover{transform:translateY(-5px);border-color:var(--accent)}
-.pipe-step .num{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:10px}
+.pipe-step .num{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;color:var(--label);display:block;margin-bottom:10px}
 .pipe-step h3{font-family:var(--display);font-size:.92rem;margin-bottom:8px;line-height:1.25} .pipe-step p{font-size:.78rem;color:var(--ink-dim)} .pipe-step .cnt{display:block;margin-top:12px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2)}
 @media(max-width:1100px){.pipeline{grid-template-columns:repeat(4,1fr)}} @media(max-width:700px){.pipeline{grid-template-columns:1fr 1fr}}
 .pipe-list{margin-top:50px} .pipe-row{display:grid;grid-template-columns:90px 1fr;gap:30px;padding:36px 0;border-bottom:1px solid var(--line)}
@@ -333,7 +335,7 @@ nav.crumbs{position:static;display:block;padding:0;background:none;border:0;back
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px} @media(max-width:900px){.pkg-grid{grid-template-columns:1fr}}
 .pkg{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:36px 32px;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
 .pkg:hover{transform:translateY(-6px);border-color:var(--accent)} .pkg:nth-child(2){border-color:var(--accent)}
-.pkg .num{font-family:var(--display);font-size:.8rem;letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:10px} .pkg h3{font-family:var(--display);font-size:1.5rem;margin-bottom:10px} .pkg p{color:var(--ink-dim);font-size:.95rem}
+.pkg .num{font-family:var(--display);font-size:.8rem;letter-spacing:.14em;color:var(--label);display:block;margin-bottom:10px} .pkg h3{font-family:var(--display);font-size:1.5rem;margin-bottom:10px} .pkg p{color:var(--ink-dim);font-size:.95rem}
 .pkg ul{list-style:none;margin:22px 0 28px;flex:1} .pkg li{padding:8px 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink-dim)} .pkg li::before{content:"✓ ";color:var(--accent)}
 /* brand bar */
 .brandbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 6vw;background:var(--bg2);border-block:1px solid var(--line);font-size:.85rem;color:var(--ink-dim)}
@@ -427,6 +429,7 @@ html[data-theme="light"]{
   --bg:#f4f6fa; --bg2:#ffffff; --panel:#ffffff;
   --ink:#161c33; --ink-dim:#56607d; --line:rgba(22,28,51,.13);
   --accent:#3f6e70; --accent2:#2b5052; --arc:rgba(22,28,51,.10);
+  --label:#2b5052;
   --demo-bg:#ffffff; --demo-panel:#f1f4f9; --demo-accent:#3f6e70; --demo-accent2:#2b5052;
 }
 html[data-theme="light"] body{background:var(--bg);color:var(--ink)}
@@ -445,6 +448,36 @@ html[data-theme="light"] .badge{box-shadow:0 14px 34px rgba(22,28,51,.14)}
 html[data-theme="light"] .loader-hide{background:var(--bg)}
 html[data-theme="light"] ::selection{background:var(--accent);color:#fff}
 html[data-theme="light"] .marquee-track span:hover{text-shadow:none}
+
+/* ---- light theme: things that must not simply invert ---------------------
+   The wordmark is a white PNG, so light mode needs the colour original.
+   The demos imitate a branded product UI and a broadcast gallery; they stay
+   dark in both themes. That is what the product actually looks like, and it
+   stops every demo sub-component from needing its own light variant. */
+html[data-theme="light"] nav .logo img,
+html[data-theme="light"] .foot-brand img{content:url(../img/logo-long-colour.png)}
+html[data-theme="light"] .skip{background:var(--accent);color:#fff}
+
+html[data-theme="light"] #engage-demo,
+html[data-theme="light"] #reg-demo,
+html[data-theme="light"] #hub-demo,
+html[data-theme="light"] #dash-demo,
+html[data-theme="light"] .brandbar,
+html[data-theme="light"] .badge{
+  --ink:#f4f6f9; --ink-dim:#a9b1cc; --line:rgba(255,255,255,.10);
+  --demo-bg:#212b54; --demo-panel:#2b3663;
+  --demo-accent:#6a9799; --demo-accent2:#9fc4c5; --label:#9fc4c5;
+  color:var(--ink);
+}
+html[data-theme="light"] #engage-demo a,
+html[data-theme="light"] #reg-demo a,
+html[data-theme="light"] #hub-demo a,
+html[data-theme="light"] #dash-demo a{color:var(--demo-accent2)}
+/* the demo panels sit on the light page, so they need their own edge */
+html[data-theme="light"] #engage-demo,
+html[data-theme="light"] #reg-demo,
+html[data-theme="light"] #hub-demo,
+html[data-theme="light"] #dash-demo{border-radius:20px}
 /* theme toggle + search button */
 .icon-btn{background:none;border:1px solid var(--line);color:var(--ink);width:42px;height:42px;border-radius:12px;display:grid;place-items:center;cursor:pointer;transition:border-color .3s,color .3s,transform .3s;flex:0 0 auto;padding:0}
 .icon-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
