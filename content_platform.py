@@ -244,7 +244,7 @@ def packages_page(page):
 <tr><td>Support during the show</td><td>Ticket queue</td><td>The crew</td><td>The crew, plus a producer</td></tr>
 <tr><td>Accountability</td><td>Split</td><td>Split</td><td>One contract</td></tr></table></div></div></div></section>'''
     return page('platform-packages.html','VSE Platform Packages, Pricing & Integrations | Virtual Studio Events',
-      'VSE Platform packages — Broadcast from £2,000, Engage from £6,000, Enterprise programme pricing — with production crew included, plus integrations with HubSpot, Salesforce, Teams, Zoom, YouTube, SSO providers and payments.',
+      'VSE Platform packages — Broadcast from £1,750, Engage from £7,500, Enterprise programmes from £30,000 a year with production crew included, plus platform-only licences from £1,500 per event for agencies, plus integrations with HubSpot, Salesforce, Teams, Zoom, YouTube, SSO providers and payments.',
       'Packages & integrations','Buy the show, the platform, <span class="em">or the whole roof.</span>',
       'Per-event packages with crew included, programme pricing for a year of events, reseller terms for agencies — and the integrations that make it fit your stack.',
       body,crumbs=[('index.html','Home'),('platform.html','Platform'),('platform-packages.html','Packages')])
