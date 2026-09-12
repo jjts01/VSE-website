@@ -208,9 +208,9 @@ P['work.html'] = page('work.html',
 </div></section>''')
 
 P['about.html'] = page('about.html',
- 'About Virtual Studio Events | UK Event Production Experts',"Founded in 2020 by James Jones and Ben O'Dwyer, 40+ years of combined live event experience delivering broadcast-grade production for the UK's biggest brands.",
+ 'About Virtual Studio Events | UK Event Production Experts',"The crew behind broadcasts for the BBC, ITV, Waitrose, Morrisons and John Lewis, delivering broadcast-grade live, hybrid and virtual event production across the UK.",
  'The studio','Built in a crisis. <span class="em">Proven on every show since.</span>',
- "Founded in March 2020 by James Jones and Ben O'Dwyer, 40+ years of combined live event experience.",
+ "Careers spent in galleries and outside broadcast trucks, brought to live, hybrid and virtual events.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="two-col">
 <div class="prose">
 <p>Virtual Studio Events started by streaming an awards show to <strong>75,000 people</strong> when the world shut down. While venues were dark, we built the platform, the cloud galleries and the remote workflows that kept our clients' audiences connected.</p>
@@ -222,7 +222,7 @@ P['about.html'] = page('about.html',
 <div class="stat-row">
 <div class="stat"><b>75<small>K</small></b><span>Peak live audience</span></div>
 <div class="stat"><b>40<small>+</small></b><span>Years combined experience</span></div>
-<div class="stat"><b>500<small>+</small></b><span>Jobs delivered since 2020</span></div>
+<div class="stat"><b>500<small>+</small></b><span>Shows delivered</span></div>
 <div class="stat"><b>UK</b><span>Studio network, runs worldwide</span></div>
 </div></div></section>''')
 

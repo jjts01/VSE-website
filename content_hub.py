@@ -55,7 +55,7 @@ from content_analytics import GUIDES as G6
 GUIDES = G1 + G2 + G3 + G4 + G5 + G6
 GUIDE_BY_SLUG = {g['slug']: g for g in GUIDES}
 
-AUTHOR = '''<div class="author"><div class="av">VSE</div><p><b>Written by the Virtual Studio Events production team</b>James Jones and Ben O'Dwyer have 40+ years combined in live event production and have run broadcasts for the BBC, ITV, Waitrose, Morrisons, John Lewis and the UK's leading production companies since 2020.</p></div>'''
+AUTHOR = '''<div class="author"><div class="av">VSE</div><p><b>Written by the Virtual Studio Events production team</b>James Jones and Ben O'Dwyer have run broadcasts for the BBC, ITV, Waitrose, Morrisons, John Lewis and the UK's leading production companies. They write these guides from the gallery, not from a marketing desk.</p></div>'''
 
 def slugify(t):
     return re.sub(r'[^a-z0-9]+','-',t.lower()).strip('-')
