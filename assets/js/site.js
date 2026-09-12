@@ -29,6 +29,28 @@
     store.set(THEME_KEY, next); applyTheme(next);
   });
 
+  /* ---------------- UTM capture ---------------- */
+  const UTM_KEY = 'vse-utm';
+  (function captureUtm() {
+    const p = new URLSearchParams(location.search);
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'msclkid'];
+    const found = {};
+    keys.forEach(k => { const v = p.get(k); if (v) found[k] = v.slice(0, 120); });
+    if (Object.keys(found).length) {
+      found.landing = location.pathname;
+      found.referrer = (document.referrer || '').slice(0, 200);
+      found.ts = new Date().toISOString();
+      store.set(UTM_KEY, JSON.stringify(found));
+    }
+  })();
+  window.vseUtm = function () { try { return JSON.parse(store.get(UTM_KEY) || '{}'); } catch (e) { return {}; } };
+  function sendStoredUtm() {
+    const u = window.vseUtm();
+    if (u.utm_source && window.gtag) {
+      window.gtag('event', 'campaign_attributed', { campaign_source: u.utm_source, campaign_medium: u.utm_medium || '', campaign_name: u.utm_campaign || '' });
+    }
+  }
+
   /* ---------------- consent-gated analytics ---------------- */
   const CONSENT_KEY = 'vse-consent';
   const GA_ID = 'G-1SVVZ8ZEVK', CLARITY_ID = 'yh85iv2y4g';
@@ -65,28 +87,6 @@
     if (e.target.closest('#cookieReject')) { store.set(CONSENT_KEY, 'essential'); hideBar(); }
     if (e.target.closest('.cookie-settings')) { store.set(CONSENT_KEY, ''); showBar(); }
   });
-
-  /* ---------------- UTM capture ---------------- */
-  const UTM_KEY = 'vse-utm';
-  (function captureUtm() {
-    const p = new URLSearchParams(location.search);
-    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'msclkid'];
-    const found = {};
-    keys.forEach(k => { const v = p.get(k); if (v) found[k] = v.slice(0, 120); });
-    if (Object.keys(found).length) {
-      found.landing = location.pathname;
-      found.referrer = (document.referrer || '').slice(0, 200);
-      found.ts = new Date().toISOString();
-      store.set(UTM_KEY, JSON.stringify(found));
-    }
-  })();
-  window.vseUtm = function () { try { return JSON.parse(store.get(UTM_KEY) || '{}'); } catch (e) { return {}; } };
-  function sendStoredUtm() {
-    const u = window.vseUtm();
-    if (u.utm_source && window.gtag) {
-      window.gtag('event', 'campaign_attributed', { campaign_source: u.utm_source, campaign_medium: u.utm_medium || '', campaign_name: u.utm_campaign || '' });
-    }
-  }
 
   /* ---------------- site search ---------------- */
   let idx = null, idxLoading = false;

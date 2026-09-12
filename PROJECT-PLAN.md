@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 30
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 31
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `7085ffb` | Search index entity decoding, light-mode hero contrast, roadmap |
 | 2026-09-12 | `499acd4` | Light/dark theme, consent-gated analytics, site search, copy buttons, print stylesheet, UTM capture, floating CTA, enquiry form with success/error states, privacy notice, 12 more images, CloudFormation form backend |
 | 2026-09-12 | `ebaf9a3` | Roadmap: note unverified video playback |
 | 2026-09-12 | `2bf432c` | Add WebM/VP9 sources alongside MP4 for all video loops |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `4b92c30` | Add CLAUDE.md brief and self-updating PROJECT-PLAN.md; 24 generated brand images across event types, pillars, platform modules and studios |
 | 2026-09-12 | `6248fd7` | Tracking on 404 page |
 | 2026-09-12 | `97bae60` | Add Microsoft Clarity and Google Analytics (GA4) tags to every page |
-| 2026-09-12 | `8ce2b11` | Packages meta pricing |
 
 ## How this file stays current
 
