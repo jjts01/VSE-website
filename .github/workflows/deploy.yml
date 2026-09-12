@@ -18,8 +18,12 @@ jobs:
       - name: Sync pages (short cache)
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
-            --exclude "*" --include "*.html" --include "robots.txt" --include "sitemap.xml" \
+            --exclude "*" --include "*.html" --include "*.txt" --include "sitemap.xml" \
             --cache-control "public,max-age=300" --delete
+          # the client-side search index; JSON needs its MIME set explicitly or
+          # s3 sync stamps it binary/octet-stream and the browser refuses it
+          aws s3 cp search-index.json s3://${{ secrets.S3_BUCKET }}/search-index.json \
+            --content-type "application/json" --cache-control "public,max-age=300"
       - name: Sync assets (long cache, explicit MIME)
         run: |
           aws s3 sync assets/css  s3://${{ secrets.S3_BUCKET }}/assets/css  --content-type "text/css"               --cache-control "public,max-age=604800"
@@ -27,5 +31,18 @@ jobs:
           aws s3 sync assets/fonts s3://${{ secrets.S3_BUCKET }}/assets/fonts --content-type "font/woff2"           --cache-control "public,max-age=31536000"
           aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.jpg"  --content-type "image/jpeg" --cache-control "public,max-age=604800"
           aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.png"  --content-type "image/png"  --cache-control "public,max-age=604800"
+          aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.webp" --content-type "image/webp" --cache-control "public,max-age=604800"
+          aws s3 sync assets/img  s3://${{ secrets.S3_BUCKET }}/assets/img --exclude "*" --include "*.svg"  --content-type "image/svg+xml" --cache-control "public,max-age=604800"
+          if [ -d assets/video ]; then
+            aws s3 sync assets/video s3://${{ secrets.S3_BUCKET }}/assets/video --exclude "*" --include "*.mp4"  --content-type "video/mp4"  --cache-control "public,max-age=604800"
+            aws s3 sync assets/video s3://${{ secrets.S3_BUCKET }}/assets/video --exclude "*" --include "*.webm" --content-type "video/webm" --cache-control "public,max-age=604800"
+          fi
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
+
+      # Tell Bing, Yandex and the other IndexNow engines what changed, rather
+      # than waiting for them to crawl round to it. Google does not take part,
+      # so this sits alongside the sitemap. Never fail the deploy over it.
+      - name: Submit to IndexNow
+        continue-on-error: true
+        run: python3 indexnow.py
