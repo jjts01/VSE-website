@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#212b54">
+<title>Audio for Live Streaming: Mix-Minus, Audio Splits & Levels Explained | Virtual Studio Events</title>
+<meta name="description" content="Why stream audio needs its own mix, how mix-minus stops remote speakers hearing themselves, getting a clean split from venue PA, levels and loudness, and the mistakes that ruin streams.">
+<link rel="icon" type="image/png" href="assets/img/icon-white.png">
+<link rel="canonical" href="https://www.virtualstudio.events/guide-stream-audio.html">
+<meta property="og:title" content="Audio for Live Streaming: Mix-Minus, Audio Splits &amp; Levels Explained | Virtual Studio Events">
+<meta property="og:description" content="Why stream audio needs its own mix, how mix-minus stops remote speakers hearing themselves, getting a clean split from venue PA, levels and loudness, and the mistakes that ruin streams.">
+<meta property="og:image" content="https://www.virtualstudio.events/assets/img/hero-manchester.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.virtualstudio.events/guide-stream-audio.html">
+<meta property="og:site_name" content="Virtual Studio Events">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Stream audio: the 80% nobody budgets for", "description": "Why stream audio needs its own mix, how mix-minus stops remote speakers hearing themselves, getting a clean split from venue PA, levels and loudness, and the mistakes that ruin streams.", "author": {"@type": "Organization", "name": "Virtual Studio Events"}, "publisher": {"@type": "Organization", "name": "Virtual Studio Events", "logo": {"@type": "ImageObject", "url": "https://www.virtualstudio.events/assets/img/logo-stacked-white.png"}}, "mainEntityOfPage": "https://www.virtualstudio.events/guide-stream-audio.html", "datePublished": "2026-06-11", "dateModified": "2026-09-12", "wordCount": 520, "articleSection": "Streaming infrastructure"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css?v=7">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
+<div id="progress"></div>
+<nav id="nav">
+  <a class="logo" href="index.html"><img src="assets/img/logo-long-white.png" alt="Virtual Studio Events"></a>
+  <ul id="menu">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="event-types.html">Event types</a></li>
+    <li><a href="studios.html">Studios</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="m-only"><a href="about.html">About</a></li>
+  </ul>
+  <a class="cta-btn" href="contact.html">Start a project</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+</nav>
+<header class="page-hero" id="top">
+  <div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none">
+<g class="ring1" stroke="rgba(255,255,255,.13)" stroke-linecap="round">
+<circle cx="500" cy="500" r="470" stroke-width="10" stroke-dasharray="640 260 90 320 420 1223"/>
+<circle cx="500" cy="500" r="420" stroke-width="22" stroke-dasharray="380 420 700 1139" transform="rotate(70 500 500)"/>
+<circle cx="500" cy="500" r="365" stroke-width="6" stroke-dasharray="14 26 14 26 14 26 760 1413" transform="rotate(160 500 500)"/>
+</g>
+<g class="ring2" stroke="rgba(106,151,153,.30)" stroke-linecap="round">
+<circle cx="500" cy="500" r="305" stroke-width="16" stroke-dasharray="420 330 560 607" transform="rotate(-40 500 500)"/>
+<circle cx="500" cy="500" r="245" stroke-width="8" stroke-dasharray="10 22 10 22 10 22 480 963" transform="rotate(120 500 500)"/>
+<circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
+</g></svg></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="resources.html">Resources</a> <span>/</span> <a href="pillar-infrastructure.html">Streaming infrastructure</a> <span>/</span> <span aria-current="page">Stream audio: the 80% nobody budgets for</span></nav><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.virtualstudio.events/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.virtualstudio.events/resources.html"}, {"@type": "ListItem", "position": 3, "name": "Streaming infrastructure", "item": "https://www.virtualstudio.events/pillar-infrastructure.html"}, {"@type": "ListItem", "position": 4, "name": "Stream audio: the 80% nobody budgets for", "item": "https://www.virtualstudio.events/guide-stream-audio.html"}]}</script>
+    <span class="kicker"><span class="live-dot"></span> Streaming infrastructure</span>
+    <h1>Stream audio: <span class="em">the 80% nobody budgets for.</span></h1>
+    <p class="lede">Viewers forgive a soft picture and never forgive bad sound. How professional stream audio is built, and the three mistakes that account for most complaints.</p>
+    <div class="guide-meta">3 min read · Updated September 2026</div>
+  </div>
+</header>
+<main id="main">
+<section class="content-sec"><div class="wrap"><div class="guide-wrap"><article class="guide-body reveal">
+<p>Ask a hundred viewers why they left a stream and picture quality will barely feature. Audio will: too quiet, echoing, one speaker inaudible, a remote guest sounding like they're in a tunnel. Audio is most of the perceived quality of a stream, and it's usually the least-planned part of the production.</p>
+<h2 id="the-stream-needs-its-own-mix">The stream needs its own mix</h2>
+<p>The mix that sounds right in a room — through a PA, with the room's own acoustics — is wrong for a stream. Room PA feeds are equalised for the space and carry every reverberation. The stream needs a dedicated mix: direct microphone feeds, VT audio, remote guests and any music, balanced for headphones and laptop speakers. On bigger shows that's a separate sound engineer with their own desk listening on the stream, not in the room.</p>
+<h2 id="audio-splits-from-the-venue">Audio splits from the venue</h2>
+<p>When a venue's AV team runs the room, the stream takes an <strong>audio split</strong>: a copy of each microphone (or at minimum a clean pre-fade mix) delivered on a stage box or via Dante to the stream desk. Agree it in writing before the day: which sources, what connector, who provides the cable, and whether it's pre- or post-fader. "We'll give you a feed from the desk" is not specific enough.</p>
+<h2 id="mix-minus-why-remote-guests-hear-themselves">Mix-minus: why remote guests hear themselves</h2>
+<p>A remote speaker needs to hear the show to take part in it. If you send them the full programme mix, that mix contains their own voice, delayed by the round trip — and they'll hear themselves echo a second later, which makes speaking almost impossible. <strong>Mix-minus</strong> is a return feed of everything <em>except</em> that person's own microphone. Every remote contributor needs their own mix-minus. Broadcast calling tools handle it automatically; DIY setups routing a Teams call into a mixer usually don't, and that's the echo you've heard on so many webinars.</p>
+<h2 id="levels-and-loudness">Levels and loudness</h2>
+<p>Aim for consistent loudness across every source: the presenter, the pre-recorded video, the remote guest and the music bed should all sit at the same perceived level so viewers aren't reaching for the volume control. A limiter on the stream output prevents the sudden peak that distorts. Where we can, we normalise pre-recorded content in advance to a target loudness rather than fixing it live.</p>
+<h2 id="microphones-the-right-type-in-the-right-place">Microphones: the right type in the right place</h2>
+<p>Lavalier (clip-on) mics for presenters who move; headsets for anyone who turns their head a lot; handhelds for audience questions and as an emergency backup on stage; a boundary or gooseneck for a seated panel if lavs aren't possible. Fresh batteries at every break. And a rule: nobody on the stream is ever on a laptop microphone.</p>
+<h2 id="the-three-mistakes-that-account-for-most-complaints">The three mistakes that account for most complaints</h2>
+<ol><li><strong>Feeding the room PA mix to the stream</strong> — reverberant, uneven, unusable.</li><li><strong>No mix-minus for remote guests</strong> — echo, and a speaker who stops mid-sentence.</li><li><strong>Nobody listening on the stream</strong> — problems that are obvious to a viewer go unnoticed for twenty minutes in a gallery monitoring the room.</li></ol>
+<div class="callout"><p>Put a competent person on headphones, listening only to the stream, for the whole show. It's the cheapest quality improvement available.</p></div>
+<div class="author"><div class="av">VSE</div><p><b>Written by the Virtual Studio Events production team</b>James Jones and Ben O'Dwyer have 40+ years combined in live event production and have run broadcasts for the BBC, ITV, Waitrose, Morrisons, John Lewis and the UK's leading production companies since 2020.</p></div></article><aside class="side"><div class="side-box toc"><h4>In this guide</h4><ul><li><a href="#the-stream-needs-its-own-mix">The stream needs its own mix</a></li><li><a href="#audio-splits-from-the-venue">Audio splits from the venue</a></li><li><a href="#mix-minus-why-remote-guests-hear-themselves">Mix-minus: why remote guests hear themselves</a></li><li><a href="#levels-and-loudness">Levels and loudness</a></li><li><a href="#microphones-the-right-type-in-the-right-place">Microphones: the right type in the right place</a></li><li><a href="#the-three-mistakes-that-account-for-most-complaints">The three mistakes that account for most complaints</a></li></ul></div><div class="side-box"><h4>Related guides</h4><ul><li><a href="guide-remote-contribution.html">Remote contribution: getting the guest into the gallery</a></li><li><a href="guide-hybrid-event-checklist.html">The hybrid event technical checklist</a></li><li><a href="guide-encoders-bitrates.html">Encoders and bitrates: the settings that matter</a></li></ul></div><div class="side-box"><h4>Need it done?</h4><p style="font-size:.92rem;color:var(--ink-dim);margin-bottom:14px">We deliver this for the UK's leading brands and production companies.</p><a class="cta-btn" href="contact.html" style="display:inline-block">Talk to us</a></div></aside></div></div></section>
+</main>
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Let's get started</span>
+    <h2>Bring us the show <span class="em">you can't afford to drop.</span></h2>
+    <p>A date and an ambition is plenty. We'll engineer the rest — from "can we?" to "standby… go."</p>
+    <div class="contact-links">
+      <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
+      <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"><img src="assets/img/logo-stacked-white.png" alt="Virtual Studio Events"><p>Live, hybrid &amp; broadcast event production. Chichester studio, UK-wide crew, cloud galleries worldwide.</p></div>
+    <div><h4>Services</h4><ul><li><a href="services.html">Crew & engineering</a></li><li><a href="services.html">Streaming & vMix</a></li><li><a href="services.html">Production management</a></li><li><a href="studios.html">Studio hire</a></li><li><a href="work.html">Case studies</a></li></ul></div><div><h4>Event types</h4><ul><li><a href="event-virtual-conference.html">Virtual conferences</a></li><li><a href="event-hybrid-conference.html">Hybrid conferences</a></li><li><a href="event-town-hall.html">Town halls & all-hands</a></li><li><a href="event-awards-show.html">Awards shows</a></li><li><a href="event-webinar.html">Webinars</a></li><li><a href="event-product-launch.html">Product launches</a></li></ul></div><div><h4>Resources</h4><ul><li><a href="resources.html">Knowledge hub</a></li><li><a href="pillar-pre-production.html">Pre-production</a></li><li><a href="pillar-infrastructure.html">Streaming infrastructure</a></li><li><a href="pillar-live-production.html">Live production</a></li><li><a href="pillar-analytics.html">Analytics & ROI</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="tools.html">Free tools & templates</a></li></ul></div><div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="news.html">News & insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div>
+</footer>
+<script src="assets/js/main.js?v=7"></script>
+</body>
+</html>

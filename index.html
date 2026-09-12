@@ -21,10 +21,11 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}
 </script>
-<link rel="stylesheet" href="assets/css/main.css?v=5">
+<link rel="stylesheet" href="assets/css/main.css?v=7">
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
 <div id="loader">
   <div class="swirl" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:130vmin;height:130vmin;opacity:.5">
     <svg viewBox="0 0 1000 1000" fill="none">
@@ -45,13 +46,18 @@
 
 <nav id="nav">
   <a class="logo" href="index.html"><img src="assets/img/logo-long-white.png" alt="Virtual Studio Events"></a>
-  <ul>
+  <ul id="menu">
     <li><a href="services.html">Services</a></li>
+    <li><a href="event-types.html">Event types</a></li>
     <li><a href="studios.html">Studios</a></li>
-    <li><a href="work.html">Work</a></li><li><a href="resources.html">Resources</a></li>
-    <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="m-only"><a href="about.html">About</a></li>
   </ul>
   <a class="cta-btn" href="contact.html">Start a project</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 </nav>
 
 <header class="hero in" id="top">
@@ -88,6 +94,7 @@
   <a class="scroll-cue" href="#studio" data-hover>Scroll</a>
 </header>
 
+<main id="main">
 <section class="statement" id="studio">
   <div class="wrap reveal">
     <span class="eyebrow">The studio</span>
@@ -195,6 +202,16 @@
   </div>
 </section>
 
+<section class="content-sec" id="knowledge" style="border-top:1px solid var(--line)">
+  <div class="wrap reveal">
+    <span class="eyebrow">Knowledge hub</span>
+    <h2 class="big">32 guides to virtual &amp; hybrid events, <span class="em">free.</span></h2>
+    <p style="color:var(--ink-dim);max-width:60ch;margin-top:18px">Pre-production, streaming infrastructure, set design, live production, platforms and analytics — the material we hand to clients before every show, open to everyone. Plus calculators, templates and a glossary.</p>
+    <div class="pillar-grid"><a class="pillar-card" href="pillar-pre-production.html"><span class="num">01</span><h3>Pre-production & planning</h3><p>Run orders, speaker prep, rehearsals, redundancy, budgets and accessibility.</p></a><a class="pillar-card" href="pillar-infrastructure.html"><span class="num">02</span><h3>Streaming infrastructure</h3><p>Connectivity, encoders, cloud production, remote contribution, audio and delivery.</p></a><a class="pillar-card" href="pillar-set-design.html"><span class="num">03</span><h3>Sets, studios & on-screen look</h3><p>Set building, backdrops, lighting, graphics and presenting to camera.</p></a><a class="pillar-card" href="pillar-live-production.html"><span class="num">04</span><h3>Live production</h3><p>Gallery roles, comms, live interaction, hybrid delivery and recovery playbooks.</p></a><a class="pillar-card" href="pillar-platforms.html"><span class="num">05</span><h3>Platforms & registration</h3><p>Platform comparison, feature checklists, registration, data and engagement.</p></a><a class="pillar-card" href="pillar-analytics.html"><span class="num">06</span><h3>Analytics, ROI & after the show</h3><p>Metrics, ROI, on-demand and repurposing, post-event reporting.</p></a></div>
+    <div style="margin-top:34px"><a class="ghost-btn" href="resources.html">Explore the full hub →</a></div>
+  </div>
+</section>
+
 <section class="clients" id="clients">
   <div class="wrap reveal">
     <h2 class="big">Trusted in front of <span class="em">the biggest audiences.</span></h2>
@@ -203,6 +220,7 @@
   <div class="wrap reveal"><div class="client-cloud"><span>Amazon</span><span>Unilever</span><span>GE</span><span>Nationwide</span><span>Telefónica</span><span>B&amp;Q</span><span>Seagate</span><span>ASDA</span><span>Waitrose</span><span>John Lewis</span><span>Morrisons</span><span>Tesco</span><span>BBC</span><span>ITV</span><span>The Economist</span><span>Facebook</span><span>Just Eat</span><span>RM Sotheby's</span><span>Roke</span><span>Ageas</span><span>BIBA</span><span>BMS</span><span>Clarion</span><span>Fortune</span><span>Group M</span><span>Kids Network</span><span>Leaders</span><span>Learning In Law</span><span>Maclaren</span><span>Maverick</span><span>NIG</span><span>Nteractive</span><span>Outspoken</span><span>Peter Jones Foundation</span><span>Shark Ninja</span><span>Spark Creative</span><span>Sunbelt Rentals</span><span>Toucan</span><span>Watkin Jones</span><span>One Small Thing</span><span>Pollen Street Capital</span><span>Universal Live</span><span>Apple Peel Productions</span><span>Reach Charity</span><span>Pure Communications Group</span><span>Production Bureau</span><span>Barefoot Live</span><span>Brands at Work</span><span>VisionMill</span><span>Streamwise Productions</span><span>Present Yourself</span><span>Amethyst CME</span><span>Gripping Theatre</span></div></div>
 </section>
 
+</main>
 <section class="contact" id="contact">
   <div class="wrap reveal">
     <span class="eyebrow">Let's get started</span>
@@ -216,11 +234,13 @@
 </section>
 
 <footer>
-  <img src="assets/img/logo-stacked-white.png" alt="VSE">
-  <span>Live, hybrid &amp; broadcast event production · United Kingdom</span>
-  <span>© 2026 Virtual Studio Events Limited · Studio partner: Granary Digital</span>
+  <div class="foot-grid">
+    <div class="foot-brand"><img src="assets/img/logo-stacked-white.png" alt="Virtual Studio Events"><p>Live, hybrid &amp; broadcast event production. Chichester studio, UK-wide crew, cloud galleries worldwide.</p></div>
+    <div><h4>Services</h4><ul><li><a href="services.html">Crew & engineering</a></li><li><a href="services.html">Streaming & vMix</a></li><li><a href="services.html">Production management</a></li><li><a href="studios.html">Studio hire</a></li><li><a href="work.html">Case studies</a></li></ul></div><div><h4>Event types</h4><ul><li><a href="event-virtual-conference.html">Virtual conferences</a></li><li><a href="event-hybrid-conference.html">Hybrid conferences</a></li><li><a href="event-town-hall.html">Town halls & all-hands</a></li><li><a href="event-awards-show.html">Awards shows</a></li><li><a href="event-webinar.html">Webinars</a></li><li><a href="event-product-launch.html">Product launches</a></li></ul></div><div><h4>Resources</h4><ul><li><a href="resources.html">Knowledge hub</a></li><li><a href="pillar-pre-production.html">Pre-production</a></li><li><a href="pillar-infrastructure.html">Streaming infrastructure</a></li><li><a href="pillar-live-production.html">Live production</a></li><li><a href="pillar-analytics.html">Analytics & ROI</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="tools.html">Free tools & templates</a></li></ul></div><div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="news.html">News & insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div>
 </footer>
 
-<script src="assets/js/main.js?v=5"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>

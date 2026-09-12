@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#212b54">
+<title>When a Live Stream Goes Wrong: The Recovery Playbook | Virtual Studio Events</title>
+<meta name="description" content="What professional crews do in the first 60 seconds of a live failure: holding graphics, failover, calm comms, the presenter&#x27;s script, when to stop and restart, and the post-mortem afterwards.">
+<link rel="icon" type="image/png" href="assets/img/icon-white.png">
+<link rel="canonical" href="https://www.virtualstudio.events/guide-when-it-goes-wrong.html">
+<meta property="og:title" content="When a Live Stream Goes Wrong: The Recovery Playbook | Virtual Studio Events">
+<meta property="og:description" content="What professional crews do in the first 60 seconds of a live failure: holding graphics, failover, calm comms, the presenter&#x27;s script, when to stop and restart, and the post-mortem afterwards.">
+<meta property="og:image" content="https://www.virtualstudio.events/assets/img/hero-manchester.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.virtualstudio.events/guide-when-it-goes-wrong.html">
+<meta property="og:site_name" content="Virtual Studio Events">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "When it goes wrong live: the first sixty seconds", "description": "What professional crews do in the first 60 seconds of a live failure: holding graphics, failover, calm comms, the presenter's script, when to stop and restart, and the post-mortem afterwards.", "author": {"@type": "Organization", "name": "Virtual Studio Events"}, "publisher": {"@type": "Organization", "name": "Virtual Studio Events", "logo": {"@type": "ImageObject", "url": "https://www.virtualstudio.events/assets/img/logo-stacked-white.png"}}, "mainEntityOfPage": "https://www.virtualstudio.events/guide-when-it-goes-wrong.html", "datePublished": "2026-06-11", "dateModified": "2026-09-12", "wordCount": 518, "articleSection": "Live production"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css?v=7">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
+<div id="progress"></div>
+<nav id="nav">
+  <a class="logo" href="index.html"><img src="assets/img/logo-long-white.png" alt="Virtual Studio Events"></a>
+  <ul id="menu">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="event-types.html">Event types</a></li>
+    <li><a href="studios.html">Studios</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="m-only"><a href="about.html">About</a></li>
+  </ul>
+  <a class="cta-btn" href="contact.html">Start a project</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+</nav>
+<header class="page-hero" id="top">
+  <div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none">
+<g class="ring1" stroke="rgba(255,255,255,.13)" stroke-linecap="round">
+<circle cx="500" cy="500" r="470" stroke-width="10" stroke-dasharray="640 260 90 320 420 1223"/>
+<circle cx="500" cy="500" r="420" stroke-width="22" stroke-dasharray="380 420 700 1139" transform="rotate(70 500 500)"/>
+<circle cx="500" cy="500" r="365" stroke-width="6" stroke-dasharray="14 26 14 26 14 26 760 1413" transform="rotate(160 500 500)"/>
+</g>
+<g class="ring2" stroke="rgba(106,151,153,.30)" stroke-linecap="round">
+<circle cx="500" cy="500" r="305" stroke-width="16" stroke-dasharray="420 330 560 607" transform="rotate(-40 500 500)"/>
+<circle cx="500" cy="500" r="245" stroke-width="8" stroke-dasharray="10 22 10 22 10 22 480 963" transform="rotate(120 500 500)"/>
+<circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
+</g></svg></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="resources.html">Resources</a> <span>/</span> <a href="pillar-live-production.html">Live production</a> <span>/</span> <span aria-current="page">When it goes wrong live: the first sixty seconds</span></nav><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.virtualstudio.events/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.virtualstudio.events/resources.html"}, {"@type": "ListItem", "position": 3, "name": "Live production", "item": "https://www.virtualstudio.events/pillar-live-production.html"}, {"@type": "ListItem", "position": 4, "name": "When it goes wrong live: the first sixty seconds", "item": "https://www.virtualstudio.events/guide-when-it-goes-wrong.html"}]}</script>
+    <span class="kicker"><span class="live-dot"></span> Live production</span>
+    <h1>When it goes wrong live: <span class="em">the first sixty seconds.</span></h1>
+    <p class="lede">Something will break on air eventually. The difference between a blip and a disaster is what the crew does in the first minute — and whether they've rehearsed it.</p>
+    <div class="guide-meta">3 min read · Updated September 2026</div>
+  </div>
+</header>
+<main id="main">
+<section class="content-sec"><div class="wrap"><div class="guide-wrap"><article class="guide-body reveal">
+<p>In six years we've had encoders die, keynotes drop off mid-sentence, venue power trip and platforms fall over. Almost none of those became something the audience remembers, because the response was already written down. This is that playbook.</p>
+<h2 id="second-0-cover-the-picture">Second 0: cover the picture</h2>
+<p>Whatever has failed, the audience must never see black, a frozen frame or a gallery desktop. The first call is always "fade to holding" — the branded "back in a moment" graphic with the music bed. It buys time and it looks intentional. Every show has this graphic loaded on a hot key; if yours doesn't, that's the first thing to fix.</p>
+<h2 id="seconds-0-15-diagnose-out-loud-once">Seconds 0–15: diagnose out loud, once</h2>
+<p>One person reports on comms in one sentence: what's broken and what they're doing. "Primary encoder dropped, switching to backup." "Sarah's link is gone, wrangler redialling." The caller acknowledges and everyone else stays silent unless they have information. Panic on comms is contagious; a calm voice is too.</p>
+<h2 id="seconds-15-45-execute-the-rehearsed-response">Seconds 15–45: execute the rehearsed response</h2>
+<p>Each likely failure has a pre-agreed response from the <a href="guide-risk-redundancy.html">risk register</a>: encoder → backup encoder; internet → bonded cellular; remote speaker → holding graphic with their name while the wrangler reconnects, or the presenter takes the next item; platform → standby link emailed to attendees; playback file → skip to the next item and return to it. Because it's been drilled in rehearsal, this is a cue like any other, not an improvisation.</p>
+<h2 id="seconds-45-60-brief-the-presenter">Seconds 45–60: brief the presenter</h2>
+<p>The presenter is told, via the floor manager or an earpiece, exactly what to say and do: "Sarah's line dropped; say we'll come back to her and introduce the next speaker." Presenters who know the plan handle it gracefully; the audience hears "we've lost Sarah for a moment — let's bring in James and come back to her" and thinks nothing of it. Give every presenter a line for this in the prep session.</p>
+<h2 id="when-to-stop-and-restart">When to stop and restart</h2>
+<p>Rarely. Stopping the stream logs the audience out of players and dumps the recording; restarting means many won't find their way back. Stay live on holding for up to a few minutes while you fix. Beyond that, tell the audience plainly on screen what's happening and when to return, and email them. Honesty keeps more viewers than silence.</p>
+<h2 id="afterwards-the-post-mortem">Afterwards: the post-mortem</h2>
+<p>Within 24 hours, while it's fresh: what failed, what the response was, how long the audience was affected, what would have prevented it. Written down, without blame, and turned into a change to the checklist or the kit. The crews that never seem to have problems are the ones who've had them all before and wrote them down.</p>
+<h2 id="the-kit-that-makes-recovery-possible">The kit that makes recovery possible</h2>
+<ul><li>Holding graphic on a hot key, with music.</li><li>Backup encoder and backup connection, already running.</li><li>A standby stream destination and the email ready to send.</li><li>Dial-in numbers for every remote speaker.</li><li>Printed run order in case the screens go.</li><li>A rehearsed failure drill in the dress run.</li></ul>
+<div class="callout"><p>Ask your production company what they'd do if the primary encoder died mid-keynote. If the answer takes more than one sentence, keep asking.</p></div>
+<div class="author"><div class="av">VSE</div><p><b>Written by the Virtual Studio Events production team</b>James Jones and Ben O'Dwyer have 40+ years combined in live event production and have run broadcasts for the BBC, ITV, Waitrose, Morrisons, John Lewis and the UK's leading production companies since 2020.</p></div></article><aside class="side"><div class="side-box toc"><h4>In this guide</h4><ul><li><a href="#second-0-cover-the-picture">Second 0: cover the picture</a></li><li><a href="#seconds-0-15-diagnose-out-loud-once">Seconds 0–15: diagnose out loud, once</a></li><li><a href="#seconds-15-45-execute-the-rehearsed-response">Seconds 15–45: execute the rehearsed response</a></li><li><a href="#seconds-45-60-brief-the-presenter">Seconds 45–60: brief the presenter</a></li><li><a href="#when-to-stop-and-restart">When to stop and restart</a></li><li><a href="#afterwards-the-post-mortem">Afterwards: the post-mortem</a></li><li><a href="#the-kit-that-makes-recovery-possible">The kit that makes recovery possible</a></li></ul></div><div class="side-box"><h4>Related guides</h4><ul><li><a href="guide-risk-redundancy.html">Redundancy: plan for the failure you'll actually get</a></li><li><a href="guide-rehearsals.html">Rehearsals: test the show, then break it on purpose</a></li><li><a href="guide-show-calling-comms.html">Show calling: the voice everyone follows</a></li></ul></div><div class="side-box"><h4>Need it done?</h4><p style="font-size:.92rem;color:var(--ink-dim);margin-bottom:14px">We deliver this for the UK's leading brands and production companies.</p><a class="cta-btn" href="contact.html" style="display:inline-block">Talk to us</a></div></aside></div></div></section>
+</main>
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Let's get started</span>
+    <h2>Bring us the show <span class="em">you can't afford to drop.</span></h2>
+    <p>A date and an ambition is plenty. We'll engineer the rest — from "can we?" to "standby… go."</p>
+    <div class="contact-links">
+      <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
+      <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"><img src="assets/img/logo-stacked-white.png" alt="Virtual Studio Events"><p>Live, hybrid &amp; broadcast event production. Chichester studio, UK-wide crew, cloud galleries worldwide.</p></div>
+    <div><h4>Services</h4><ul><li><a href="services.html">Crew & engineering</a></li><li><a href="services.html">Streaming & vMix</a></li><li><a href="services.html">Production management</a></li><li><a href="studios.html">Studio hire</a></li><li><a href="work.html">Case studies</a></li></ul></div><div><h4>Event types</h4><ul><li><a href="event-virtual-conference.html">Virtual conferences</a></li><li><a href="event-hybrid-conference.html">Hybrid conferences</a></li><li><a href="event-town-hall.html">Town halls & all-hands</a></li><li><a href="event-awards-show.html">Awards shows</a></li><li><a href="event-webinar.html">Webinars</a></li><li><a href="event-product-launch.html">Product launches</a></li></ul></div><div><h4>Resources</h4><ul><li><a href="resources.html">Knowledge hub</a></li><li><a href="pillar-pre-production.html">Pre-production</a></li><li><a href="pillar-infrastructure.html">Streaming infrastructure</a></li><li><a href="pillar-live-production.html">Live production</a></li><li><a href="pillar-analytics.html">Analytics & ROI</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="tools.html">Free tools & templates</a></li></ul></div><div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="news.html">News & insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div>
+</footer>
+<script src="assets/js/main.js?v=7"></script>
+</body>
+</html>

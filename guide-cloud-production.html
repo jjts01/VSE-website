@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#212b54">
+<title>Cloud Production Galleries: How Remote Live Production on AWS Works | Virtual Studio Events</title>
+<meta name="description" content="How cloud-based live production works: vMix on AWS, remote operators, contribution links, latency, security, cost versus on-site kit, and when a cloud gallery is the right choice.">
+<link rel="icon" type="image/png" href="assets/img/icon-white.png">
+<link rel="canonical" href="https://www.virtualstudio.events/guide-cloud-production.html">
+<meta property="og:title" content="Cloud Production Galleries: How Remote Live Production on AWS Works | Virtual Studio Events">
+<meta property="og:description" content="How cloud-based live production works: vMix on AWS, remote operators, contribution links, latency, security, cost versus on-site kit, and when a cloud gallery is the right choice.">
+<meta property="og:image" content="https://www.virtualstudio.events/assets/img/hero-manchester.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.virtualstudio.events/guide-cloud-production.html">
+<meta property="og:site_name" content="Virtual Studio Events">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cloud galleries: the studio that lives in a data centre", "description": "How cloud-based live production works: vMix on AWS, remote operators, contribution links, latency, security, cost versus on-site kit, and when a cloud gallery is the right choice.", "author": {"@type": "Organization", "name": "Virtual Studio Events"}, "publisher": {"@type": "Organization", "name": "Virtual Studio Events", "logo": {"@type": "ImageObject", "url": "https://www.virtualstudio.events/assets/img/logo-stacked-white.png"}}, "mainEntityOfPage": "https://www.virtualstudio.events/guide-cloud-production.html", "datePublished": "2026-06-11", "dateModified": "2026-09-12", "wordCount": 558, "articleSection": "Streaming infrastructure"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css?v=7">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
+<div id="progress"></div>
+<nav id="nav">
+  <a class="logo" href="index.html"><img src="assets/img/logo-long-white.png" alt="Virtual Studio Events"></a>
+  <ul id="menu">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="event-types.html">Event types</a></li>
+    <li><a href="studios.html">Studios</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="m-only"><a href="about.html">About</a></li>
+  </ul>
+  <a class="cta-btn" href="contact.html">Start a project</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+</nav>
+<header class="page-hero" id="top">
+  <div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none">
+<g class="ring1" stroke="rgba(255,255,255,.13)" stroke-linecap="round">
+<circle cx="500" cy="500" r="470" stroke-width="10" stroke-dasharray="640 260 90 320 420 1223"/>
+<circle cx="500" cy="500" r="420" stroke-width="22" stroke-dasharray="380 420 700 1139" transform="rotate(70 500 500)"/>
+<circle cx="500" cy="500" r="365" stroke-width="6" stroke-dasharray="14 26 14 26 14 26 760 1413" transform="rotate(160 500 500)"/>
+</g>
+<g class="ring2" stroke="rgba(106,151,153,.30)" stroke-linecap="round">
+<circle cx="500" cy="500" r="305" stroke-width="16" stroke-dasharray="420 330 560 607" transform="rotate(-40 500 500)"/>
+<circle cx="500" cy="500" r="245" stroke-width="8" stroke-dasharray="10 22 10 22 10 22 480 963" transform="rotate(120 500 500)"/>
+<circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
+</g></svg></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="resources.html">Resources</a> <span>/</span> <a href="pillar-infrastructure.html">Streaming infrastructure</a> <span>/</span> <span aria-current="page">Cloud galleries: the studio that lives in a data centre</span></nav><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.virtualstudio.events/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.virtualstudio.events/resources.html"}, {"@type": "ListItem", "position": 3, "name": "Streaming infrastructure", "item": "https://www.virtualstudio.events/pillar-infrastructure.html"}, {"@type": "ListItem", "position": 4, "name": "Cloud galleries: the studio that lives in a data centre", "item": "https://www.virtualstudio.events/guide-cloud-production.html"}]}</script>
+    <span class="kicker"><span class="live-dot"></span> Streaming infrastructure</span>
+    <h1>Cloud galleries: <span class="em">the studio that lives in a data centre.</span></h1>
+    <p class="lede">How we run entire broadcasts from machines in the cloud, why it costs less than trucking kit around, and when you still want a human in the room.</p>
+    <div class="guide-meta">3 min read · Updated September 2026</div>
+  </div>
+</header>
+<main id="main">
+<section class="content-sec"><div class="wrap"><div class="guide-wrap"><article class="guide-body reveal">
+<p>Some of the shows we're proudest of had no production kit on site at all. The vision mixing, graphics, playback and encoding happened on powerful virtual machines in an AWS data centre, operated by an engineer at a desk two hundred miles away. This is cloud production, and it's become one of the most cost-effective ways to deliver a professional virtual event.</p>
+<h2 id="what-a-cloud-gallery-actually-is">What a cloud gallery actually is</h2>
+<p>A GPU-equipped virtual machine (we use AWS instances) running production software — vMix in our case — exactly as it would run on a physical production PC. Sources come in over the internet: remote speakers via broadcast-quality calling, on-site cameras via SRT from a small encoder, pre-recorded content uploaded in advance. The operator connects to the machine over a low-latency remote desktop and drives the show. The programme output streams straight out of the data centre to the platform on a connection far faster than any venue line.</p>
+<h2 id="why-it-works-so-well">Why it works so well</h2>
+<p><strong>The bandwidth problem inverts.</strong> Instead of pushing a heavy programme stream out of a venue, you only need to get individual sources <em>in</em> — and the data centre has effectively unlimited outbound capacity. <strong>Scaling is instant:</strong> a second machine for a second room is a few clicks, not a van. <strong>Crew can be anywhere:</strong> the best operator for your show doesn't need to be within travelling distance. <strong>Cost:</strong> instance hours are cheap compared with hiring, transporting and insuring physical production systems.</p>
+<h2 id="where-the-humans-are">Where the humans are</h2>
+<p>Fully virtual events with remote speakers need nobody on site. Hybrid events still need people in the room — camera operators, a sound engineer, a floor manager — but the <em>gallery</em> can be in the cloud, with a compact "contribution kit" (a camera or two, an audio feed and an SRT encoder) sending the room to it. We've run multi-camera hybrid conferences this way with two people on site instead of six.</p>
+<h2 id="latency-and-interaction">Latency and interaction</h2>
+<p>Remote desktop control adds a few frames; contribution links add a few hundred milliseconds. For a presenter in the room talking to a remote guest on a screen, the delay is comparable to a good video call and audiences don't notice. Where it matters — a live Q&amp;A with the room — we design the interaction around it, as in any hybrid show.</p>
+<h2 id="security">Security</h2>
+<p>Machines are created for the event and destroyed afterwards. Access is by named user, over encrypted connections, with SRT streams encrypted end to end. No client content persists in the cloud beyond the event unless you ask us to keep it. For regulated clients we document the whole chain.</p>
+<h2 id="when-you-still-want-kit-on-site">When you still want kit on site</h2>
+<p>Very large in-room audiences where the room screens are the priority; venues with no usable internet at all (though bonded cellular often solves that); shows with heavy on-site graphics interaction with an LED wall. In those cases the cloud gallery becomes a superb backup path rather than the primary.</p>
+<h2 id="what-it-costs">What it costs</h2>
+<p>A cloud gallery for a show day typically runs a few hundred pounds in infrastructure plus the operator's day rate — often a third to a half of an equivalent on-site production. Our <a href="guide-live-streaming-cost.html">cost guide</a> puts it in context.</p>
+<div class="callout"><p>We've been running cloud galleries since 2020 and built our own AWS routing and infrastructure for it — <a href="services.html">ask us</a> about it for your next show.</p></div>
+<div class="author"><div class="av">VSE</div><p><b>Written by the Virtual Studio Events production team</b>James Jones and Ben O'Dwyer have 40+ years combined in live event production and have run broadcasts for the BBC, ITV, Waitrose, Morrisons, John Lewis and the UK's leading production companies since 2020.</p></div></article><aside class="side"><div class="side-box toc"><h4>In this guide</h4><ul><li><a href="#what-a-cloud-gallery-actually-is">What a cloud gallery actually is</a></li><li><a href="#why-it-works-so-well">Why it works so well</a></li><li><a href="#where-the-humans-are">Where the humans are</a></li><li><a href="#latency-and-interaction">Latency and interaction</a></li><li><a href="#security">Security</a></li><li><a href="#when-you-still-want-kit-on-site">When you still want kit on site</a></li><li><a href="#what-it-costs">What it costs</a></li></ul></div><div class="side-box"><h4>Related guides</h4><ul><li><a href="guide-remote-contribution.html">Remote contribution: getting the guest into the gallery</a></li><li><a href="guide-encoders-bitrates.html">Encoders and bitrates: the settings that matter</a></li><li><a href="guide-live-streaming-cost.html">What does live streaming an event actually cost?</a></li></ul></div><div class="side-box"><h4>Need it done?</h4><p style="font-size:.92rem;color:var(--ink-dim);margin-bottom:14px">We deliver this for the UK's leading brands and production companies.</p><a class="cta-btn" href="contact.html" style="display:inline-block">Talk to us</a></div></aside></div></div></section>
+</main>
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Let's get started</span>
+    <h2>Bring us the show <span class="em">you can't afford to drop.</span></h2>
+    <p>A date and an ambition is plenty. We'll engineer the rest — from "can we?" to "standby… go."</p>
+    <div class="contact-links">
+      <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
+      <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"><img src="assets/img/logo-stacked-white.png" alt="Virtual Studio Events"><p>Live, hybrid &amp; broadcast event production. Chichester studio, UK-wide crew, cloud galleries worldwide.</p></div>
+    <div><h4>Services</h4><ul><li><a href="services.html">Crew & engineering</a></li><li><a href="services.html">Streaming & vMix</a></li><li><a href="services.html">Production management</a></li><li><a href="studios.html">Studio hire</a></li><li><a href="work.html">Case studies</a></li></ul></div><div><h4>Event types</h4><ul><li><a href="event-virtual-conference.html">Virtual conferences</a></li><li><a href="event-hybrid-conference.html">Hybrid conferences</a></li><li><a href="event-town-hall.html">Town halls & all-hands</a></li><li><a href="event-awards-show.html">Awards shows</a></li><li><a href="event-webinar.html">Webinars</a></li><li><a href="event-product-launch.html">Product launches</a></li></ul></div><div><h4>Resources</h4><ul><li><a href="resources.html">Knowledge hub</a></li><li><a href="pillar-pre-production.html">Pre-production</a></li><li><a href="pillar-infrastructure.html">Streaming infrastructure</a></li><li><a href="pillar-live-production.html">Live production</a></li><li><a href="pillar-analytics.html">Analytics & ROI</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="tools.html">Free tools & templates</a></li></ul></div><div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="news.html">News & insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div>
+</footer>
+<script src="assets/js/main.js?v=7"></script>
+</body>
+</html>

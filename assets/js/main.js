@@ -75,3 +75,8 @@ let t=0;
   if(!reduced)requestAnimationFrame(draw);
 })();
 }
+
+/* ---- mobile nav ---- */
+const mb=document.getElementById('menuBtn');
+if(mb){mb.addEventListener('click',()=>{const open=document.body.classList.toggle('nav-open');mb.setAttribute('aria-expanded',open);mb.setAttribute('aria-label',open?'Close menu':'Open menu')});
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('nav-open')))}

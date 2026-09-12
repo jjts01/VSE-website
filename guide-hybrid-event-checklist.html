@@ -4,40 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#212b54">
-<title>Hybrid Event Technical Checklist: 20 Questions | Virtual Studio Events</title>
-<meta name="description" content="The hybrid event checklist used by broadcast engineers: audio splits, remote speakers, room cameras, streaming redundancy and platform integration.">
+<title>Hybrid Event Technical Checklist: 20 Questions Before Show Day | Virtual Studio Events</title>
+<meta name="description" content="The hybrid event checklist used by broadcast engineers: audio splits, remote speakers, room cameras, connectivity, streaming redundancy, platform integration and who owns the gaps.">
 <link rel="icon" type="image/png" href="assets/img/icon-white.png">
 <link rel="canonical" href="https://www.virtualstudio.events/guide-hybrid-event-checklist.html">
-<meta property="og:title" content="Hybrid Event Technical Checklist: 20 Questions | Virtual Studio Events">
-<meta property="og:description" content="The hybrid event checklist used by broadcast engineers: audio splits, remote speakers, room cameras, streaming redundancy and platform integration.">
+<meta property="og:title" content="Hybrid Event Technical Checklist: 20 Questions Before Show Day | Virtual Studio Events">
+<meta property="og:description" content="The hybrid event checklist used by broadcast engineers: audio splits, remote speakers, room cameras, connectivity, streaming redundancy, platform integration and who owns the gaps.">
 <meta property="og:image" content="https://www.virtualstudio.events/assets/img/hero-manchester.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.virtualstudio.events/guide-hybrid-event-checklist.html">
+<meta property="og:site_name" content="Virtual Studio Events">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The hybrid event technical checklist", "description": "The hybrid event checklist used by broadcast engineers: audio splits, remote speakers, room cameras, connectivity, streaming redundancy, platform integration and who owns the gaps.", "author": {"@type": "Organization", "name": "Virtual Studio Events"}, "publisher": {"@type": "Organization", "name": "Virtual Studio Events", "logo": {"@type": "ImageObject", "url": "https://www.virtualstudio.events/assets/img/logo-stacked-white.png"}}, "mainEntityOfPage": "https://www.virtualstudio.events/guide-hybrid-event-checklist.html", "datePublished": "2026-06-11", "dateModified": "2026-09-12", "wordCount": 390, "articleSection": "Live production"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css?v=5">
+<link rel="stylesheet" href="assets/css/main.css?v=7">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div id="loader"><img src="assets/img/logo-stacked-white.png" alt=""><div class="pct">0%</div></div>
 <div id="progress"></div>
 <nav id="nav">
   <a class="logo" href="index.html"><img src="assets/img/logo-long-white.png" alt="Virtual Studio Events"></a>
-  <ul>
+  <ul id="menu">
     <li><a href="services.html">Services</a></li>
+    <li><a href="event-types.html">Event types</a></li>
     <li><a href="studios.html">Studios</a></li>
     <li><a href="work.html">Work</a></li>
     <li><a href="resources.html">Resources</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="news.html">News</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li class="m-only"><a href="about.html">About</a></li>
   </ul>
   <a class="cta-btn" href="contact.html">Start a project</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 </nav>
 <header class="page-hero" id="top">
   <div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none">
@@ -52,20 +56,33 @@
 <circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
 </g></svg></div>
   <div class="wrap">
-    <span class="kicker"><span class="live-dot"></span> Guide 02</span>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="resources.html">Resources</a> <span>/</span> <a href="pillar-live-production.html">Live production</a> <span>/</span> <span aria-current="page">The hybrid event technical checklist</span></nav><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.virtualstudio.events/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.virtualstudio.events/resources.html"}, {"@type": "ListItem", "position": 3, "name": "Live production", "item": "https://www.virtualstudio.events/pillar-live-production.html"}, {"@type": "ListItem", "position": 4, "name": "The hybrid event technical checklist", "item": "https://www.virtualstudio.events/guide-hybrid-event-checklist.html"}]}</script>
+    <span class="kicker"><span class="live-dot"></span> Live production</span>
     <h1>The hybrid event <span class="em">technical checklist.</span></h1>
     <p class="lede">Hybrid is where events fail — a great room show with an unwatchable stream, or vice versa. Settle these before show day.</p>
+    <div class="guide-meta">3 min read · Updated September 2026</div>
   </div>
 </header>
-<section class="content-sec"><div class="wrap reveal"><div class="prose">
-<p><strong>The golden rule:</strong> the online audience is not an afterthought — it's usually the bigger audience. Design the show for both rooms from day one.</p>
-<p><strong>Audio.</strong> Will the stream take a dedicated mix (not the room PA feed)? Who provides the audio split? Are remote speakers' returns mix-minus so they don't hear themselves? Audio is 80% of perceived stream quality — settle it first.</p>
-<p><strong>Cameras and vision.</strong> How many cameras cover the stage, and is at least one shot framed for screens rather than the back of the room? Are slides fed to the stream as a clean source rather than a camera pointed at a projector? Who mixes the stream — and is that a different person from whoever mixes the room screens?</p>
-<p><strong>Remote contribution.</strong> How do remote speakers join — a managed broadcast link or a consumer video call? Have they been tested on the actual hardware? What happens in the room when a remote speaker presents: where do they appear, and can they see and hear the room properly?</p>
-<p><strong>Connectivity.</strong> Is there dedicated, wired internet for the stream — separate from venue guest Wi-Fi? What's the backup path (bonded 4G/5G, second circuit)? Has someone actually speed-tested the line from the position the encoder will sit?</p>
-<p><strong>The platform layer.</strong> Where does the online audience watch, and can they interact — Q&amp;A, polls, chat? Do questions from the platform reach the moderator on stage? Is registration data captured somewhere useful?</p>
-<p><strong>People.</strong> Who is the single technical point of contact across venue AV, streaming and platform? On hybrid shows the most common failure isn't equipment — it's three suppliers each assuming another one owns the gap. That's the job we're most often hired to do: own the gap.</p>
-</div><div class="rate-note" style="margin-top:60px">Need this done rather than read about? <a href="contact.html" style="color:var(--accent2)">Talk to our production team</a> — same-day response.</div></div></section>
+<main id="main">
+<section class="content-sec"><div class="wrap"><div class="guide-wrap"><article class="guide-body reveal">
+<p><strong>The golden rule:</strong> the online audience is not an afterthought — it's usually the bigger audience. Design the show for both rooms from day one, and appoint one person who owns the join between them.</p>
+<h2 id="audio">Audio</h2>
+<ol><li>Will the stream take a dedicated mix, not the room PA feed?</li><li>Who provides the audio split, on what connector, pre- or post-fader?</li><li>Do remote speakers get mix-minus returns so they don't hear themselves?</li><li>Is there a handheld backup mic on stage and fresh batteries at every break?</li></ol>
+<p>Audio is 80% of perceived stream quality — settle it first. <a href="guide-stream-audio.html">Stream audio in depth</a>.</p>
+<h2 id="cameras-and-vision">Cameras and vision</h2>
+<ol start="5"><li>How many cameras cover the stage, and is at least one framed for screens rather than the back of the room?</li><li>Are slides fed to the stream as a clean source rather than a camera pointed at a projector?</li><li>Who mixes the stream — and is it a different person from whoever mixes the room screens?</li><li>Are the stage lighting states designed for camera as well as the room?</li></ol>
+<h2 id="remote-contribution">Remote contribution</h2>
+<ol start="9"><li>How do remote speakers join — a managed broadcast link or a consumer video call?</li><li>Have they been tested on the actual hardware and connection?</li><li>Where does a remote speaker appear in the room, and can they see and hear the room?</li><li>What is the fallback if their link fails?</li></ol>
+<h2 id="connectivity">Connectivity</h2>
+<ol start="13"><li>Is there dedicated wired internet for the stream, separate from guest Wi-Fi?</li><li>What's the backup path — bonded cellular, second circuit — and has it been tested in the room?</li><li>Has someone speed-tested the line from the position the encoder will sit?</li></ol>
+<h2 id="the-platform-layer">The platform layer</h2>
+<ol start="16"><li>Where does the online audience watch, and can they interact — Q&amp;A, polls, chat?</li><li>Do questions from the platform reach the moderator on stage, and how?</li><li>Has the player been tested on the audience's corporate network?</li></ol>
+<h2 id="people">People</h2>
+<ol start="19"><li>Who is the single technical point of contact across venue AV, streaming and platform?</li><li>Who calls the show for the stream, and how do they talk to the room's stage manager?</li></ol>
+<p>On hybrid shows the most common failure isn't equipment — it's three suppliers each assuming another one owns the gap. That's the job we're most often hired to do: own the gap.</p>
+<div class="callout"><p>Print this, take it to the production meeting, and don't leave until every question has a name next to it.</p></div>
+<div class="author"><div class="av">VSE</div><p><b>Written by the Virtual Studio Events production team</b>James Jones and Ben O'Dwyer have 40+ years combined in live event production and have run broadcasts for the BBC, ITV, Waitrose, Morrisons, John Lewis and the UK's leading production companies since 2020.</p></div></article><aside class="side"><div class="side-box toc"><h4>In this guide</h4><ul><li><a href="#audio">Audio</a></li><li><a href="#cameras-and-vision">Cameras and vision</a></li><li><a href="#remote-contribution">Remote contribution</a></li><li><a href="#connectivity">Connectivity</a></li><li><a href="#the-platform-layer">The platform layer</a></li><li><a href="#people">People</a></li></ul></div><div class="side-box"><h4>Related guides</h4><ul><li><a href="guide-stream-audio.html">Stream audio: the 80% nobody budgets for</a></li><li><a href="guide-internet-connectivity.html">Connectivity: the stream is only as good as the line</a></li><li><a href="guide-remote-contribution.html">Remote contribution: getting the guest into the gallery</a></li><li><a href="guide-gallery-roles.html">Who's who in the gallery: crew roles explained</a></li></ul></div><div class="side-box"><h4>Need it done?</h4><p style="font-size:.92rem;color:var(--ink-dim);margin-bottom:14px">We deliver this for the UK's leading brands and production companies.</p><a class="cta-btn" href="contact.html" style="display:inline-block">Talk to us</a></div></aside></div></div></section>
+</main>
 <section class="contact" id="contact">
   <div class="wrap reveal">
     <span class="eyebrow">Let's get started</span>
@@ -74,15 +91,16 @@
     <div class="contact-links">
       <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
       <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
-
     </div>
   </div>
 </section>
 <footer>
-  <img src="assets/img/logo-stacked-white.png" alt="VSE">
-  <span>Live, hybrid &amp; broadcast event production · United Kingdom</span>
-  <span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span>
+  <div class="foot-grid">
+    <div class="foot-brand"><img src="assets/img/logo-stacked-white.png" alt="Virtual Studio Events"><p>Live, hybrid &amp; broadcast event production. Chichester studio, UK-wide crew, cloud galleries worldwide.</p></div>
+    <div><h4>Services</h4><ul><li><a href="services.html">Crew & engineering</a></li><li><a href="services.html">Streaming & vMix</a></li><li><a href="services.html">Production management</a></li><li><a href="studios.html">Studio hire</a></li><li><a href="work.html">Case studies</a></li></ul></div><div><h4>Event types</h4><ul><li><a href="event-virtual-conference.html">Virtual conferences</a></li><li><a href="event-hybrid-conference.html">Hybrid conferences</a></li><li><a href="event-town-hall.html">Town halls & all-hands</a></li><li><a href="event-awards-show.html">Awards shows</a></li><li><a href="event-webinar.html">Webinars</a></li><li><a href="event-product-launch.html">Product launches</a></li></ul></div><div><h4>Resources</h4><ul><li><a href="resources.html">Knowledge hub</a></li><li><a href="pillar-pre-production.html">Pre-production</a></li><li><a href="pillar-infrastructure.html">Streaming infrastructure</a></li><li><a href="pillar-live-production.html">Live production</a></li><li><a href="pillar-analytics.html">Analytics & ROI</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="tools.html">Free tools & templates</a></li></ul></div><div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="news.html">News & insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div>
 </footer>
-<script src="assets/js/main.js?v=5"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>
