@@ -14,13 +14,14 @@ SWIRL = '''<div class="swirl" aria-hidden="true"><svg viewBox="0 0 1000 1000" fi
 <circle cx="500" cy="500" r="185" stroke-width="26" stroke-dasharray="300 240 380 242" transform="rotate(20 500 500)"/>
 </g></svg></div>'''
 
-NAV_ITEMS = [("services.html","Services"),("event-types.html","Event types"),("studios.html","Studios"),("work.html","Work"),("resources.html","Resources"),("news.html","News"),("contact.html","Contact")]
+NAV_ITEMS = [("platform.html","Platform"),("services.html","Services"),("event-types.html","Event types"),("work.html","Work"),("resources.html","Resources"),("news.html","News"),("contact.html","Contact")]
 SITE = "https://www.virtualstudio.events/"
-CSSV = "v=8"
+CSSV = "v=9"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
 FOOTER_COLS = [
+ ("Platform",[("platform.html","Overview"),("platform-register.html","Register"),("platform-engage.html","Engage"),("platform-connect.html","Connect"),("platform-stage.html","Stage"),("platform-broadcast.html","Broadcast"),("platform-insight.html","Insight"),("demos.html","Live demos"),("pipeline.html","The pipeline"),("platform-packages.html","Packages")]),
  ("Services",[("services.html","Crew & engineering"),("services.html","Streaming & vMix"),("services.html","Production management"),("studios.html","Studio hire"),("work.html","Case studies")]),
  ("Event types",[("event-virtual-conference.html","Virtual conferences"),("event-hybrid-conference.html","Hybrid conferences"),("event-town-hall.html","Town halls & all-hands"),("event-awards-show.html","Awards shows"),("event-webinar.html","Webinars"),("event-product-launch.html","Product launches")]),
  ("Resources",[("resources.html","Knowledge hub"),("pillar-pre-production.html","Pre-production"),("pillar-infrastructure.html","Streaming infrastructure"),("pillar-live-production.html","Live production"),("pillar-analytics.html","Analytics & ROI"),("glossary.html","Glossary"),("tools.html","Free tools & templates")]),
@@ -78,6 +79,8 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
   <a class="logo" href="index.html"><img src="assets/img/logo-long-white.png" alt="Virtual Studio Events"></a>
   <ul id="menu">
 {nav}
+    <li class="m-only"><a href="studios.html">Studios</a></li>
+    <li class="m-only"><a href="demos.html">Demos</a></li>
     <li class="m-only"><a href="about.html">About</a></li>
   </ul>
   <a class="cta-btn" href="contact.html">Start a project</a>
@@ -124,7 +127,7 @@ P['services.html'] = page('services.html',
  'Event Crew Hire & Technical Production Services UK | Virtual Studio Events','Hire senior video engineers, vMix operators, streaming engineers and production managers UK-wide. White-label crew for production companies; full technical delivery for brands.',
  'What we do','One crew, <span class="em">the whole show.</span>',
  'From a single remote vMix operator to full technical delivery of a multi-day conference — scale us up or down to fit the show.',
- '''<section class="content-sec"><div class="wrap reveal"><div class="detail-list">
+ '''<section class="content-sec"><div class="wrap reveal"><div class="demo-cta"><div><span class="eyebrow">New</span><h3>VSE Platform: registration, participation, networking and analytics under the same roof as the crew</h3><p>Every service below now plugs into the platform — or buy the platform on its own.</p></div><a class="cta-btn" href="platform.html">See the platform →</a></div><div class="detail-list" style="margin-top:40px">
 <article class="detail"><span class="num">01 — Crew &amp; engineering</span><h3>Senior, show-hardened crew. White-label welcome.</h3>
 <p>Video engineers, vision mixers, playback and graphics operators who've sat in every kind of gallery. Most of our work is for other production companies — we wear your lanyard, look after your client and make your show look effortless.</p>
 <ul><li>Video engineering &amp; vision mixing</li><li>Playback, graphics &amp; screens</li><li>Show-day operators and prep days</li></ul></article>
@@ -213,6 +216,8 @@ P['contact.html'] = page('contact.html',
 # ---- knowledge hub, landing pages, tools, news, glossary ----
 from content_hub import register
 register(P, page, breadcrumb_html)
+from content_platform import register as register_platform
+register_platform(P, page)
 
 for name, content in P.items():
     open(name,'w').write(content)
