@@ -21,7 +21,7 @@
     const meta = $('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', t === 'light' ? '#f4f6fa' : '#212b54');
   }
-  applyTheme(store.get(THEME_KEY) || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+  applyTheme(store.get(THEME_KEY) || 'dark');   // dark is the brand default; light is opt-in
   document.addEventListener('click', e => {
     const b = e.target.closest('#themeBtn');
     if (!b) return;

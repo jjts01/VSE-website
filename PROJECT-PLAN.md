@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 31
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 33
 
 ## Where the project stands
 
@@ -83,6 +83,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `5628722` | Fix Lambda Function URL permission (use !Ref and DependsOn so the public-invoke policy attaches) |
+| 2026-09-12 | `3b456ea` | Fix: define UTM helper before the analytics loader uses it |
 | 2026-09-12 | `7085ffb` | Search index entity decoding, light-mode hero contrast, roadmap |
 | 2026-09-12 | `499acd4` | Light/dark theme, consent-gated analytics, site search, copy buttons, print stylesheet, UTM capture, floating CTA, enquiry form with success/error states, privacy notice, 12 more images, CloudFormation form backend |
 | 2026-09-12 | `ebaf9a3` | Roadmap: note unverified video playback |
@@ -93,8 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `20ca3a0` | Deploy: sync assets/video with video/mp4 content-type |
 | 2026-09-12 | `7694891` | Six generated video loops (hero, platform, gallery, awards, global network, audience) with posters and reduced-motion handling |
 | 2026-09-12 | `4b92c30` | Add CLAUDE.md brief and self-updating PROJECT-PLAN.md; 24 generated brand images across event types, pillars, platform modules and studios |
-| 2026-09-12 | `6248fd7` | Tracking on 404 page |
-| 2026-09-12 | `97bae60` | Add Microsoft Clarity and Google Analytics (GA4) tags to every page |
 
 ## How this file stays current
 

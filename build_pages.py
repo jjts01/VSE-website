@@ -20,8 +20,8 @@ try:
     from content_forms import FORM_ENDPOINT
 except Exception:
     FORM_ENDPOINT = ""
-TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
-CSSV = "v=20"
+TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
+CSSV = "v=21"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -296,9 +296,14 @@ if _chrome:
             _h = _h.replace('</body>', _cc + '\n</body>', 1)
         _h = _re.sub(r'<!-- Microsoft Clarity -->\s*<script type="text/javascript">\(function\(c,l,a,r,i,t,y\).*?</script>\s*', '', _h, flags=_re.S)
         _h = _re.sub(r'<!-- Google tag \(gtag\.js\) -->\s*<script async src="https://www\.googletagmanager\.com[^"]*"></script>\s*<script>window\.dataLayer.*?</script>\s*', '', _h, flags=_re.S)
-        # no-FOUC theme script
-        if 'vse-theme' not in _h:
+        # no-FOUC theme script — strip any existing copies, then add exactly one
+        _h = _re.sub(r"<script>\(function\(\)\{try\{var t=localStorage\.getItem\('vse-theme'\).*?\}\)\(\);</script>\s*", '', _h, flags=_re.S)
+        if '<meta name="theme-color"' in _h:
             _h = _h.replace('<meta name="theme-color"', TRACKING + '\n<meta name="theme-color"', 1)
+        else:
+            _h = _h.replace('<title>', TRACKING + '\n<title>', 1)
+        # keep the hand-built 404 on the current asset version
+        _h = _re.sub(r'main\.css\?v=\d+', 'main.css?' + CSSV, _h)
         # nav tools for 404 (index gets them from the nav sync)
         open(_f, 'w').write(_h)
 print('index chrome synced + tracking')
