@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 33
+**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 34
 
 ## Where the project stands
 
@@ -14,7 +14,7 @@
 | Pages published | 75 |
 | Knowledge-hub guides | 32 across 6 pillars |
 | Platform capabilities listed | 71 |
-| Words of original content | ~31,160 |
+| Words of original content | ~30,836 |
 | Images / videos in repo | 12 / 12 |
 
 ## Site inventory
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `33143f3` | Default to dark theme; fix accumulated duplicate theme scripts in hand-built pages; keep 404 on current asset version |
 | 2026-09-12 | `5628722` | Fix Lambda Function URL permission (use !Ref and DependsOn so the public-invoke policy attaches) |
 | 2026-09-12 | `3b456ea` | Fix: define UTM helper before the analytics loader uses it |
 | 2026-09-12 | `7085ffb` | Search index entity decoding, light-mode hero contrast, roadmap |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `703620f` | Roadmap: note workflow video-sync gap |
 | 2026-09-12 | `20ca3a0` | Deploy: sync assets/video with video/mp4 content-type |
 | 2026-09-12 | `7694891` | Six generated video loops (hero, platform, gallery, awards, global network, audience) with posters and reduced-motion handling |
-| 2026-09-12 | `4b92c30` | Add CLAUDE.md brief and self-updating PROJECT-PLAN.md; 24 generated brand images across event types, pillars, platform modules and studios |
 
 ## How this file stays current
 

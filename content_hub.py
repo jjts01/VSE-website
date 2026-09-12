@@ -8,7 +8,7 @@ DATE = "2026-09-12"
 PILLARS = [
  dict(img='gen/pillar-pre-production.jpg', img_alt='Production planning desk with run order sheets and headphones', key='pre-production', slug='pillar-pre-production.html', name='Pre-production & planning', num='01',
       title='Virtual Event Pre-Production & Planning Guides | Virtual Studio Events',
-      desc='How to plan a virtual or hybrid event: run orders, speaker preparation, rehearsals, redundancy planning, budgets and accessibility — from working broadcast engineers.',
+      desc='How to plan a virtual or hybrid event: run orders, speaker preparation, rehearsals, redundancy planning, budgets and accessibility, from working broadcast engineers.',
       h1='Pre-production: <span class="em">where shows are won.</span>',
       lede='Every flawless live event was boring in the gallery because the work happened weeks earlier. These guides cover the planning that makes show day calm.',
       blurb='Run orders, speaker prep, rehearsals, redundancy, budgets and accessibility.'),
@@ -16,7 +16,7 @@ PILLARS = [
       title='Live Streaming Infrastructure Explained: Internet, Encoders, Cloud Galleries | Virtual Studio Events',
       desc='Plain-English engineering guides to live streaming infrastructure: connectivity and bonding, encoders and bitrates, cloud production on AWS, remote contribution, audio and CDNs.',
       h1='Infrastructure: <span class="em">the bit nobody sees.</span>',
-      lede='Bandwidth, encoders, cloud galleries, contribution links and delivery — the plumbing behind a stream that never drops, explained without the jargon.',
+      lede='Bandwidth, encoders, cloud galleries, contribution links and delivery: the plumbing behind a stream that never drops, explained without the jargon.',
       blurb='Connectivity, encoders, cloud production, remote contribution, audio and delivery.'),
  dict(img='gen/pillar-set-design.jpg', img_alt='Empty broadcast set with a lit cyclorama and lighting grid', key='set-design', slug='pillar-set-design.html', name='Sets, studios & on-screen look', num='03',
       title='Set Design, Studio Lighting & On-Screen Graphics for Streaming | Virtual Studio Events',
@@ -28,13 +28,13 @@ PILLARS = [
       title='Live Event Production: Gallery Roles, Show Calling & Recovery | Virtual Studio Events',
       desc='Inside the production gallery: crew roles, show calling and comms, running live Q&A and polls, hybrid room-plus-stream delivery, simulcasting and what to do when it goes wrong.',
       h1='Live production: <span class="em">standby… go.</span>',
-      lede='What actually happens on show day — who does what, how the calls are made, and how professionals recover when something breaks on air.',
+      lede='What actually happens on show day, who does what, how the calls are made, and how professionals recover when something breaks on air.',
       blurb='Gallery roles, comms, live interaction, hybrid delivery and recovery playbooks.'),
  dict(img='gen/pillar-platforms.jpg', img_alt='Laptop and phone showing event platform interfaces', key='platforms', slug='pillar-platforms.html', name='Platforms & registration', num='05',
       title='Virtual Event Platforms: Comparison, Features, Registration & GDPR | Virtual Studio Events',
       desc='Choosing and running a virtual event platform: feature checklists, Teams vs Zoom vs YouTube vs dedicated platforms, registration flows, attendee data and GDPR, engagement tools.',
       h1='Platforms: <span class="em">the venue is software.</span>',
-      lede='Independent, platform-agnostic guidance on where your audience watches, how they register, and what to do with the data — from a team that runs shows on all of them.',
+      lede='Independent, platform-agnostic guidance on where your audience watches, how they register, and what to do with the data, from a team that runs shows on all of them.',
       blurb='Platform comparison, feature checklists, registration, data and engagement.'),
  dict(img='gen/pillar-analytics.jpg', img_alt='Abstract event analytics curve visualisation', key='analytics', slug='pillar-analytics.html', name='Analytics, ROI & after the show', num='06',
       title='Virtual Event Analytics, ROI & Post-Event Content | Virtual Studio Events',
@@ -127,7 +127,7 @@ def event_page(page, e):
 def event_index(page):
     body='<section class="content-sec"><div class="wrap reveal"><div class="pillar-grid">'+''.join(f'<a class="pillar-card" href="{e["slug"]}"><span class="num">{e["kicker"]}</span><h3>{e["name"]}</h3><p>{e["card"]}</p></a>' for e in EVENTS)+'</div></div></section>'
     return page('event-types.html','Virtual, Hybrid & Live Event Production by Event Type | Virtual Studio Events',
-        'Production for every format: virtual and hybrid conferences, town halls and all-hands, awards shows, webinars, product launches and AGMs — delivered by broadcast-grade crew UK-wide.',
+        'Production for every format: virtual and hybrid conferences, town halls and all-hands, awards shows, webinars, product launches and AGMs, delivered by broadcast-grade crew UK-wide.',
         'Event types','Whatever the format, <span class="em">we\'ve run it.</span>',
         'Pick the kind of event you\'re planning. Each page explains what a broadcast-grade delivery looks like, what it costs, and the guides to read first.',
         body, crumbs=[('index.html','Home'),('event-types.html','Event types')])
@@ -146,7 +146,7 @@ def resources_hub(page):
 <div class="pillar-grid" style="margin-top:34px">
 <a class="pillar-card" href="tools.html"><span class="num">Calculator</span><h3>Streaming bandwidth calculator</h3><p>How much upload you really need, with headroom and backup paths.</p></a>
 <a class="pillar-card" href="tools.html#budget"><span class="num">Estimator</span><h3>Virtual event budget estimator</h3><p>A realistic UK cost range from cameras, hours, remote speakers and platform.</p></a>
-<a class="pillar-card" href="templates.html"><span class="num">Templates</span><h3>Run order, tech spec &amp; post-event report</h3><p>The documents we use on every show — download and adapt.</p></a>
+<a class="pillar-card" href="templates.html"><span class="num">Templates</span><h3>Run order, tech spec &amp; post-event report</h3><p>The documents we use on every show, download and adapt.</p></a>
 </div></div>
 <div style="margin-top:90px"><span class="eyebrow">Reference</span><div class="pillar-grid" style="margin-top:30px">
 <a class="pillar-card" href="glossary.html"><span class="num">A–Z</span><h3>Virtual event glossary</h3><p>{len(GLOSSARY)} terms from bitrate to vision mixer, defined in one sentence each.</p></a>
@@ -157,7 +157,7 @@ def resources_hub(page):
     return page('resources.html','Virtual Event Resources: Guides, Tools, Templates & Glossary | Virtual Studio Events',
         f'The UK\'s most complete virtual and hybrid event knowledge base: {len(GUIDES)} expert guides across pre-production, streaming infrastructure, set design, live production, platforms and analytics, plus free tools and templates.',
         'Resources','Everything we wish <span class="em">clients knew.</span>',
-        'Plain-English guides from the people in the gallery — how to plan it, what it costs, how the technology works, and how to prove it was worth it.',
+        'Plain-English guides from the people in the gallery: how to plan it, what it costs, how the technology works, and how to prove it was worth it.',
         body, crumbs=[('index.html','Home'),('resources.html','Resources')], extra_head=faq_ld)
 
 def glossary_page(page):
@@ -172,20 +172,20 @@ def glossary_page(page):
     body+='</dl></div></section>'
     ld='<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"DefinedTermSet","name":"Virtual Event Glossary","hasDefinedTerm":[{"@type":"DefinedTerm","name":t,"description":re.sub('<[^>]+>','',d)} for t,d in GLOSSARY]})+'</script>'
     return page('glossary.html',f'Virtual Event & Live Streaming Glossary: {len(GLOSSARY)} Terms Explained | Virtual Studio Events',
-        'Every virtual event and live streaming term you\'ll meet in a production meeting — bitrate, mix-minus, SRT, vision mixer, cyc, lower third — defined in plain English.',
+        'Every virtual event and live streaming term you\'ll meet in a production meeting (bitrate, mix-minus, SRT, vision mixer, cyc, lower third), defined in plain English.',
         'Glossary','Speak <span class="em">gallery.</span>',
         'The words your production company uses, defined in one plain sentence each. Bookmark it for your next tech meeting.',
         body, crumbs=[('index.html','Home'),('resources.html','Resources'),('glossary.html','Glossary')], extra_head=ld)
 
 def news_page(page):
-    body='<section class="content-sec"><div class="wrap reveal"><div class="prose"><p>A monthly briefing on what\'s changing in virtual, hybrid and live event production — market data, technology shifts and what they mean for your next show. Every claim links to its source.</p></div>'
+    body='<section class="content-sec"><div class="wrap reveal"><div class="prose"><p>A monthly briefing on what\'s changing in virtual, hybrid and live event production. Market data, technology shifts and what they mean for your next show. Every claim links to its source.</p></div>'
     for n in NEWS:
         body+=f'<article class="news-item"><span class="date">{n["date"]}</span><h3>{n["title"]}</h3><p>{n["body"]}</p>'+('' if not n.get('src') else '<p class="src">Sources: '+' · '.join(f'<a href="{u}" rel="noopener">{t}</a>' for t,u in n['src'])+'</p>')+'</article>'
     body+='</div></section>'
     return page('news.html','Virtual Events News & Industry Briefing (September 2026) | Virtual Studio Events',
         'Monthly virtual and hybrid events industry briefing: market growth, AI in production, accessibility requirements, platform changes and what they mean for organisers. Sourced and updated.',
         'News & insights','What\'s changing, <span class="em">and why it matters.</span>',
-        'A monthly, sourced briefing on the virtual and hybrid events industry — written for organisers who need the signal, not the noise.',
+        'A monthly, sourced briefing on the virtual and hybrid events industry: written for organisers who need the signal, not the noise.',
         body, crumbs=[('index.html','Home'),('news.html','News & insights')])
 
 def tools_page(page):

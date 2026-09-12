@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#212b54">
 <title>Event Registration, Ticketing & QR Check-in Demo | VSE Platform</title>
-<meta name="description" content="Try VSE Register in your browser: choose a ticket, apply a promo code, register, receive a personal QR and badge, then simulate the venue check-in scanner — with the behind-the-scenes CRM and reminder events shown live.">
+<meta name="description" content="Try VSE Register in your browser: choose a ticket, apply a promo code, register, receive a personal QR and badge, then simulate the venue check-in scanner, with the behind-the-scenes CRM and reminder events shown live.">
 <link rel="icon" type="image/png" href="assets/img/icon-white.png">
 <link rel="canonical" href="https://www.virtualstudio.events/demo-registration.html">
 <meta property="og:title" content="Event Registration, Ticketing &amp; QR Check-in Demo | VSE Platform">
-<meta property="og:description" content="Try VSE Register in your browser: choose a ticket, apply a promo code, register, receive a personal QR and badge, then simulate the venue check-in scanner — with the behind-the-scenes CRM and reminder events shown live.">
+<meta property="og:description" content="Try VSE Register in your browser: choose a ticket, apply a promo code, register, receive a personal QR and badge, then simulate the venue check-in scanner, with the behind-the-scenes CRM and reminder events shown live.">
 <meta property="og:image" content="https://www.virtualstudio.events/assets/img/gen/hero-studio-wide.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.virtualstudio.events/demo-registration.html">
@@ -66,7 +66,7 @@
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="platform.html">Platform</a> <span>/</span> <a href="platform-register.html">Register</a> <span>/</span> <span aria-current="page">Demo</span></nav><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.virtualstudio.events/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.virtualstudio.events/platform.html"}, {"@type": "ListItem", "position": 3, "name": "Register", "item": "https://www.virtualstudio.events/platform-register.html"}, {"@type": "ListItem", "position": 4, "name": "Demo", "item": "https://www.virtualstudio.events/demo-registration.html"}]}</script>
     <span class="kicker"><span class="live-dot"></span> Demo 02 · Register</span>
     <h1>From ticket to badge <span class="em">in four steps.</span></h1>
-    <p class="lede">Choose a ticket, register, get your QR and badge, then see the staff check-in view — with everything that happens behind the scenes listed live.</p>
+    <p class="lede">Choose a ticket, register, get your QR and badge, then see the staff check-in view, with everything that happens behind the scenes listed live.</p>
     
   </div>
 </header>
@@ -82,21 +82,21 @@
    <label class="ticket"><input type="radio" name="tk" value="VIP" data-price="495"><div><b>VIP &amp; speaker dinner</b><span>Front section, speaker dinner, 1:1 meeting priority</span></div><em>£495</em></label>
   </div><label class="fld">Promo code<input id="promo" placeholder="EARLYBIRD"></label><div class="reg-actions"><span id="tk-total">Total: £0</span><button class="cta-btn" data-next="2">Continue →</button></div></div>
   <div class="reg-step hidden" data-step="2"><h4>Your details</h4><div class="grid2"><label class="fld">First name<input id="r-first" value="Priya"></label><label class="fld">Last name<input id="r-last" value="Shah"></label><label class="fld">Work email<input id="r-email" value="priya@example.com"></label><label class="fld">Organisation<input id="r-org" value="Example Ltd"></label><label class="fld">Role<select id="r-role"><option>Events</option><option>Marketing</option><option>Internal comms</option><option>Production</option></select></label><label class="fld">Sessions of interest<select id="r-track"><option>Hybrid production</option><option>Platforms &amp; data</option><option>Set &amp; studio</option></select></label></div>
-   <label class="chk"><input type="checkbox" id="r-consent"> Keep me updated about future events (optional)</label><label class="chk"><input type="checkbox" checked disabled> I accept the privacy notice — recorded sessions, data retained 90 days</label>
+   <label class="chk"><input type="checkbox" id="r-consent"> Keep me updated about future events (optional)</label><label class="chk"><input type="checkbox" checked disabled> I accept the privacy notice, recorded sessions, data retained 90 days</label>
    <div class="reg-actions"><button class="ghost-btn" data-next="1">← Back</button><button class="cta-btn" data-next="3">Register</button></div></div>
-  <div class="reg-step hidden" data-step="3"><div class="confirm"><h4>You're in, <span id="c-name">Priya</span>.</h4><p id="c-sum">Online pass · Annual Conference 2027</p><div class="qr" id="qr"></div><p class="hint">Your personal QR code — scan it at the venue or open your join link online. A calendar file and reminders are on their way to <span id="c-email">priya@example.com</span>.</p><div class="badge"><div class="badge-brand brand-name">Virtual Studio Events</div><b id="b-name">Priya Shah</b><span id="b-org">Example Ltd</span><em id="b-type">Online pass</em></div></div><div class="reg-actions"><button class="cta-btn" data-next="4">Simulate venue check-in →</button></div></div>
+  <div class="reg-step hidden" data-step="3"><div class="confirm"><h4>You're in, <span id="c-name">Priya</span>.</h4><p id="c-sum">Online pass · Annual Conference 2027</p><div class="qr" id="qr"></div><p class="hint">Your personal QR code: scan it at the venue or open your join link online. A calendar file and reminders are on their way to <span id="c-email">priya@example.com</span>.</p><div class="badge"><div class="badge-brand brand-name">Virtual Studio Events</div><b id="b-name">Priya Shah</b><span id="b-org">Example Ltd</span><em id="b-type">Online pass</em></div></div><div class="reg-actions"><button class="cta-btn" data-next="4">Simulate venue check-in →</button></div></div>
   <div class="reg-step hidden" data-step="4"><h4>Check-in scanner (staff view)</h4><div class="scanner"><div class="scan-frame" id="scan-frame"><div class="scan-line"></div></div><div id="scan-result" class="scan-result">Point at a badge QR… <button id="scan-btn" class="ghost-btn">Simulate scan</button></div></div><div class="checkin-log" id="checkin-log"></div><div class="reg-actions"><button class="ghost-btn" data-next="1">Start again</button></div></div>
  </div>
  <aside class="reg-side"><h5>Behind the form</h5><ul id="reg-events"><li>Registration page rendered in brand</li></ul></aside>
 </div>
-<div class="prose" style="margin-top:60px"><p><strong>What you're looking at.</strong> A branded registration flow with ticket types and promo codes, the confirmation with a personal QR and printable badge, and the staff check-in view for hybrid events. The panel on the right shows what happens behind the scenes at each step — CRM sync, reminders scheduled, capacity updated. Switch the brand at the top.</p></div>
+<div class="prose" style="margin-top:60px"><p><strong>What you're looking at.</strong> A branded registration flow with ticket types and promo codes, the confirmation with a personal QR and printable badge, and the staff check-in view for hybrid events. The panel on the right shows what happens behind the scenes at each step: CRM sync, reminders scheduled, capacity updated. Switch the brand at the top.</p></div>
 </div></section>
 </main>
 <section class="contact" id="contact">
   <div class="wrap reveal">
     <span class="eyebrow">Let's get started</span>
     <h2>Bring us the show <span class="em">you can't afford to drop.</span></h2>
-    <p>A date and an ambition is plenty. We'll engineer the rest — from "can we?" to "standby… go."</p>
+    <p>A date and an ambition is plenty. We'll engineer the rest, from "can we?" to "standby… go."</p>
     <div class="contact-links">
       <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
       <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
@@ -119,7 +119,7 @@
   </div>
 </div>
 <div id="cookieBar" role="region" aria-label="Cookie choices">
-  <p>We use essential cookies to make the site work, and analytics cookies to understand what people read &mdash; only if you agree. See our <a href="privacy.html">privacy notice</a>.</p>
+  <p>We use essential cookies to make the site work, and analytics cookies to understand what people read, only if you agree. See our <a href="privacy.html">privacy notice</a>.</p>
   <div class="cookie-acts"><button id="cookieReject" type="button">Essential only</button><button id="cookieAccept" class="accept" type="button">Accept analytics</button></div>
 </div>
 <script>window.VSE_FORM_ENDPOINT="";</script>

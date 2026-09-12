@@ -35,7 +35,7 @@ CONTACT_BODY = """
               <option>&pound;30,000+</option><option>Annual programme</option>
             </select></label>
           <label class="field"><span>Where are you?</span><input name="location" placeholder="London, remote, our studio&hellip;" maxlength="80"></label>
-          <label class="field full"><span>Tell us about the show *</span><textarea name="message" required maxlength="4000" placeholder="Format, audience size, room or online, what success looks like &mdash; a couple of sentences is plenty."></textarea><em class="err">A sentence or two about the event, please.</em></label>
+          <label class="field full"><span>Tell us about the show *</span><textarea name="message" required maxlength="4000" placeholder="Format, audience size, room or online, what success looks like. A couple of sentences is plenty."></textarea><em class="err">A sentence or two about the event, please.</em></label>
         </div>
         <label class="chk" style="margin-top:18px;display:block;font-size:.86rem;color:var(--ink-dim)">
           <input type="checkbox" name="consent" required> I'm happy for VSE to use these details to reply to my enquiry. *
@@ -51,7 +51,7 @@ CONTACT_BODY = """
       </form>
       <div class="form-success" id="formSuccess" role="status" aria-live="polite">
         <div class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4.5 4.5L19 7"/></svg></div>
-        <h3>Thanks &mdash; that's with us.</h3>
+        <h3>Thanks, that's with us.</h3>
         <p id="successMsg">We read every enquiry ourselves and reply the same working day. If it's urgent, call <a href="tel:+442035986555">+44 020 359 86555</a>.</p>
         <a class="ghost-btn" href="resources.html">Read the knowledge hub while you wait</a>
       </div>
@@ -74,7 +74,7 @@ virtualstudio.events</div>
     <div class="side-box" style="margin-top:22px">
       <h4>What happens next</h4>
       <ul style="list-style:none">
-        <li style="padding:7px 0;border-top:1px solid var(--line)">We reply the same working day &mdash; a person, not an autoresponder.</li>
+        <li style="padding:7px 0;border-top:1px solid var(--line)">We reply the same working day: a person, not an autoresponder.</li>
         <li style="padding:7px 0;border-top:1px solid var(--line)">A 20-minute call to understand the show and the risks.</li>
         <li style="padding:7px 0;border-top:1px solid var(--line)">An itemised proposal: crew, kit, redundancy, platform, deliverables.</li>
       </ul>
@@ -126,10 +126,10 @@ PRIVACY_BODY = """
 def register(P, page):
     P['contact.html'] = page(
         'contact.html',
-        'Contact Us | Virtual Studio Events — UK Event Production Company',
+        'Contact Us | Virtual Studio Events: UK Event Production Company',
         'Talk to us about live, hybrid or virtual event production, crew hire, studio booking or the VSE Platform. Same-day response on every enquiry, UK-wide delivery.',
         'Say hello', 'Got a show <span class="em">coming up?</span>',
-        "Tell us the date and the ambition — we'll handle the rest. Same-day response on every enquiry.",
+        "Tell us the date and the ambition. We'll handle the rest. Same-day response on every enquiry.",
         CONTACT_BODY,
         crumbs=[('index.html', 'Home'), ('contact.html', 'Contact')],
         extra_head='<script defer src="assets/js/form.js?v=1"></script>')

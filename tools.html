@@ -77,11 +77,11 @@
 <p class="prose" style="margin-top:14px">Work out the sustained upload speed your venue line actually needs, including headroom and a backup path. Based on the <a href="guide-encoders-bitrates.html" style="color:var(--accent2)">encoder settings we use</a>.</p>
 <div class="tool" id="bwtool">
 <div class="grid2">
-<div><label for="bw-quality">Stream quality</label><select id="bw-quality"><option value="2.5">720p · talking heads (2.5 Mbps)</option><option value="4">720p · motion (4 Mbps)</option><option value="5" selected>1080p · talking heads / slides (5 Mbps)</option><option value="8">1080p · motion-heavy (8 Mbps)</option><option value="16">4K (16 Mbps — rarely worth it)</option></select></div>
+<div><label for="bw-quality">Stream quality</label><select id="bw-quality"><option value="2.5">720p · talking heads (2.5 Mbps)</option><option value="4">720p · motion (4 Mbps)</option><option value="5" selected>1080p · talking heads / slides (5 Mbps)</option><option value="8">1080p · motion-heavy (8 Mbps)</option><option value="16">4K (16 Mbps, rarely worth it)</option></select></div>
 <div><label for="bw-streams">Number of simultaneous outputs</label><input type="number" id="bw-streams" min="1" max="10" value="1"><div class="note">Each destination streamed directly counts as one. A restreamer counts as one total.</div></div>
 <div><label for="bw-backup">Backup stream to a standby destination?</label><select id="bw-backup"><option value="1" selected>Yes (recommended)</option><option value="0">No</option></select></div>
 <div><label for="bw-remote">Remote contributors joining (download)</label><input type="number" id="bw-remote" min="0" max="30" value="2"></div>
-<div><label for="bw-other">Other traffic on the same line</label><select id="bw-other"><option value="0" selected>None — dedicated line</option><option value="10">Light (a few laptops)</option><option value="30">Heavy (shared with guests)</option></select></div>
+<div><label for="bw-other">Other traffic on the same line</label><select id="bw-other"><option value="0" selected>None, dedicated line</option><option value="10">Light (a few laptops)</option><option value="30">Heavy (shared with guests)</option></select></div>
 </div>
 <div class="result"><b id="bw-result">—</b><span id="bw-detail"></span></div>
 <div class="note">Headroom of 2× is applied to the encode total because encoder output fluctuates and lines rarely deliver their headline speed. Test the line from the gallery position, wired, at the time of day of the event. Read the <a href="guide-internet-connectivity.html" style="color:var(--accent2)">connectivity guide</a>.</div>
@@ -102,7 +102,7 @@
 </div>
 <div class="result"><b id="b-result">—</b><span id="b-detail"></span></div>
 <table id="b-table"></table>
-<div class="note">Indicative only — every event is quoted individually. Trade and white-label rates for production companies differ. <a href="contact.html" style="color:var(--accent2)">Send us the brief</a> for a real number within a working day.</div>
+<div class="note">Indicative only: every event is quoted individually. Trade and white-label rates for production companies differ. <a href="contact.html" style="color:var(--accent2)">Send us the brief</a> for a real number within a working day.</div>
 </div></div>
 </div></section>
 
@@ -111,7 +111,7 @@
   <div class="wrap reveal">
     <span class="eyebrow">Let's get started</span>
     <h2>Bring us the show <span class="em">you can't afford to drop.</span></h2>
-    <p>A date and an ambition is plenty. We'll engineer the rest — from "can we?" to "standby… go."</p>
+    <p>A date and an ambition is plenty. We'll engineer the rest, from "can we?" to "standby… go."</p>
     <div class="contact-links">
       <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
       <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
@@ -134,7 +134,7 @@
   </div>
 </div>
 <div id="cookieBar" role="region" aria-label="Cookie choices">
-  <p>We use essential cookies to make the site work, and analytics cookies to understand what people read &mdash; only if you agree. See our <a href="privacy.html">privacy notice</a>.</p>
+  <p>We use essential cookies to make the site work, and analytics cookies to understand what people read, only if you agree. See our <a href="privacy.html">privacy notice</a>.</p>
   <div class="cookie-acts"><button id="cookieReject" type="button">Essential only</button><button id="cookieAccept" class="accept" type="button">Accept analytics</button></div>
 </div>
 <script>window.VSE_FORM_ENDPOINT="";</script>

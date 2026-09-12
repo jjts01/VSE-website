@@ -113,7 +113,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
   <div class="wrap reveal">
     <span class="eyebrow">Let's get started</span>
     <h2>Bring us the show <span class="em">you can't afford to drop.</span></h2>
-    <p>A date and an ambition is plenty. We'll engineer the rest — from "can we?" to "standby… go."</p>
+    <p>A date and an ambition is plenty. We'll engineer the rest, from "can we?" to "standby… go."</p>
     <div class="contact-links">
       <a class="cta-btn" href="mailto:enquiries@virtualstudio.events">Email the studio</a>
       <a class="ghost-btn" href="tel:+442035986555">+44 020 359 86555</a>
@@ -136,7 +136,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
   </div>
 </div>
 <div id="cookieBar" role="region" aria-label="Cookie choices">
-  <p>We use essential cookies to make the site work, and analytics cookies to understand what people read &mdash; only if you agree. See our <a href="privacy.html">privacy notice</a>.</p>
+  <p>We use essential cookies to make the site work, and analytics cookies to understand what people read, only if you agree. See our <a href="privacy.html">privacy notice</a>.</p>
   <div class="cookie-acts"><button id="cookieReject" type="button">Essential only</button><button id="cookieAccept" class="accept" type="button">Accept analytics</button></div>
 </div>
 <script>window.VSE_FORM_ENDPOINT="{FORM_ENDPOINT}";</script>\n<script src="assets/js/site.js?{CSSV}" defer></script>
@@ -149,32 +149,32 @@ P = {}
 P['services.html'] = page('services.html',
  'Event Crew Hire & Technical Production Services UK | Virtual Studio Events','Hire senior video engineers, vMix operators, streaming engineers and production managers UK-wide. White-label crew for production companies; full technical delivery for brands.',
  'What we do','One crew, <span class="em">the whole show.</span>',
- 'From a single remote vMix operator to full technical delivery of a multi-day conference — scale us up or down to fit the show.',
- '''<section class="content-sec"><div class="wrap reveal"><div class="demo-cta"><div><span class="eyebrow">New</span><h3>VSE Platform: registration, participation, networking and analytics under the same roof as the crew</h3><p>Every service below now plugs into the platform — or buy the platform on its own.</p></div><a class="cta-btn" href="platform.html">See the platform →</a></div><div class="detail-list" style="margin-top:40px">
-<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-crew.jpg" alt="Video engineer at a vision-mixing panel" loading="lazy"></div><span class="num">01 — Crew &amp; engineering</span><h3>Senior, show-hardened crew. White-label welcome.</h3>
-<p>Video engineers, vision mixers, playback and graphics operators who've sat in every kind of gallery. Most of our work is for other production companies — we wear your lanyard, look after your client and make your show look effortless.</p>
+ 'From a single remote vMix operator to full technical delivery of a multi-day conference: scale us up or down to fit the show.',
+ '''<section class="content-sec"><div class="wrap reveal"><div class="demo-cta"><div><span class="eyebrow">New</span><h3>VSE Platform: registration, participation, networking and analytics under the same roof as the crew</h3><p>Every service below now plugs into the platform, or buy the platform on its own.</p></div><a class="cta-btn" href="platform.html">See the platform →</a></div><div class="detail-list" style="margin-top:40px">
+<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-crew.jpg" alt="Video engineer at a vision-mixing panel" loading="lazy"></div><span class="num">01: Crew &amp; engineering</span><h3>Senior, show-hardened crew. White-label welcome.</h3>
+<p>Video engineers, vision mixers, playback and graphics operators who've sat in every kind of gallery. Most of our work is for other production companies. We wear your lanyard, look after your client and make your show look effortless.</p>
 <ul><li>Video engineering &amp; vision mixing</li><li>Playback, graphics &amp; screens</li><li>Show-day operators and prep days</li></ul></article>
-<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-streaming.jpg" alt="Streaming engineer workstation with encoder" loading="lazy"></div><span class="num">02 — Streaming &amp; vMix</span><h3>On site or fully remote, every frame delivered.</h3>
-<p>vMix systems, encoders and multi-destination streaming, run by engineers who built the workflow. We design and operate cloud production galleries on AWS — remote machines, low-latency routing and bulletproof redundancy.</p>
+<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-streaming.jpg" alt="Streaming engineer workstation with encoder" loading="lazy"></div><span class="num">02, Streaming &amp; vMix</span><h3>On site or fully remote, every frame delivered.</h3>
+<p>vMix systems, encoders and multi-destination streaming, run by engineers who built the workflow. We design and operate cloud production galleries on AWS: remote machines, low-latency routing and bulletproof redundancy.</p>
 <ul><li>Remote vMix operation &amp; cloud galleries</li><li>Multi-destination encoding &amp; delivery</li><li>Teams / Zoom / Meet integration</li></ul></article>
-<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-production-mgmt.jpg" alt="Production manager with headset in a venue" loading="lazy"></div><span class="num">03 — Production management</span><h3>A Video HOD who owns the technical side.</h3>
+<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-production-mgmt.jpg" alt="Production manager with headset in a venue" loading="lazy"></div><span class="num">03, Production management</span><h3>A Video HOD who owns the technical side.</h3>
 <p>Pre-production, specs, supplier wrangling and a calm voice on comms. Our production managers and heads of department carry the technical risk of your show so you can stay with the creative.</p>
 <ul><li>Video HOD &amp; technical direction</li><li>Pre-production &amp; system design</li><li>Production management day rates</li></ul></article>
-<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-editing.jpg" alt="Video editing suite at night" loading="lazy"></div><span class="num">04 — Editing &amp; post</span><h3>Fast post, from the people who shot it.</h3>
+<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-editing.jpg" alt="Video editing suite at night" loading="lazy"></div><span class="num">04, Editing &amp; post</span><h3>Fast post, from the people who shot it.</h3>
 <p>Show opens, sizzle reels, highlight edits and same-day session turnarounds. Because we were in the gallery, the edit starts before the show ends.</p>
 <ul><li>Highlights &amp; sizzle reels</li><li>Session edits &amp; speaker cutdowns</li><li>Graphics &amp; motion</li></ul></article>
-<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-hybrid.jpg" alt="Presenter on stage with remote participants on screen" loading="lazy"></div><span class="num">05 — Hybrid &amp; virtual events</span><h3>The capability we built our name on.</h3>
+<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-hybrid.jpg" alt="Presenter on stage with remote participants on screen" loading="lazy"></div><span class="num">05: Hybrid &amp; virtual events</span><h3>The capability we built our name on.</h3>
 <p>Interactive event platforms with agendas, Q&amp;A, chat and breakouts; remote contribution; audiences in the room and online, seamlessly together. Born in 2020, refined on every show since.</p>
 <ul><li>Event platform &amp; registration</li><li>Remote speaker contribution</li><li>Hybrid room + stream design</li></ul></article>
-<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-podcast.jpg" alt="Podcast studio with two microphones" loading="lazy"></div><span class="num">06 — Podcast production</span><h3>End-to-end podcasts for brands.</h3>
-<p>Recording (in studio or remote), editing, artwork and managed hosting with monthly distribution — an ongoing service, not a one-off.</p>
+<article class="detail has-img"><div class="detail-img"><img src="assets/img/gen/svc-podcast.jpg" alt="Podcast studio with two microphones" loading="lazy"></div><span class="num">06: Podcast production</span><h3>End-to-end podcasts for brands.</h3>
+<p>Recording (in studio or remote), editing, artwork and managed hosting with monthly distribution: an ongoing service, not a one-off.</p>
 <ul><li>Studio &amp; remote recording</li><li>Edit, mix &amp; artwork</li><li>Managed hosting &amp; distribution</li></ul></article>
 </div></div></section>''')
 
 P['studios.html'] = page('studios.html',
  'Broadcast & Live Streaming Studio Hire UK | Virtual Studio Events','Broadcast-spec studio hire in Chichester plus a UK partner network in Manchester, Norwich and Fareham. Pre-lit, connected and crewed for live streaming and filming.',
  'Studio network','A studio network, <span class="em">not a single room.</span>',
- 'Trusted partner studios across the UK — every one meeting our minimum broadcast spec — or we bring the studio to your premises.',
+ 'Trusted partner studios across the UK (every one meeting our minimum broadcast spec) or we bring the studio to your premises.',
  '''<section class="content-sec"><div class="wrap reveal">
 <div class="gallery">
 <div class="img-frame"><img src="assets/img/hero-manchester.jpg" alt="Manchester studio with VSE branding" loading="lazy"></div>
@@ -188,34 +188,34 @@ P['studios.html'] = page('studios.html',
 <div class="img-frame"><img src="assets/img/gen/audio-desk.jpg" alt="Audio mixing desk in a production gallery" loading="lazy"></div>
 </div>
 <div class="content-sec prose">
-<p><strong>Manchester · Norwich · Fareham · Chichester</strong> — plus our studio partner <a href="https://granary.digital/"><strong>Granary Digital</strong></a>. Every partner studio meets a minimum specification for broadcast-quality content: proper lighting, acoustics, gallery space and connectivity.</p>
-<p>Need it closer to home? We build pop-up studios at your premises — set, lighting, cameras and a connected gallery, anywhere in the UK.</p>
+<p><strong>Manchester · Norwich · Fareham · Chichester</strong>: plus our studio partner <a href="https://granary.digital/"><strong>Granary Digital</strong></a>. Every partner studio meets a minimum specification for broadcast-quality content: proper lighting, acoustics, gallery space and connectivity.</p>
+<p>Need it closer to home? We build pop-up studios at your premises. Set, lighting, cameras and a connected gallery, anywhere in the UK.</p>
 </div></div></section>''')
 
 P['work.html'] = page('work.html',
- 'Event Production Case Studies | Virtual Studio Events','A 75,000-viewer live awards show, national retail townhalls for Waitrose and Morrisons, hybrid conferences and white-label crew work — see how we deliver.',
+ 'Event Production Case Studies | Virtual Studio Events','A 75,000-viewer live awards show, national retail townhalls for Waitrose and Morrisons, hybrid conferences and white-label crew work. See how we deliver.',
  'Selected work','Shows we were trusted <span class="em">not to drop.</span>',
- "A few of the productions we can talk about — much of our best work ships under our clients' names.",
+ "A few of the productions we can talk about. Much of our best work ships under our clients' names.",
  '''<section class="content-sec"><div class="wrap">
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/work-awards.jpg" alt="Awards ceremony seen from the back of a packed auditorium"></div>
-<div><span class="card-tag">Awards · 2020</span><h3>The 75,000-viewer awards show</h3><p>Our first contract: a full awards production streamed live to seventy-five thousand people — vision mixing, graphics, audio and delivery, end to end. The show that proved the model.</p></div></article>
+<div><span class="card-tag">Awards · 2020</span><h3>The 75,000-viewer awards show</h3><p>Our first contract: a full awards production streamed live to seventy-five thousand people. Vision mixing, graphics, audio and delivery, end to end. The show that proved the model.</p></div></article>
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/work-townhall.jpg" alt="Presenter addressing camera on a town hall studio set"></div>
-<div><span class="card-tag">Retail townhalls</span><h3>National retail, live to every store</h3><p>Studio townhalls and supplier conferences for the UK's biggest retailers — Waitrose, Morrisons, ASDA and John Lewis among them — interactive Q&amp;A, polls and tens of thousands of colleagues watching live.</p></div></article>
+<div><span class="card-tag">Retail townhalls</span><h3>National retail, live to every store</h3><p>Studio townhalls and supplier conferences for the UK's biggest retailers (Waitrose, Morrisons, ASDA and John Lewis among them), interactive Q&amp;A, polls and tens of thousands of colleagues watching live.</p></div></article>
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/pillar-platforms.jpg" alt="Event platform shown on a laptop and phone"></div>
-<div><span class="card-tag">Platform</span><h3>Branded event platforms</h3><p>Registration, agendas, breakouts and live Q&amp;A under the client's brand — the connective tissue of every hybrid event we run, designed and developed per event.</p></div></article>
+<div><span class="card-tag">Platform</span><h3>Branded event platforms</h3><p>Registration, agendas, breakouts and live Q&amp;A under the client's brand. The connective tissue of every hybrid event we run, designed and developed per event.</p></div></article>
 <article class="card reveal"><div class="card-img"><img class="plx" src="assets/img/gen/work-studio-floor.jpg" alt="Multi-camera studio floor with an interview set"></div>
-<div><span class="card-tag">White-label</span><h3>The crew behind the crew</h3><p>Video HODs, vMix operators and streaming engineers embedded in other companies' productions — trusted in front of their clients, invisible in the credits. Ask us about this work; our partners will vouch for what we can't show.</p></div></article>
+<div><span class="card-tag">White-label</span><h3>The crew behind the crew</h3><p>Video HODs, vMix operators and streaming engineers embedded in other companies' productions, trusted in front of their clients, invisible in the credits. Ask us about this work; our partners will vouch for what we can't show.</p></div></article>
 </div></section>''')
 
 P['about.html'] = page('about.html',
- 'About Virtual Studio Events | UK Event Production Experts',"Founded in 2020 by James Jones and Ben O'Dwyer — 40+ years of combined live event experience delivering broadcast-grade production for the UK's biggest brands.",
+ 'About Virtual Studio Events | UK Event Production Experts',"Founded in 2020 by James Jones and Ben O'Dwyer, 40+ years of combined live event experience delivering broadcast-grade production for the UK's biggest brands.",
  'The studio','Built in a crisis. <span class="em">Proven on every show since.</span>',
- "Founded in March 2020 by James Jones and Ben O'Dwyer — 40+ years of combined live event experience.",
+ "Founded in March 2020 by James Jones and Ben O'Dwyer, 40+ years of combined live event experience.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="two-col">
 <div class="prose">
 <p>Virtual Studio Events started by streaming an awards show to <strong>75,000 people</strong> when the world shut down. While venues were dark, we built the platform, the cloud galleries and the remote workflows that kept our clients' audiences connected.</p>
-<p>When live came back, we kept the lot. Today the same go-big-or-go-home crew delivers the technical layer of live, hybrid and broadcast events for the UK's leading production companies, agencies, charities and brands — in the gallery, in the studio, and in the cloud.</p>
-<p><strong>James Jones</strong> and <strong>Ben O'Dwyer</strong> lead every project personally. No account managers, no hand-offs — the people you brief are the people on comms.</p>
+<p>When live came back, we kept the lot. Today the same go-big-or-go-home crew delivers the technical layer of live, hybrid and broadcast events for the UK's leading production companies, agencies, charities and brands, in the gallery, in the studio, and in the cloud.</p>
+<p><strong>James Jones</strong> and <strong>Ben O'Dwyer</strong> lead every project personally. No account managers, no hand-offs: the people you brief are the people on comms.</p>
 </div>
 <div class="img-frame"><img src="assets/img/gen/about-crew.jpg" alt="Two production crew reviewing a plan in a studio doorway" loading="lazy"></div>
 </div>
@@ -229,9 +229,9 @@ P['about.html'] = page('about.html',
 
 
 P['contact.html'] = page('contact.html',
- 'Contact Us | Virtual Studio Events — UK Event Production Company','Talk to us about live, hybrid or virtual event production, crew hire or studio booking. Same-day response on every enquiry, UK-wide delivery.',
+ 'Contact Us | Virtual Studio Events: UK Event Production Company','Talk to us about live, hybrid or virtual event production, crew hire or studio booking. Same-day response on every enquiry, UK-wide delivery.',
  'Say hello','Got a show <span class="em">coming up?</span>',
- "Tell us the date and the ambition — we'll handle the rest. Same-day response on every enquiry.",
+ "Tell us the date and the ambition. We'll handle the rest. Same-day response on every enquiry.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="contact-grid">
 <div class="contact-card"><h3>Email</h3><p><a href="mailto:enquiries@virtualstudio.events">enquiries@virtualstudio.events</a></p></div>
 <div class="contact-card"><h3>Phone</h3><p><a href="tel:+442035986555">+44 020 359 86555</a></p></div>
@@ -296,7 +296,7 @@ if _chrome:
             _h = _h.replace('</body>', _cc + '\n</body>', 1)
         _h = _re.sub(r'<!-- Microsoft Clarity -->\s*<script type="text/javascript">\(function\(c,l,a,r,i,t,y\).*?</script>\s*', '', _h, flags=_re.S)
         _h = _re.sub(r'<!-- Google tag \(gtag\.js\) -->\s*<script async src="https://www\.googletagmanager\.com[^"]*"></script>\s*<script>window\.dataLayer.*?</script>\s*', '', _h, flags=_re.S)
-        # no-FOUC theme script — strip any existing copies, then add exactly one
+        # no-FOUC theme script: strip any existing copies, then add exactly one
         _h = _re.sub(r"<script>\(function\(\)\{try\{var t=localStorage\.getItem\('vse-theme'\).*?\}\)\(\);</script>\s*", '', _h, flags=_re.S)
         if '<meta name="theme-color"' in _h:
             _h = _h.replace('<meta name="theme-color"', TRACKING + '\n<meta name="theme-color"', 1)
