@@ -22,7 +22,7 @@ except Exception:
     FORM_ENDPOINT = ""
 TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
 import re as _re
-CSSV = "v=32"
+CSSV = "v=33"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -209,7 +209,7 @@ P['work.html'] = page('work.html',
 </div></section>''')
 
 P['about.html'] = page('about.html',
- 'About Virtual Studio Events | UK Event Production Experts',"The crew behind broadcasts for the BBC, ITV, Waitrose, Morrisons and John Lewis, delivering broadcast-grade live, hybrid and virtual event production across the UK.",
+ 'About Virtual Studio Events | UK Event Production Experts',"The crew behind broadcasts for the BBC, ITV, Waitrose, Morrisons and John Lewis. Broadcast-grade live, hybrid and virtual event production across the UK.",
  'The studio','Built in a crisis. <span class="em">Proven on every show since.</span>',
  "Careers spent in galleries and outside broadcast trucks, brought to live, hybrid and virtual events.",
  '''<section class="content-sec"><div class="wrap reveal"><div class="two-col">

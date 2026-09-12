@@ -85,6 +85,7 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 | DNS | **Fasthosts** (ns1/ns2.livedns.co.uk). `www` CNAME → CloudFront; apex via Fasthosts web forwarding. Leave the two `_acm-validations` CNAMEs in place forever — they auto-renew the cert |
 | Deploy | GitHub Actions on push to `main`; secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`, `CLOUDFRONT_DIST_ID` |
 | Analytics | GA4 `G-1SVVZ8ZEVK` + Microsoft Clarity `yh85iv2y4g`, injected into every page via `TRACKING` in `build_pages.py` |
+| IndexNow | Key `a13191bf63d09046dad3b2be26c637ef`, file at site root, `indexnow.py` submits `sitemap.xml` on every deploy. Bing/Yandex/Seznam/Naver only, Google does not participate |
 | Security headers | CloudFront managed policy `67f7725c-…` (HSTS, nosniff, X-Frame-Options, referrer-policy) |
 
 ## 6. Hard-won learnings — read before repeating a mistake
@@ -104,6 +105,9 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 - **Never set CORS headers in the Lambda and on the function URL.** For non-preflight requests Lambda returns *both* sets, the browser sees two `Access-Control-Allow-Origin` headers and rejects the response with a bare "Failed to fetch" — while the function runs and the mail sends. A silent success that is indistinguishable from a hard failure. CORS lives on the function URL only; `infra/contact-form.yaml` is correct and must stay that way.
 - **A Lambda function URL needs three things, not one.** `AuthType: NONE`, a resource policy granting `lambda:InvokeFunctionUrl`, *and* (since October 2025) a second statement granting `lambda:InvokeFunction` with `--invoked-via-function-url`. Miss any one and you get 403 with no request ID and no CORS headers.
 - **Test a function URL with `aws lambda invoke` first.** It bypasses the URL and CORS entirely, so it separates "handler is broken" from "response is being rejected" in one command. `aws logs tail /aws/lambda/vse-contact-form --since 20m` shows what actually ran.
+- **Every asset reference is version-stamped centrally** by `build_pages.py` as it writes each page. `form.js` and `demo.js` were both pinned at `?v=1` for weeks, so browsers ran a stale script against fresh markup and the brand switcher looked broken on the live site while working locally. Don't hard-code a `?v=` in a content module.
+- **The demo brand switcher carries four whole scenarios**, not four palettes: sector, event, date, audience size, tickets, agenda, tracks, speakers, exhibitors, polls, quiz, Q&A, chat, roundtables, run order and post-event narrative, plus its own corner radius, display face and label treatment. They mirror the three audiences the business sells to, plus VSE. Adding a fifth means adding every key in `SCENARIOS` — `demo.js` checks nothing at runtime.
+- **Experience claims carry no numbers in prose.** The site once said "thirty years" in copy and "40+ years combined" in the stat block. The credits (BBC, ITV, Waitrose, Morrisons, John Lewis) make the case without inviting arithmetic against a 2020 founding date. The 40+ combined stat is the single figure.
 - Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
 
 ## 6a. House style — applies to every word written for James, anywhere

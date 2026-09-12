@@ -172,7 +172,7 @@ function setBrand(k){
  $$('.brand-sector').forEach(e=>e.textContent=S.sector);
  $$('.brandbar button').forEach(x=>x.classList.toggle('on',x.dataset.brand===k));
  const note=$('.brandbar .note');
- if(note) note.textContent='— ' + S.sector + ' · ' + fmt(S.registered) + ' registered';
+ if(note) note.textContent=S.sector + ' · ' + fmt(S.registered) + ' registered';
  REBUILD.forEach(fn=>{try{fn();}catch(e){}});
 }
 $$('.brandbar button').forEach(b=>b.addEventListener('click',()=>setBrand(b.dataset.brand)));

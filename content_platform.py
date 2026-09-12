@@ -293,7 +293,7 @@ BRANDBAR = '''<div class="brandbar"><span>Brand:</span>\
 <button type="button" data-brand="apex">Apex Live</button>\
 <button type="button" data-brand="northfield">Northfield Group</button>\
 <button type="button" data-brand="ilt">Institute of Logistics</button>\
-<span class="note">— switches the brand, the event and the audience</span></div>'''
+<span class="note">Each one is a different customer, not a repaint</span></div>'''
 
 # Four demos with no way between them was a dead end at the foot of each page.
 DEMOS = [('demo-audience.html', '01 · Engage'), ('demo-registration.html', '02 · Register'),
