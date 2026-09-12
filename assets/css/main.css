@@ -458,26 +458,25 @@ html[data-theme="light"] nav .logo img,
 html[data-theme="light"] .foot-brand img{content:url(../img/logo-long-colour.png)}
 html[data-theme="light"] .skip{background:var(--accent);color:#fff}
 
-html[data-theme="light"] #engage-demo,
-html[data-theme="light"] #reg-demo,
-html[data-theme="light"] #hub-demo,
-html[data-theme="light"] #dash-demo,
-html[data-theme="light"] .brandbar,
-html[data-theme="light"] .badge{
+/* Lock the dark SURFACES, not the demo containers. The containers also hold
+   step pills, brand bars and captions that sit on the page background and must
+   follow the site theme. */
+html[data-theme="light"] .phone,
+html[data-theme="light"] .hub,
+html[data-theme="light"] .dash,
+html[data-theme="light"] .reg-card,
+html[data-theme="light"] .player,
+html[data-theme="light"] .scan-frame,
+html[data-theme="light"] .sess-side{
   --ink:#f4f6f9; --ink-dim:#a9b1cc; --line:rgba(255,255,255,.10);
   --demo-bg:#212b54; --demo-panel:#2b3663;
   --demo-accent:#6a9799; --demo-accent2:#9fc4c5; --label:#9fc4c5;
   color:var(--ink);
 }
-html[data-theme="light"] #engage-demo a,
-html[data-theme="light"] #reg-demo a,
-html[data-theme="light"] #hub-demo a,
-html[data-theme="light"] #dash-demo a{color:var(--demo-accent2)}
-/* the demo panels sit on the light page, so they need their own edge */
-html[data-theme="light"] #engage-demo,
-html[data-theme="light"] #reg-demo,
-html[data-theme="light"] #hub-demo,
-html[data-theme="light"] #dash-demo{border-radius:20px}
+html[data-theme="light"] .phone a,
+html[data-theme="light"] .hub a,
+html[data-theme="light"] .dash a,
+html[data-theme="light"] .reg-card a{color:var(--demo-accent2)}
 /* theme toggle + search button */
 .icon-btn{background:none;border:1px solid var(--line);color:var(--ink);width:42px;height:42px;border-radius:12px;display:grid;place-items:center;cursor:pointer;transition:border-color .3s,color .3s,transform .3s;flex:0 0 auto;padding:0}
 .icon-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
