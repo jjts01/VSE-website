@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Builds search-index.json from the generated pages. Run after build_pages.py."""
-import glob, json, re, os
+import glob, json, re, os, html as _html
 
 SKIP = {'404.html'}
 def text_of(h):
     m = re.search(r'<main id="main">(.*?)</main>', h, re.S)
     src = m.group(1) if m else h
     src = re.sub(r'<(script|style|svg)[^>]*>.*?</\1>', ' ', src, flags=re.S)
-    return re.sub(r'\s+', ' ', re.sub('<[^>]+>', ' ', src)).strip()
+    return _html.unescape(re.sub(r'\s+', ' ', re.sub('<[^>]+>', ' ', src)).strip())
 
 def build():
     items = []
@@ -17,8 +17,8 @@ def build():
         title = re.search(r'<title>(.*?)</title>', h, re.S)
         desc = re.search(r'<meta name="description" content="(.*?)"', h, re.S)
         h1 = re.search(r'<h1>(.*?)</h1>', h, re.S)
-        t = re.sub('<[^>]+>', '', h1.group(1)).strip() if h1 else (title.group(1).split('|')[0].strip() if title else f)
-        d = (desc.group(1) if desc else '')[:190]
+        t = _html.unescape(re.sub('<[^>]+>', '', h1.group(1)).strip()) if h1 else _html.unescape(title.group(1).split('|')[0].strip() if title else f)
+        d = _html.unescape(desc.group(1) if desc else '')[:190]
         body = text_of(h)
         # keyword pool: headings + first chunk of body
         heads = ' '.join(re.sub('<[^>]+>', ' ', x) for x in re.findall(r'<h[23][^>]*>(.*?)</h[23]>', h, re.S))
