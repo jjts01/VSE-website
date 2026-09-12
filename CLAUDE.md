@@ -98,6 +98,57 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 - **If a CSP is ever added**, allow-list `clarity.ms` and `googletagmanager.com` in `script-src`/`connect-src` or analytics dies silently.
 - Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
 
+## 6a. House style — applies to every word written for James, anywhere
+
+Not only the website: proposals, emails, decks, LinkedIn posts, quotes, docs. The
+test is whether a producer who has run a thousand shows would recognise it as
+something a person wrote. Audited against Wikipedia's *Signs of AI writing*.
+
+**Punctuation**
+
+- **Em dashes: roughly one per 500 words, and never as a default connector.** This
+  was the single strongest tell in the original site copy: 445 across 34,000
+  words, about one every 77. Ask what the sentence actually wants. A colon
+  introduces an explanation or a list. A full stop separates two thoughts that
+  were welded together. Commas bracket a short aside. Parentheses hold a
+  cross-reference. A comma in front of an independent clause is a splice, and a
+  splice is worse than the dash it replaced.
+- Straight quotes and apostrophes, never curly.
+- Sentence case in headings. Never Title Case On Every Main Word.
+
+**Words**
+
+- Avoid unless literally accurate in the trade sense: *delve, crucial, pivotal,
+  tapestry, testament, vibrant, meticulous, intricate, underscore, showcase,
+  foster, leverage, seamless, robust, realm, holistic, transformative,
+  cutting-edge, unlock, empower, harness, elevate, garner, bolster, boasts,
+  myriad, ever-evolving, navigate the, at the heart of, in today's X landscape*.
+  (*Bespoke* for a set build, *seamless* for a cyc, *robust* for a stream are
+  fine. They are the words the trade uses.)
+- No *not just X, but Y*. No *it's not A, it's B*. No *more than just*.
+- No trailing *-ing* commentary: *..., ensuring a smooth experience*, *...,
+  highlighting our commitment*, *..., cementing its place*.
+- No rule-of-three adjective stacking. Three-item lists of **real things**,
+  cameras, deliverables, cities, are fine and good.
+- No vague attribution: *many experts say*, *it is widely regarded*. Name the
+  source or drop the claim.
+
+**Shape**
+
+- No *Despite its challenges...* or *Looking ahead...* closing paragraph.
+- No puffery about significance, legacy or broader industry trends. Say the
+  specific thing: *two people on site instead of six*, *£295+VAT half day*,
+  *15-45 seconds behind live*.
+- Boldface sparingly, roughly one per 250 words, for genuine emphasis, never to
+  mark every key phrase.
+- British English, VAT stated, prices as `£1,750 +VAT`.
+- Write from what VSE has actually done. Concrete beats impressive.
+
+**Tools:** `tools/aicheck.py` scores any copy against the full catalogue of
+tells, `tools/dedash.py` rewrites em dashes in bulk, `tools/splicecheck.py`
+catches the damage a bulk rewrite can do. Run all three before shipping copy.
+All three are currently clean.
+
 ## 7. Open items
 
 - Client logo image files (currently the logo marquee is removed; text client cloud carries the names). Originals are on the old WordPress host.
