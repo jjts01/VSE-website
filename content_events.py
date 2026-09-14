@@ -28,7 +28,7 @@ dict(slug='event-virtual-conference.html', name='Virtual conferences', kicker='V
    ('What happens if a speaker\'s connection fails?','Every speaker has a tested fallback (a dial-in number at minimum, and for keynotes a pre-recorded insurance version) and the run order says what happens next.')]),
 
 dict(slug='event-hybrid-conference.html', name='Hybrid conferences', kicker='Hybrid',
- title='Hybrid Event Production Company UK | Virtual Studio Events',
+ title='Hybrid Conference Production: Room and Stream as One Show | VSE',
  desc='Hybrid conference and event production: a great show in the room and a broadcast-quality stream online, with remote speakers, two-way interaction, dedicated stream audio and one technical lead who owns the join.',
  h1='Hybrid events <span class="em">where both audiences win.</span>',
  lede='The room and the stream are two different shows watched by two different audiences. We produce both, and we own the join between them, which is where hybrid events usually fail.',

@@ -5,7 +5,7 @@ SITE="https://www.virtualstudio.events/"
 
 MODULES = [
  dict(img='gen/mod-register.jpg', img_alt='Phone showing a check-in code beside a blank badge and badge printer', key='register', slug='platform-register.html', name='Register', tag='Registration, ticketing & check-in',
-  title='Event Registration, Ticketing & Check-in Software | VSE Platform',
+  title='Event Registration & Ticketing Software for Conferences | VSE Platform',
   desc='Branded event registration with ticket types, payments, invitations, approval workflows, SSO, waitlists, calendar sync, QR check-in and badge printing for virtual, hybrid and live events.',
   h1='Register: <span class="em">from invite to badge in one flow.</span>',
   lede='Branded registration pages, ticketing and payments, approvals, SSO for internal events, QR check-in and on-site badge printing, with every attendee record flowing straight into the live event and the analytics afterwards.',
