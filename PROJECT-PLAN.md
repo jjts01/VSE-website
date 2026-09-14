@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-14 · **Last commit:** 12 September 2026 · **Commits:** 59
+**Last build:** 2026-09-14 · **Last commit:** 14 September 2026 · **Commits:** 61
 
 ## Where the project stands
 
@@ -83,6 +83,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-14 | `4828f7b` | Correct the record: Search Console, Bing, GA4 and Clarity are all set up |
+| 2026-09-14 | `bc6c24b` | Declare both routes to each demo as separate breadcrumb trails |
 | 2026-09-12 | `cd401a1` | Document the three nav states and the mobile menu scroll requirement |
 | 2026-09-12 | `e8a91cf` | Use the icon mark in the nav on phone portrait |
 | 2026-09-12 | `32bf0a0` | Let the open mobile menu scroll |
@@ -93,8 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `66977ed` | Tidy the new copy against house style; document the demo scenarios and IndexNow |
 | 2026-09-12 | `36898e5` | Stamp the cache-busting version on every asset reference centrally |
 | 2026-09-12 | `daf1681` | Demo switcher between the four demos, and four real brand scenarios |
-| 2026-09-12 | `f2de199` | Fix conflicting experience claims; add IndexNow key and submitter |
-| 2026-09-12 | `4d55e83` | Record the function URL CORS and permission learnings in CLAUDE.md |
 
 ## How this file stays current
 

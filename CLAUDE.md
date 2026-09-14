@@ -190,12 +190,32 @@ Confirmed by James, September 2026. **Do not re-raise these as gaps.**
 
 ## 8. Open items
 
-- Client logo image files (currently the logo marquee is removed; text client cloud carries the names). Originals are on the old WordPress host.
-- `sameAs` on the ProfessionalService schema is an empty array — needs LinkedIn, YouTube, Companies House.
-- Google Business Profile for the Chichester studio (status unconfirmed — **ask, don't assume**).
+**Resolved in this pass, do not re-raise:**
+- Bare domain `virtualstudio.events` → verified redirecting to `https://www.virtualstudio.events`. Fasthosts forwarding is live.
+- `sameAs` was an empty array. Now carries the verified Companies House record, plus an `identifier` with the company number.
+
+**⚠️ Font licensing — needs James's decision, potentially urgent**
+
+The site serves six weights of **Milliard**, a commercial typeface by Rene Bieder, as woff2 converted from files in `Design elements/Font/`. Two facts about that source folder:
+
+- it is named **`milliard-cufonfonts`**, and cufonfonts.com is a font-aggregator site, not an authorised reseller (MyFonts and Fontspring are);
+- it contains all **22 styles as `.otf`** — desktop format, and the complete retail family.
+
+Even where a desktop licence has been bought, **it does not cover webfont embedding**; foundries sell that separately, usually with a pageview tier and a licence tier set by organisation size. Foundries do crawl for unlicensed webfont serving. Options, in order of cost:
+1. Buy the webfont licence for the six weights actually used (book, book italic, medium, semibold, extrabold, black) from MyFonts/Fontspring, or email hi@renebieder.com for a small-company quote.
+2. Swap to an open-licence face. The stack already falls back to **Figtree** then **Manrope**, both SIL Open Font Licence and both close to Milliard's geometric grotesk feel. Swapping is a one-line change to `--display` and `--body` plus deleting the `@font-face` block.
+
+Until it is resolved this is the one genuine legal exposure on the site.
+
+**Needs information from James:**
+- LinkedIn and YouTube URLs for `sameAs`. Searched and could not confirm either; **do not guess a URL** — a wrong `sameAs` is worse than an absent one.
+- **`foundingDate` says `2020-03`; Companies House records incorporation as 21 September 2020** (company 12893248). The copy's "March 2020" is defensible if that is when the founders started working together, but the structured `foundingDate` is a machine-readable claim Google can cross-reference. Confirm which date belongs in the schema.
+- Whether the registered office (Unit 3 The Old Grainstore, Adsdean Farm, Funtington, Chichester, PO18 9DN) is also the studio. If it is, putting the full street address and postcode into the `PostalAddress` block is the single biggest available local-SEO gain. It is already public on Companies House, but **do not add it without confirming it is the working address.**
+- Google Business Profile for the studio — status unconfirmed.
+
+**Carried forward:**
+- Client logo image files. Originals are on the old WordPress host. Note James's constraint: *name all clients, but only use logos held from the original site* — so **do not** pull client logos out of `Dropbox/Clients/`, which were supplied for project work, not for VSE's marketing.
 - Rotate credentials pasted in chat during setup (GitHub PATs, AWS keys).
-- Bare domain `virtualstudio.events` → confirm Fasthosts web forwarding to `www` is live.
-- Milliard is a commercial typeface (Rene Bieder) — confirm the licence covers web embedding.
 
 ## 9. Recurring automation
 
