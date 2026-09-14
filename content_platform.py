@@ -310,7 +310,15 @@ def demo_nav(current):
 
 
 def demo_page(page, slug, title, desc, kicker, h1, lede, body, back):
-    return page(slug,title,desc,kicker,h1,lede,body,crumbs=[('index.html','Home'),('platform.html','Platform'),(back[0],back[1]),(slug,'Demo')],extra_head=DEMO_HEAD+'<meta name="robots" content="index,follow">')
+    # Two honest routes to a demo: down through the platform module it belongs
+    # to, or across from the demos index. Google allows both to be declared and
+    # picks which to show. The module path is the one rendered on the page.
+    trails = [
+        [('index.html', 'Home'), ('platform.html', 'Platform'), (back[0], back[1]), (slug, 'Demo')],
+        [('index.html', 'Home'), ('demos.html', 'Demos'), (slug, back[1] + ' demo')],
+    ]
+    return page(slug, title, desc, kicker, h1, lede, body, crumbs=trails,
+                extra_head=DEMO_HEAD + '<meta name="robots" content="index,follow">')
 
 def demo_audience(page):
     body=demo_nav('demo-audience.html')+BRANDBAR+'''<section class="content-sec" style="padding-top:40px"><div class="wrap">

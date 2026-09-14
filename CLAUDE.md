@@ -164,6 +164,16 @@ tells, `tools/dedash.py` rewrites em dashes in bulk, `tools/splicecheck.py`
 catches the damage a bulk rewrite can do. Run all three before shipping copy.
 All three are currently clean.
 
+## 6b. Structured data — what still earns a rich result
+
+Current inventory across 75 pages: `ProfessionalService` ×74, `BreadcrumbList` ×73, `Article` ×32, `SoftwareApplication` ×8, `FAQPage` ×8, `DefinedTermSet` ×1. All parse cleanly.
+
+- **Breadcrumbs are a presentation feature, not a ranking factor.** Desktop only. The gain is a readable path instead of a raw URL in the result, so a modest CTR effect at best. There is no "more breadcrumbs" lever: coverage is already complete everywhere it is meaningful, and the six pages without a trail (`index`, `404`, and the four top-level pages) are correct to have none. Google requires at least two `ListItem`s, each with `position`, `name` and `item`; `item` is optional on the last entry only. Follow the **typical user path, not the URL structure** — that is the rule most sites fail. `build_pages.py`'s `breadcrumb_html()` accepts a list of trails to declare several routes to one page; the demos use this (module path and demos-index path). The first trail is the one rendered.
+- **`FAQPage` no longer does anything.** Google deprecated the FAQ rich result on 7 May 2026 and removed the documentation in June. The markup is valid schema.org and harmless to leave — unused structured data does not hurt Search — but it earns nothing. Don't add more of it expecting a result.
+- **`HowTo` was deprecated earlier** (2023). Same position.
+- **Still producing rich results:** `Article`, `Event`, `Product`, `Review`/`AggregateRating`, `LocalBusiness`, `VideoObject`. `Organization`/`Person` matter for entity recognition rather than a visible result.
+- **`sameAs` on the ProfessionalService block is an empty array.** Filling it (LinkedIn, YouTube, Companies House) is the cheapest real win available in the schema: it is how Google ties the site to the entity.
+
 ## 7. Open items
 
 - Client logo image files (currently the logo marquee is removed; text client cloud carries the names). Originals are on the old WordPress host.

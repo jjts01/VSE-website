@@ -22,7 +22,7 @@ except Exception:
     FORM_ENDPOINT = ""
 TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
 import re as _re
-CSSV = "v=38"
+CSSV = "v=39"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","sameAs":[]}</script>'
 
@@ -35,15 +35,40 @@ FOOTER_COLS = [
 ]
 
 def breadcrumb_html(trail):
-    """trail: list of (href,label); last item is current page"""
-    items=[]; ld=[]
-    for i,(href,label) in enumerate(trail):
-        last = i==len(trail)-1
-        items.append(f'<span aria-current="page">{label}</span>' if last else f'<a href="{href}">{label}</a>')
-        ld.append({"@type":"ListItem","position":i+1,"name":label,"item":SITE+href if href!='index.html' else SITE})
+    """Build the visible breadcrumb trail and its BreadcrumbList markup.
+
+    trail: a list of (href, label) pairs, last item being the current page.
+
+    Pass a LIST OF TRAILS to declare more than one route to the same page.
+    Google supports several BreadcrumbList objects on a page and chooses which
+    to show, which matters where a page genuinely has two paths to it: a demo
+    reached either from its platform module or from the demos index. The first
+    trail is the one rendered on the page; the rest exist only in the markup.
+
+    Google requires position, name and item on every entry, and at least two
+    entries per list, or the whole trail is ineligible.
+    """
     import json
-    schema='<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":ld})+'</script>'
-    return '<nav class="crumbs" aria-label="Breadcrumb">'+' <span>/</span> '.join(items)+'</nav>'+schema
+    multi = bool(trail) and isinstance(trail[0][0], (list, tuple))
+    trails = list(trail) if multi else [trail]
+
+    def as_list(t):
+        return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": i + 1, "name": label,
+                     "item": SITE + href if href != 'index.html' else SITE}
+                    for i, (href, label) in enumerate(t)]}
+
+    # a single-entry trail is ineligible, so never emit one
+    lists = [as_list(t) for t in trails if len(t) >= 2]
+    payload = lists[0] if len(lists) == 1 else lists
+    schema = ('<script type="application/ld+json">' + json.dumps(payload) + '</script>') if lists else ''
+
+    visible = trails[0]
+    items = [(f'<span aria-current="page">{label}</span>' if i == len(visible) - 1
+              else f'<a href="{href}">{label}</a>')
+             for i, (href, label) in enumerate(visible)]
+    return '<nav class="crumbs" aria-label="Breadcrumb">' + ' <span>/</span> '.join(items) + '</nav>' + schema
 
 def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, extra_head='', hero_extra=''):
     cur = ' aria-current="page"'

@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-12 · **Last commit:** 12 September 2026 · **Commits:** 57
+**Last build:** 2026-09-14 · **Last commit:** 12 September 2026 · **Commits:** 59
 
 ## Where the project stands
 
@@ -83,6 +83,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-12 | `cd401a1` | Document the three nav states and the mobile menu scroll requirement |
+| 2026-09-12 | `e8a91cf` | Use the icon mark in the nav on phone portrait |
 | 2026-09-12 | `32bf0a0` | Let the open mobile menu scroll |
 | 2026-09-12 | `efc38fb` | Fix the nav squashing the logo and clipping the CTA on tablet |
 | 2026-09-12 | `88ab9e3` | Drop the crisis framing from the 2020 story |
@@ -93,8 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `daf1681` | Demo switcher between the four demos, and four real brand scenarios |
 | 2026-09-12 | `f2de199` | Fix conflicting experience claims; add IndexNow key and submitter |
 | 2026-09-12 | `4d55e83` | Record the function URL CORS and permission learnings in CLAUDE.md |
-| 2026-09-12 | `28d56b3` | Switch the enquiry form to the live endpoint |
-| 2026-09-12 | `f1d933a` | Keep both origins in the template so a redeploy doesn't drop the apex domain |
 
 ## How this file stays current
 
