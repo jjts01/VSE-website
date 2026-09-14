@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-14 · **Last commit:** 14 September 2026 · **Commits:** 61
+**Last build:** 2026-09-14 · **Last commit:** 14 September 2026 · **Commits:** 62
 
 ## Where the project stands
 
@@ -83,6 +83,7 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-14 | `34ee01f` | Populate sameAs with the verified Companies House record; widen the font fallback |
 | 2026-09-14 | `4828f7b` | Correct the record: Search Console, Bing, GA4 and Clarity are all set up |
 | 2026-09-14 | `bc6c24b` | Declare both routes to each demo as separate breadcrumb trails |
 | 2026-09-12 | `cd401a1` | Document the three nav states and the mobile menu scroll requirement |
@@ -94,7 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `98d1ad6` | Sync .txt, search index and video in CI; submit to IndexNow on deploy |
 | 2026-09-12 | `66977ed` | Tidy the new copy against house style; document the demo scenarios and IndexNow |
 | 2026-09-12 | `36898e5` | Stamp the cache-busting version on every asset reference centrally |
-| 2026-09-12 | `daf1681` | Demo switcher between the four demos, and four real brand scenarios |
 
 ## How this file stays current
 

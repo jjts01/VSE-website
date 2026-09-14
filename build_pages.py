@@ -22,9 +22,9 @@ except Exception:
     FORM_ENDPOINT = ""
 TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
 import re as _re
-CSSV = "v=41"
+CSSV = "v=43"
 
-ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","addressLocality":"Chichester","addressRegion":"West Sussex","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","identifier":{"@type":"PropertyValue","name":"Companies House registration","value":"12893248"},"sameAs":["https://find-and-update.company-information.service.gov.uk/company/12893248"]}</script>'
+ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","streetAddress":"Unit 3, The Old Grainstore, Adsdean Farm, Funtington","addressLocality":"Chichester","addressRegion":"West Sussex","postalCode":"PO18 9DN","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","identifier":{"@type":"PropertyValue","name":"Companies House registration","value":"12893248"},"sameAs":["https://find-and-update.company-information.service.gov.uk/company/12893248"]}</script>'
 
 FOOTER_COLS = [
  ("Platform",[("platform.html","Overview"),("platform-register.html","Register"),("platform-engage.html","Engage"),("platform-connect.html","Connect"),("platform-stage.html","Stage"),("platform-broadcast.html","Broadcast"),("platform-insight.html","Insight"),("demos.html","Live demos"),("platform-features.html","Full feature list"),("pipeline.html","The pipeline"),("platform-packages.html","Packages")]),
@@ -94,8 +94,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
 <meta property="og:site_name" content="Virtual Studio Events">
 <meta name="twitter:card" content="summary_large_image">
 {TRACKING}
-<link rel="preload" href="assets/fonts/milliard-extrabold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/milliard-book.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/figtree-var.woff2" as="font" type="font/woff2" crossorigin>
 {ORG_SCHEMA}
 {extra_head}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,7 +150,7 @@ def page(slug, title, desc, hero_kicker, hero_h1, hero_lede, body, crumbs=None, 
     <div class="foot-brand"><img src="assets/img/logo-stacked-white.png" alt="Virtual Studio Events"><p>Live, hybrid &amp; broadcast event production. Chichester studio, UK-wide crew, cloud galleries worldwide.</p></div>
     {cols}
   </div>
-  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div>
+  <div class="foot-base"><span>© 2026 Virtual Studio Events Limited · Studio partner: <a href="https://granary.digital/">Granary Digital</a></span><span><a href="sitemap.xml">Sitemap</a></span></div><div class="foot-legal">Virtual Studio Events Limited is registered in England &amp; Wales, company number <strong>12893248</strong>. Registered office: Unit 3, The Old Grainstore, Adsdean Farm, Funtington, Chichester, West Sussex PO18 9DN.</div>
 </footer>
 <a class="fab" href="contact.html" aria-label="Start a project"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg><span>Start a project</span></a>
 <div id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search">

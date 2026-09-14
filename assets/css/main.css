@@ -1,10 +1,12 @@
-/* Milliard — official brand typeface */
-@font-face{font-family:'Milliard';src:url('../fonts/milliard-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Milliard';src:url('../fonts/milliard-book-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:'Milliard';src:url('../fonts/milliard-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Milliard';src:url('../fonts/milliard-semibold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Milliard';src:url('../fonts/milliard-extrabold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
-@font-face{font-family:'Milliard';src:url('../fonts/milliard-black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+/* Figtree — site typeface (SIL OFL) */
+/* Figtree, SIL Open Font Licence (licence shipped at assets/fonts/FIGTREE-OFL.txt).
+   Replaced Milliard, which is a commercial face whose desktop files did not carry
+   a webfont licence. Two variable files cover 300-900 plus italic, where Milliard
+   needed six static files, and Figtree carries 391 glyphs against Milliard's 205.
+   Self-hosted rather than loaded from Google Fonts: hotlinking would send every
+   visitor's IP to Google on page load, regardless of the cookie banner. */
+@font-face{font-family:'Figtree';src:url('../fonts/figtree-var.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('../fonts/figtree-italic-var.woff2') format('woff2');font-weight:300 900;font-style:italic;font-display:swap}
 
 :root{
   /* VSE brand */
@@ -13,8 +15,8 @@
   --accent:#6a9799; --accent2:#9fc4c5; --arc:rgba(255,255,255,.14);
   /* small uppercase labels need more contrast than --accent gives on navy */
   --label:#9fc4c5;
-  --display:'Milliard','Figtree','Manrope','Segoe UI',system-ui,sans-serif;
-  --body:'Milliard','Figtree','Manrope','Segoe UI',system-ui,sans-serif;
+  --display:'Figtree','Segoe UI',system-ui,sans-serif;
+  --body:'Figtree','Segoe UI',system-ui,sans-serif;
   --serif:'Instrument Serif',Georgia,serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -662,3 +664,9 @@ html[data-theme="light"] .demo-nav a[aria-current="page"]{color:#fff}
   nav .logo img{content:url(../img/logo-icon-white.png);height:38px;width:auto}
   html[data-theme="light"] nav .logo img{content:url(../img/logo-icon-colour.png)}
 }
+
+/* Statutory trading disclosure. The Companies Act requires a limited company's
+   website to carry its registered name, company number, place of registration
+   and registered office address. */
+.foot-legal{padding-top:14px;font-size:.72rem;line-height:1.6;color:var(--ink-dim);max-width:70ch}
+.foot-legal strong{color:var(--ink);font-weight:600}

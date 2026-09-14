@@ -6,7 +6,7 @@
 
 ## 1. Who and what
 
-Virtual Studio Events Limited (VSE) — UK live, hybrid and virtual event production company. Founded March 2020 by **James Jones** and **Ben O'Dwyer** (40+ years combined live event experience). Studio in **Chichester, West Sussex**, partner studios in Manchester, Norwich and Fareham, cloud galleries on AWS. Studio partner: Granary Digital.
+Virtual Studio Events Limited (VSE) — UK live, hybrid and virtual event production company. Work began **March 2020**; the company was **incorporated 21 September 2020** (company no. **12893248**). Both facts are true and the site uses them in the right places: copy says March 2020, schema `foundingDate` is `2020-03`, and the statutory footer disclosure carries the incorporation details. Founders **James Jones** and **Ben O'Dwyer** (40+ years combined live event experience). Studio in **Chichester, West Sussex**, partner studios in Manchester, Norwich and Fareham, cloud galleries on AWS. Studio partner: Granary Digital.
 
 - Site: https://www.virtualstudio.events
 - Contact: enquiries@virtualstudio.events · +44 020 359 86555
@@ -86,6 +86,7 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 | Deploy | GitHub Actions on push to `main`; secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`, `CLOUDFRONT_DIST_ID` |
 | Analytics | GA4 `G-1SVVZ8ZEVK` + Microsoft Clarity `yh85iv2y4g`, injected into every page via `TRACKING` in `build_pages.py` |
 | IndexNow | Key `a13191bf63d09046dad3b2be26c637ef`, file at site root, `indexnow.py` submits `sitemap.xml` on every deploy. Bing/Yandex/Seznam/Naver only, Google does not participate |
+| Registered office / studio | Unit 3, The Old Grainstore, Adsdean Farm, Funtington, Chichester, West Sussex PO18 9DN. This is the working address, shared with Granary Digital. It is in the `PostalAddress` schema on every page and in the statutory footer disclosure |
 | Security headers | CloudFront managed policy `67f7725c-…` (HSTS, nosniff, X-Frame-Options, referrer-policy) |
 
 ## 6. Hard-won learnings — read before repeating a mistake
@@ -110,6 +111,7 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 - **The nav has three states, and changing one breaks another.** Below 560px the icon mark (`logo-icon-white` / `logo-icon-colour`); 560–1150px the wordmark plus hamburger; above 1150px the full bar. The wordmark is 333px and deliberately cannot shrink (`nav .logo{flex:0 0 auto}`, `max-width:none` to beat the global `img{max-width:100%}`), because letting it shrink is what crushed it to a sliver on tablet landscape. Which then pushed the hamburger off a phone screen, hence the icon breakpoint. **Test 320, 390, 560, 768, 1024, 1180 and 1400 after touching nav CSS** — the three states interact and fixing one width commonly breaks another.
 - **The open mobile menu must scroll itself.** It is `position:fixed;inset:0` while `body{overflow:hidden}`, so without `overflow-y:auto` on the list the last items are unreachable on any short screen: an iPhone SE, or any phone in landscape. `overscroll-behavior:contain` stops the scroll chaining to the locked body behind it.
 - **This file's open items are a to-do list, not evidence.** An early note saying Search Console and analytics needed setting up survived in Open items long after James had done all of it, and got repeated back to him twice as though it were a finding. Anything in section 8 is unverified by definition: check it, or ask, before stating it as fact. Never present a stale note from this file as a discovery.
+- **UK limited companies must show trading disclosures on the website.** Registered name, company number, place of registration and registered office address. The footer carries all four in `.foot-legal`; do not remove it.
 - **Keep the 2020 story factual, not dramatic.** "Built in a crisis" was cut for being alarmist. The register is plain statement of what happened: *every event moved online*, *a stream was the only way to hold an event at all*, *the first weeks of the 2020 lockdown*. James's own wording for the homepage is the reference: *"when the world shut down during the 2020 global pandemic"*. Avoid crisis, catastrophe, emergency and similar about the company. (Those words are fine in the guides when they describe a technical failure on air, which is what they actually mean there.)
 - **Experience claims must agree, and dates need their context.** The site once said "thirty years" in copy and "40+ years combined" in the stat block three lines below. Fixing that by deleting every number and date went too far the other way: it stripped the context that makes 2020 a strength. **Whenever 2020 appears it is anchored to the pandemic** ("when the world shut down during the 2020 global pandemic", "born in the 2020 shutdown, when a stream was the only way to hold an event at all"). A bare founding date reads as "new"; the same date with the reason reads as rising to a moment. The coherent claim set is: 40+ years combined (the founders' careers), six years of VSE shows, 500+ shows since 2020, founded March 2020 in the pandemic. `tools/claimcheck.py` lists every experience, duration and founding claim on the site with whether its page explains the date, so conflicts are visible in one place. Run it after touching any company claim.
 - Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
@@ -194,23 +196,10 @@ Confirmed by James, September 2026. **Do not re-raise these as gaps.**
 - Bare domain `virtualstudio.events` → verified redirecting to `https://www.virtualstudio.events`. Fasthosts forwarding is live.
 - `sameAs` was an empty array. Now carries the verified Companies House record, plus an `identifier` with the company number.
 
-**⚠️ Font licensing — needs James's decision, potentially urgent**
-
-The site serves six weights of **Milliard**, a commercial typeface by Rene Bieder, as woff2 converted from files in `Design elements/Font/`. Two facts about that source folder:
-
-- it is named **`milliard-cufonfonts`**, and cufonfonts.com is a font-aggregator site, not an authorised reseller (MyFonts and Fontspring are);
-- it contains all **22 styles as `.otf`** — desktop format, and the complete retail family.
-
-Even where a desktop licence has been bought, **it does not cover webfont embedding**; foundries sell that separately, usually with a pageview tier and a licence tier set by organisation size. Foundries do crawl for unlicensed webfont serving. Options, in order of cost:
-1. Buy the webfont licence for the six weights actually used (book, book italic, medium, semibold, extrabold, black) from MyFonts/Fontspring, or email hi@renebieder.com for a small-company quote.
-2. Swap to an open-licence face. The stack already falls back to **Figtree** then **Manrope**, both SIL Open Font Licence and both close to Milliard's geometric grotesk feel. Swapping is a one-line change to `--display` and `--body` plus deleting the `@font-face` block.
-
-Until it is resolved this is the one genuine legal exposure on the site.
+**Resolved — typeface.** Milliard is gone. It is a commercial face by Rene Bieder and the source files in `Design elements/Font/` were desktop `.otf` from an aggregator site, which would not have carried a webfont licence in any case. Replaced with **Figtree** (SIL Open Font Licence, licence shipped at `assets/fonts/FIGTREE-OFL.txt`). Two variable woff2 files cover weights 300–900 plus italic where Milliard needed six statics: 56KB against 99KB, and 391 glyphs against 205. **Self-hosted deliberately** — loading from Google Fonts would send every visitor's IP to Google on page load regardless of the cookie banner, which would undercut the consent gating. If the brand ever returns to Milliard, buy the webfont licence first (hi@renebieder.com).
 
 **Needs information from James:**
 - LinkedIn and YouTube URLs for `sameAs`. Searched and could not confirm either; **do not guess a URL** — a wrong `sameAs` is worse than an absent one.
-- **`foundingDate` says `2020-03`; Companies House records incorporation as 21 September 2020** (company 12893248). The copy's "March 2020" is defensible if that is when the founders started working together, but the structured `foundingDate` is a machine-readable claim Google can cross-reference. Confirm which date belongs in the schema.
-- Whether the registered office (Unit 3 The Old Grainstore, Adsdean Farm, Funtington, Chichester, PO18 9DN) is also the studio. If it is, putting the full street address and postcode into the `PostalAddress` block is the single biggest available local-SEO gain. It is already public on Companies House, but **do not add it without confirming it is the working address.**
 - Google Business Profile for the studio — status unconfirmed.
 
 **Carried forward:**
@@ -225,4 +214,4 @@ Until it is resolved this is the one genuine legal exposure on the site.
 
 - Repo / working copy: `/tmp/vse-website` in session; mirrored to the Cowork outputs folder.
 - Dropbox: `Virtual Studio Event Dropbox/Virtual Studio Events/` — `Website assets/` (research, DNS notes, competitor intel), `Design elements/` (logos, Milliard font, backgrounds), `Studio Media/` (Chichester, Fareham, Norwich, Manchester photography), `Clients/`, `Showreel/`.
-- Brand: navy `#212b54`, teal `#6a9799`, light teal `#9fc4c5`; Milliard (display + body), Instrument Serif italic for accent words.
+- Brand: navy `#212b54`, teal `#6a9799`, light teal `#9fc4c5`; **Figtree** (display + body, SIL OFL, self-hosted variable), Instrument Serif italic for accent words.
