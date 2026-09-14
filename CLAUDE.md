@@ -109,6 +109,7 @@ Append a dict to the relevant pillar's `GUIDES` list with `slug`, `pillar`, `tit
 - **The demo brand switcher carries four whole scenarios**, not four palettes: sector, event, date, audience size, tickets, agenda, tracks, speakers, exhibitors, polls, quiz, Q&A, chat, roundtables, run order and post-event narrative, plus its own corner radius, display face and label treatment. They mirror the three audiences the business sells to, plus VSE. Adding a fifth means adding every key in `SCENARIOS` — `demo.js` checks nothing at runtime.
 - **The nav has three states, and changing one breaks another.** Below 560px the icon mark (`logo-icon-white` / `logo-icon-colour`); 560–1150px the wordmark plus hamburger; above 1150px the full bar. The wordmark is 333px and deliberately cannot shrink (`nav .logo{flex:0 0 auto}`, `max-width:none` to beat the global `img{max-width:100%}`), because letting it shrink is what crushed it to a sliver on tablet landscape. Which then pushed the hamburger off a phone screen, hence the icon breakpoint. **Test 320, 390, 560, 768, 1024, 1180 and 1400 after touching nav CSS** — the three states interact and fixing one width commonly breaks another.
 - **The open mobile menu must scroll itself.** It is `position:fixed;inset:0` while `body{overflow:hidden}`, so without `overflow-y:auto` on the list the last items are unreachable on any short screen: an iPhone SE, or any phone in landscape. `overscroll-behavior:contain` stops the scroll chaining to the locked body behind it.
+- **This file's open items are a to-do list, not evidence.** An early note saying Search Console and analytics needed setting up survived in Open items long after James had done all of it, and got repeated back to him twice as though it were a finding. Anything in section 8 is unverified by definition: check it, or ask, before stating it as fact. Never present a stale note from this file as a discovery.
 - **Keep the 2020 story factual, not dramatic.** "Built in a crisis" was cut for being alarmist. The register is plain statement of what happened: *every event moved online*, *a stream was the only way to hold an event at all*, *the first weeks of the 2020 lockdown*. James's own wording for the homepage is the reference: *"when the world shut down during the 2020 global pandemic"*. Avoid crisis, catastrophe, emergency and similar about the company. (Those words are fine in the guides when they describe a technical failure on air, which is what they actually mean there.)
 - **Experience claims must agree, and dates need their context.** The site once said "thirty years" in copy and "40+ years combined" in the stat block three lines below. Fixing that by deleting every number and date went too far the other way: it stripped the context that makes 2020 a strength. **Whenever 2020 appears it is anchored to the pandemic** ("when the world shut down during the 2020 global pandemic", "born in the 2020 shutdown, when a stream was the only way to hold an event at all"). A bare founding date reads as "new"; the same date with the reason reads as rising to a moment. The coherent claim set is: 40+ years combined (the founders' careers), six years of VSE shows, 500+ shows since 2020, founded March 2020 in the pandemic. `tools/claimcheck.py` lists every experience, duration and founding claim on the site with whether its page explains the date, so conflicts are visible in one place. Run it after touching any company claim.
 - Breadcrumbs are `<nav>` elements — they need `nav.crumbs{position:static}` or they inherit the fixed header styles and vanish.
@@ -174,19 +175,33 @@ Current inventory across 75 pages: `ProfessionalService` ×74, `BreadcrumbList` 
 - **Still producing rich results:** `Article`, `Event`, `Product`, `Review`/`AggregateRating`, `LocalBusiness`, `VideoObject`. `Organization`/`Person` matter for entity recognition rather than a visible result.
 - **`sameAs` on the ProfessionalService block is an empty array.** Filling it (LinkedIn, YouTube, Companies House) is the cheapest real win available in the schema: it is how Google ties the site to the entity.
 
-## 7. Open items
+## 7. Measurement — already in place
+
+Confirmed by James, September 2026. **Do not re-raise these as gaps.**
+
+| | Status |
+|---|---|
+| Google Search Console | Set up |
+| Bing Webmaster Tools | Set up |
+| Google Analytics 4 | Set up (`G-1SVVZ8ZEVK`) |
+| Microsoft Clarity | Set up (`yh85iv2y4g`) |
+
+**None of this is verifiable from the page source, so do not conclude it is missing.** Site verification is done by DNS TXT at Fasthosts, which is domain-wide and invisible in the HTML. GA4 and Clarity are deliberately consent-gated: `site.js` injects them only after the visitor accepts, so a fetch of the static HTML shows no analytics tags at all. Both absences are correct behaviour, not faults.
+
+## 8. Open items
 
 - Client logo image files (currently the logo marquee is removed; text client cloud carries the names). Originals are on the old WordPress host.
-- Google Search Console verification + sitemap submission; Google Business Profile for Chichester.
+- `sameAs` on the ProfessionalService schema is an empty array — needs LinkedIn, YouTube, Companies House.
+- Google Business Profile for the Chichester studio (status unconfirmed — **ask, don't assume**).
 - Rotate credentials pasted in chat during setup (GitHub PATs, AWS keys).
 - Bare domain `virtualstudio.events` → confirm Fasthosts web forwarding to `www` is live.
 - Milliard is a commercial typeface (Rene Bieder) — confirm the licence covers web embedding.
 
-## 8. Recurring automation
+## 9. Recurring automation
 
 `vse-competitor-intel` — scheduled task, 1st of each month 08:00. Researches UK production competitors, platform pricing, feature gaps and SEO positions; writes `Website assets/Competitor intel/YYYY-MM competitor briefing.md` to Dropbox and compares against the previous month.
 
-## 9. Where things live
+## 10. Where things live
 
 - Repo / working copy: `/tmp/vse-website` in session; mirrored to the Cowork outputs folder.
 - Dropbox: `Virtual Studio Event Dropbox/Virtual Studio Events/` — `Website assets/` (research, DNS notes, competitor intel), `Design elements/` (logos, Milliard font, backgrounds), `Studio Media/` (Chichester, Fareham, Norwich, Manchester photography), `Clients/`, `Showreel/`.
