@@ -51,40 +51,95 @@
     }
   }
 
-  /* ---------------- consent-gated analytics ---------------- */
+  /* ---------------- consent-gated analytics ----------------
+     Two modes, one switch.
+
+     ADVANCED_CONSENT = false  (current behaviour, most conservative)
+       Nothing loads until the visitor accepts. Anyone who ignores the banner
+       is invisible to both GA4 and Clarity, which is almost certainly why
+       analytics volume looks low.
+
+     ADVANCED_CONSENT = true   (Google Consent Mode v2, "advanced")
+       GA4 loads immediately with analytics_storage denied. It writes and reads
+       no cookies in that state, so PECR's storage rule is not engaged, but it
+       does send cookieless pings to Google (timestamp, user agent, referrer,
+       consent state, no identifier) which Google uses to model the sessions it
+       cannot observe. On accept, consent is updated and normal collection
+       starts. This recovers the non-consenting majority for GA4 and makes the
+       accept rate measurable.
+
+     Clarity is unaffected by the switch: it needs _clck/_clsk to function at
+     all, so it stays fully gated in both modes.
+
+     The trade-off in advanced mode is that data about non-consenting visitors
+     reaches Google, which is a judgement for James rather than a default. */
+  const ADVANCED_CONSENT = false;
+
   const CONSENT_KEY = 'vse-consent';
   const GA_ID = 'G-1SVVZ8ZEVK', CLARITY_ID = 'yh85iv2y4g';
-  let analyticsLoaded = false;
+  let gaLoaded = false, clarityLoaded = false;
 
-  function loadAnalytics() {
-    if (analyticsLoaded) return; analyticsLoaded = true;
-    // Google Analytics 4
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+  // Declare the consent state before gtag.js loads, so it is never guessed.
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'granted', security_storage: 'granted',
+    wait_for_update: 500
+  });
+
+  function loadGA() {
+    if (gaLoaded) return; gaLoaded = true;
     const s = document.createElement('script');
     s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, { anonymize_ip: true });
-    // Microsoft Clarity
+    gtag('js', new Date());
+    gtag('config', GA_ID);          // GA4 anonymises IPs by default
+  }
+
+  function loadClarity() {
+    if (clarityLoaded) return; clarityLoaded = true;
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
       t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, 'clarity', 'script', CLARITY_ID);
+  }
+
+  function grantAnalytics() {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGA();
+    loadClarity();
     sendStoredUtm();
   }
 
-  function showBar() { const b = $('#cookieBar'); if (b) b.classList.add('on'); }
+  function showBar() {
+    const b = $('#cookieBar');
+    if (b) { b.classList.add('on'); gtag('event', 'consent_banner_shown'); }
+  }
   function hideBar() { const b = $('#cookieBar'); if (b) b.classList.remove('on'); }
 
   const consent = store.get(CONSENT_KEY);
-  if (consent === 'all') loadAnalytics();
-  else if (consent !== 'essential') setTimeout(showBar, 900);
+  if (consent === 'all') {
+    grantAnalytics();
+  } else {
+    // In advanced mode GA4 loads now, cookieless, so the visit is counted even
+    // if the banner is never touched. In conservative mode nothing loads.
+    if (ADVANCED_CONSENT) loadGA();
+    if (consent !== 'essential') setTimeout(showBar, 400);
+  }
 
   document.addEventListener('click', e => {
-    if (e.target.closest('#cookieAccept')) { store.set(CONSENT_KEY, 'all'); hideBar(); loadAnalytics(); }
-    if (e.target.closest('#cookieReject')) { store.set(CONSENT_KEY, 'essential'); hideBar(); }
+    if (e.target.closest('#cookieAccept')) {
+      store.set(CONSENT_KEY, 'all'); hideBar();
+      grantAnalytics(); gtag('event', 'consent_accepted');
+    }
+    if (e.target.closest('#cookieReject')) {
+      store.set(CONSENT_KEY, 'essential'); hideBar();
+      gtag('event', 'consent_rejected');
+    }
     if (e.target.closest('.cookie-settings')) { store.set(CONSENT_KEY, ''); showBar(); }
   });
 

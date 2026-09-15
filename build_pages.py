@@ -22,7 +22,7 @@ except Exception:
     FORM_ENDPOINT = ""
 TRACKING = """<script>(function(){try{var t=localStorage.getItem('vse-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"""
 import re as _re
-CSSV = "v=44"
+CSSV = "v=45"
 
 ORG_SCHEMA = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Virtual Studio Events","legalName":"Virtual Studio Events Limited","url":"https://www.virtualstudio.events/","logo":"https://www.virtualstudio.events/assets/img/logo-stacked-white.png","image":"https://www.virtualstudio.events/assets/img/hero-manchester.jpg","address":{"@type":"PostalAddress","streetAddress":"Unit 3, The Old Grainstore, Adsdean Farm, Funtington","addressLocality":"Chichester","addressRegion":"West Sussex","postalCode":"PO18 9DN","addressCountry":"GB"},"priceRange":"££","foundingDate":"2020-03","founders":[{"@type":"Person","name":"James Jones"},{"@type":"Person","name":"Ben O\'Dwyer"}],"description":"Broadcast-grade live, hybrid and virtual event production: senior technical crew, streaming engineering, editing and full production delivery.","email":"enquiries@virtualstudio.events","telephone":"+442035986555","areaServed":"GB","identifier":{"@type":"PropertyValue","name":"Companies House registration","value":"12893248"},"sameAs":["https://find-and-update.company-information.service.gov.uk/company/12893248"]}</script>'
 

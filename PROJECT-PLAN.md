@@ -5,7 +5,7 @@
 > hand-maintained — edit it between the MANUAL markers and it survives rebuilds.
 > Strategy, conventions and infrastructure live in **CLAUDE.md**.
 
-**Last build:** 2026-09-14 · **Last commit:** 14 September 2026 · **Commits:** 64
+**Last build:** 2026-09-15 · **Last commit:** 15 September 2026 · **Commits:** 66
 
 ## Where the project stands
 
@@ -83,6 +83,8 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 
 | Date | Commit | Change |
 |---|---|---|
+| 2026-09-15 | `4026d9b` | Record the Clarity debugging traps |
+| 2026-09-14 | `60b5cfe` | Pull apart two near-duplicate page titles |
 | 2026-09-14 | `1778a02` | Prune removed fonts from S3 on deploy |
 | 2026-09-14 | `c629607` | Replace Milliard with Figtree; add the real address and statutory footer disclosure |
 | 2026-09-14 | `34ee01f` | Populate sameAs with the verified Companies House record; widen the font fallback |
@@ -93,8 +95,6 @@ Benchmarked September 2026 — see `Website assets/Market pricing research - Sep
 | 2026-09-12 | `32bf0a0` | Let the open mobile menu scroll |
 | 2026-09-12 | `efc38fb` | Fix the nav squashing the logo and clipping the CTA on tablet |
 | 2026-09-12 | `88ab9e3` | Drop the crisis framing from the 2020 story |
-| 2026-09-12 | `f5c3c67` | Put the context back around the 2020 date, sitewide |
-| 2026-09-12 | `98d1ad6` | Sync .txt, search index and video in CI; submit to IndexNow on deploy |
 
 ## How this file stays current
 
